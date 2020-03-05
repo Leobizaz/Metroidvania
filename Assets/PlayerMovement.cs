@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
     public Animator playerAnim;
     bool isAttacking;
     public bool onRope;
+    public bool facingleft;
+    public bool facingright;
+    public GameObject gun;
+    public GameObject bullet;
+    int bulletcount;
     private float struggleTime;
 
     float x = 0;
@@ -36,16 +41,34 @@ public class PlayerMovement : MonoBehaviour
         if (collision.onGround) playerAnim.SetBool("OnGround", true); else playerAnim.SetBool("OnGround", false);
         if (isMoving) playerAnim.SetBool("IsMoving", true); else playerAnim.SetBool("IsMoving", false);
 
-        if(Input.GetButtonDown("Fire1") && !isAttacking && collision.onGround)
+        if(Input.GetButtonDown("Fire1") && !isAttacking && collision.onGround && bulletcount < 2)
         {
+            bulletcount++;
             x = 0;
             y = 0;
             isMoving = false;
             rb.velocity = Vector3.zero;
             isAttacking = true;
-            playerAnim.Play("Temp_player_Attack");
-            Invoke("StopAttacking", 1.5f);
+            Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+            Invoke("StopAttacking", 0.5f);
         }
+
+        if(Input.GetKeyDown(KeyCode.R) && !isAttacking && collision.onGround && bulletcount != 0)
+        {
+            //reloading
+            x = 0;
+            y = 0;
+            isMoving = false;
+            rb.velocity = Vector3.zero;
+            isAttacking = true;
+            Invoke("Reload", 1.5f);
+        }
+
+        if(Input.GetButtonDown("Fire1") && !isAttacking && collision.onGround && bulletcount >= 2)
+        {
+            //sem munição meu parça
+        }
+
         if (onRope)
         { 
             if(Input.GetAxisRaw("Vertical") > 0)
@@ -73,10 +96,14 @@ public class PlayerMovement : MonoBehaviour
             if (rb.velocity.x <= 0 && isMoving)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
+                facingleft = true;
+                facingright = false;
                 //sprite_renderer.flipX = true;
             }
             else if (isMoving)
             {
+                facingright = true;
+                facingleft = false;
                 transform.localScale = new Vector3(1, 1, 1);
                 //sprite_renderer.flipX = false;
             }
@@ -148,6 +175,12 @@ public class PlayerMovement : MonoBehaviour
     public void StopAttacking()
     {
         isAttacking = false;
+    }
+
+    public void Reload()
+    {
+        isAttacking = false;
+        bulletcount = 0;
     }
 
     public void ResetWantToJump()
