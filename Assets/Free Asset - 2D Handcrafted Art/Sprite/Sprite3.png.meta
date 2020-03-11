@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 6167b5d3cb29d52488e611c0cb2a074c
+labels:
+- Water
 TextureImporter:
   internalIDToNameTable:
   - first:
