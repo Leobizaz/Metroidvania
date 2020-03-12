@@ -1,0 +1,1675 @@
+fileFormatVersion: 2
+guid: 3d8fea791a4d8414b84754f8818e8bbe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8435124595921107224
+    second: ricardo_transparent_0
+  - first:
+      213: 143562962628454982
+    second: ricardo_transparent_1
+  - first:
+      213: 7330204009819716244
+    second: ricardo_transparent_2
+  - first:
+      213: -3947009361378680382
+    second: ricardo_transparent_3
+  - first:
+      213: 8357086502932156710
+    second: ricardo_transparent_4
+  - first:
+      213: -4694334096467432516
+    second: ricardo_transparent_5
+  - first:
+      213: 7551631576898584331
+    second: ricardo_transparent_6
+  - first:
+      213: -8427277383028106512
+    second: ricardo_transparent_7
+  - first:
+      213: 4502622995277723015
+    second: ricardo_transparent_8
+  - first:
+      213: -8096628959304410354
+    second: ricardo_transparent_9
+  - first:
+      213: 2603501747349731413
+    second: ricardo_transparent_10
+  - first:
+      213: 2884795117300437305
+    second: ricardo_transparent_11
+  - first:
+      213: -6742675299577291727
+    second: ricardo_transparent_12
+  - first:
+      213: 6827033856430160128
+    second: ricardo_transparent_13
+  - first:
+      213: -7846168876690780495
+    second: ricardo_transparent_14
+  - first:
+      213: 6111420493317450914
+    second: ricardo_transparent_15
+  - first:
+      213: -818668575284827955
+    second: ricardo_transparent_16
+  - first:
+      213: 8615552072339915970
+    second: ricardo_transparent_17
+  - first:
+      213: -7075013948347653222
+    second: ricardo_transparent_18
+  - first:
+      213: -9168675034309994989
+    second: ricardo_transparent_19
+  - first:
+      213: 7699387004448300230
+    second: ricardo_transparent_20
+  - first:
+      213: -2453149588652751125
+    second: ricardo_transparent_21
+  - first:
+      213: -3269455115183998440
+    second: ricardo_transparent_22
+  - first:
+      213: 8854081110663356667
+    second: ricardo_transparent_23
+  - first:
+      213: -4268950921695885951
+    second: ricardo_transparent_24
+  - first:
+      213: -7771497776305416635
+    second: ricardo_transparent_25
+  - first:
+      213: 6323284015442165925
+    second: ricardo_transparent_26
+  - first:
+      213: -3857008885479699682
+    second: ricardo_transparent_27
+  - first:
+      213: -7381170458403767347
+    second: ricardo_transparent_28
+  - first:
+      213: 747245938650039485
+    second: ricardo_transparent_29
+  - first:
+      213: 2281038441594024384
+    second: ricardo_transparent_30
+  - first:
+      213: -5655817152995737310
+    second: ricardo_transparent_31
+  - first:
+      213: -1685342701129386868
+    second: ricardo_transparent_32
+  - first:
+      213: -3594333080878969687
+    second: ricardo_transparent_33
+  - first:
+      213: 2571910235968368476
+    second: ricardo_transparent_34
+  - first:
+      213: -3442653753595675547
+    second: ricardo_transparent_35
+  - first:
+      213: 5394497469965198006
+    second: ricardo_transparent_36
+  - first:
+      213: -3872019123238094933
+    second: ricardo_transparent_37
+  - first:
+      213: 802324337009932066
+    second: ricardo_transparent_38
+  - first:
+      213: -4265863228439694318
+    second: ricardo_transparent_39
+  - first:
+      213: 8837341348425272622
+    second: ricardo_transparent_40
+  - first:
+      213: -5552411491635106341
+    second: ricardo_transparent_41
+  - first:
+      213: -8057492731054602666
+    second: ricardo_transparent_42
+  - first:
+      213: -7207189433905995139
+    second: ricardo_transparent_43
+  - first:
+      213: -1141482539956847736
+    second: ricardo_transparent_44
+  - first:
+      213: 2600027374901741841
+    second: ricardo_transparent_45
+  - first:
+      213: -7845438914147492094
+    second: ricardo_transparent_46
+  - first:
+      213: 3862410327297090878
+    second: ricardo_transparent_47
+  - first:
+      213: 5940073204689411790
+    second: ricardo_transparent_48
+  - first:
+      213: -4842125347258018686
+    second: ricardo_transparent_49
+  - first:
+      213: -8609347682354034153
+    second: ricardo_transparent_50
+  - first:
+      213: 4011068080294574486
+    second: ricardo_transparent_51
+  - first:
+      213: 5992564247043455721
+    second: ricardo_transparent_52
+  - first:
+      213: -8495862088106525520
+    second: ricardo_transparent_53
+  - first:
+      213: 6752931817353129850
+    second: ricardo_transparent_54
+  - first:
+      213: -1547821072726928437
+    second: ricardo_transparent_55
+  - first:
+      213: -8734414045041571450
+    second: ricardo_transparent_56
+  - first:
+      213: 237324531078241861
+    second: ricardo_transparent_57
+  - first:
+      213: -820954957673980947
+    second: ricardo_transparent_58
+  - first:
+      213: 3337004487098290453
+    second: ricardo_transparent_59
+  - first:
+      213: 7745480391313207565
+    second: ricardo_transparent_60
+  - first:
+      213: -7092869553163610326
+    second: ricardo_transparent_61
+  - first:
+      213: -6858866511272922453
+    second: ricardo_transparent_62
+  - first:
+      213: -5007042470034049280
+    second: ricardo_transparent_63
+  - first:
+      213: 3993059123557089863
+    second: ricardo_transparent_64
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ricardo_transparent_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819b908f0259f0570800000000000000
+      internalID: 8435124595921107224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64a2f5ef0c90ef100800000000000000
+      internalID: 143562962628454982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ab278b5bd1ab560800000000000000
+      internalID: 7330204009819716244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1e1e1e5e76939c0800000000000000
+      internalID: -3947009361378680382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6219b7c85e55af370800000000000000
+      internalID: 8357086502932156710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbed0bc2006adeb0800000000000000
+      internalID: -4694334096467432516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0fb9afa8e8ccc860800000000000000
+      internalID: 7551631576898584331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_7
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa1de8aedb4c0b80800000000000000
+      internalID: -8427277383028106512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_8
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1260
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785b80f12c78c7e30800000000000000
+      internalID: 4502622995277723015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b158afbdef2af80800000000000000
+      internalID: -8096628959304410354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_10
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558b3e69b0f712420800000000000000
+      internalID: 2603501747349731413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_11
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9315978ffd9d80820800000000000000
+      internalID: 2884795117300437305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_12
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c15ec0a843d62a0800000000000000
+      internalID: -6742675299577291727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_13
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009b51a0f1f7ebe50800000000000000
+      internalID: 6827033856430160128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_14
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bece193afecc1390800000000000000
+      internalID: -7846168876690780495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_15
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acaa391f8020d450800000000000000
+      internalID: 6111420493317450914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_16
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc86f5da44183a4f0800000000000000
+      internalID: -818668575284827955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_17
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1080
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c483bf66f6909770800000000000000
+      internalID: 8615552072339915970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93edcb8c4080dd90800000000000000
+      internalID: -7075013948347653222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_19
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316d5fe42a252c080800000000000000
+      internalID: -9168675034309994989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_20
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc566cffa7b9da60800000000000000
+      internalID: 7699387004448300230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_21
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6057b4279a4fdd0800000000000000
+      internalID: -2453149588652751125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_22
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81abf5225ef80a2d0800000000000000
+      internalID: -3269455115183998440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_23
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0e595fbd300ea70800000000000000
+      internalID: 8854081110663356667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_24
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1858dbc21c3a1c4c0800000000000000
+      internalID: -4268950921695885951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_25
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546d39692f7162490800000000000000
+      internalID: -7771497776305416635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_26
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 900
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a006525f41d0c750800000000000000
+      internalID: 6323284015442165925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b057d9ad6297ac0800000000000000
+      internalID: -3857008885479699682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_28
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb7c304390d09990800000000000000
+      internalID: -7381170458403767347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_29
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4c61dd830ce5a00800000000000000
+      internalID: 747245938650039485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_30
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1f83e8060e7af10800000000000000
+      internalID: 2281038441594024384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_31
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221c021e3408281b0800000000000000
+      internalID: -5655817152995737310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_32
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84b26e1eb57c98e0800000000000000
+      internalID: -1685342701129386868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_33
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac06c54b1d5e1ec0800000000000000
+      internalID: -3594333080878969687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_34
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5fe519abb241b320800000000000000
+      internalID: 2571910235968368476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_35
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 720
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56cb34ca6ac3930d0800000000000000
+      internalID: -3442653753595675547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2e40f1eda1dda40800000000000000
+      internalID: 5394497469965198006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_37
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7bfdb4f13d34ac0800000000000000
+      internalID: -3872019123238094933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_38
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227b02ecbbd622b00800000000000000
+      internalID: 802324337009932066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_39
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2147378cefb9cc4c0800000000000000
+      internalID: -4265863228439694318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_40
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d82c7522b84aa70800000000000000
+      internalID: 8837341348425272622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_41
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddea429a2fd1f2b0800000000000000
+      internalID: -5552411491635106341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_42
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656c2313d090e2090800000000000000
+      internalID: -8057492731054602666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_43
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72a51b256beafb90800000000000000
+      internalID: -7207189433905995139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_44
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 540
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bbf808da3a820f0800000000000000
+      internalID: -1141482539956847736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1194f473f17251420800000000000000
+      internalID: 2600027374901741841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_46
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f563fdfd66f1390800000000000000
+      internalID: -7845438914147492094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_47
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e35e75f8ab90a9530800000000000000
+      internalID: 3862410327297090878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_48
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece14599b116f6250800000000000000
+      internalID: 5940073204689411790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_49
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28455ceb6a05dccb0800000000000000
+      internalID: -4842125347258018686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_50
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a847da5e3758880800000000000000
+      internalID: -8609347682354034153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_51
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699bddfda2d2aa730800000000000000
+      internalID: 4011068080294574486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_52
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea3bb6ce6dd92350800000000000000
+      internalID: 5992564247043455721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_53
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 360
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bcb3b1a172a81a80800000000000000
+      internalID: -8495862088106525520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f24c595bb37bd50800000000000000
+      internalID: 6752931817353129850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_55
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc35f306fe8058ae0800000000000000
+      internalID: -1547821072726928437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_56
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6894d14f3b029c680800000000000000
+      internalID: -8734414045041571450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_57
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e976357652b4300800000000000000
+      internalID: 237324531078241861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_58
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb1f3bc0d16b94f0800000000000000
+      internalID: -820954957673980947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_59
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511d06b96eb6f4e20800000000000000
+      internalID: 3337004487098290453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_60
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d013afae0697d7b60800000000000000
+      internalID: 7745480391313207565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_61
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27df7598b0119d90800000000000000
+      internalID: -7092869553163610326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_62
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 180
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba231c17f3960d0a0800000000000000
+      internalID: -6858866511272922453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0077356e669638ab0800000000000000
+      internalID: -5007042470034049280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ricardo_transparent_64
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742c0c2ed123a6730800000000000000
+      internalID: 3993059123557089863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
