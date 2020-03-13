@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator playerAnim;
     bool isAttacking;
     public bool onRope;
-    public bool facingleft;
-    public bool facingright;
+    public static bool facingleft;
+    public static bool facingright;
     public GameObject gun;
     public GameObject bullet;
     int bulletcount;
@@ -49,8 +49,18 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
             rb.velocity = Vector3.zero;
             isAttacking = true;
-            Instantiate(bullet, gun.transform.position, gun.transform.rotation);
-            Invoke("StopAttacking", 0.5f);
+            if (facingright == true)
+            {
+                gun.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+                Invoke("StopAttacking", 0.5f);
+            }
+            if (facingleft == true)
+            {
+                gun.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                Instantiate(bullet, gun.transform.position, Quaternion.Inverse(gun.transform.rotation));
+                Invoke("StopAttacking", 0.5f);
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.R) && !isAttacking && collision.onGround && bulletcount != 0)
@@ -131,19 +141,19 @@ public class PlayerMovement : MonoBehaviour
 
             Walk(dir);
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.S) == false)
             {
                 CancelInvoke("ResetWantToJump");
                 Invoke("ResetWantToJump", 0.07f);
                 wantToJump = true;
             }
 
-            if (collision.onGround && jumpCooldown <= 0 && wantToJump == true)
+            if (collision.onGround && jumpCooldown <= 0 && wantToJump == true && Input.GetKey(KeyCode.S) == false)
             {
                 Jump();
             }
 
-            if (Input.GetButtonDown("Jump") && (collision.onGround || collision.onGroundCoyote) && jumpCooldown <= 0)
+            if (Input.GetButtonDown("Jump") && (collision.onGround || collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetKey(KeyCode.S) == false)
             {
                 Jump();
                 jumpCooldown = 0.5f;
