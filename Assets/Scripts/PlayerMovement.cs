@@ -141,19 +141,19 @@ public class PlayerMovement : MonoBehaviour
 
             Walk(dir);
 
-            if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.S) == false)
+            if (Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") >= 0)
             {
                 CancelInvoke("ResetWantToJump");
                 Invoke("ResetWantToJump", 0.07f);
                 wantToJump = true;
             }
 
-            if (collision.onGround && jumpCooldown <= 0 && wantToJump == true && Input.GetKey(KeyCode.S) == false)
+            if (collision.onGround && jumpCooldown <= 0 && wantToJump == true && Input.GetAxis("Vertical") >= 0)
             {
                 Jump();
             }
 
-            if (Input.GetButtonDown("Jump") && (collision.onGround || collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetKey(KeyCode.S) == false)
+            if (Input.GetButtonDown("Jump") && (collision.onGround || collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0)
             {
                 Jump();
                 jumpCooldown = 0.5f;

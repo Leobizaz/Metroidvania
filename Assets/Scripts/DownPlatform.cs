@@ -16,12 +16,12 @@ public class DownPlatform : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetAxis("Vertical") >= 0)
         {
             StartCoroutine(Wait());
         }
 
-        if (Input.GetKey(KeyCode.S) )
+        if (Input.GetAxis("Vertical") <= -0.5f)
         {
             wait = 0;
             if (wait <= 0.5 && Input.GetKey(KeyCode.Space))

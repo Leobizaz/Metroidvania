@@ -9,7 +9,17 @@ public class ArmController : MonoBehaviour
     public float speed;
     void Update()
     {
-        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        //////////////////Mouse/////////////////////////
+
+        //Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        ///////////////////Controle////////////////////
+
+        Vector3 control_pos = new Vector3(Input.GetAxis("Horizontal2") * 180f, Input.GetAxis("Vertical2") * 180f, 0f);
+
+        Vector3 diff = (-control_pos) - transform.position;
+
         //diff.Normalize();
 
         //diff.x = 0;
