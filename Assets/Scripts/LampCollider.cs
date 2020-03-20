@@ -8,14 +8,14 @@ namespace UnityEngine.Experimental.Rendering.Universal
     public class LampCollider : MonoBehaviour
     {
         CircleCollider2D circleCollider;
-        Light2D light;
+        Light2D lightt;
 
         private void Start()
         {
             circleCollider = GetComponent<CircleCollider2D>();
-            light = GetComponent<Light2D>();
+            lightt = GetComponent<Light2D>();
 
-            circleCollider.radius = light.pointLightOuterRadius;
+            circleCollider.radius = lightt.pointLightOuterRadius;
         }
     }
 }

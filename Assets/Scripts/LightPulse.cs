@@ -7,12 +7,12 @@ namespace UnityEngine.Experimental.Rendering.Universal
 {
     public class LightPulse : MonoBehaviour
     {
-        Light2D light;
+        Light2D lightt;
         Sequence emitPulse;
         void Start()
         {
             emitPulse = DOTween.Sequence();
-            light = GetComponent<Light2D>();
+            lightt = GetComponent<Light2D>();
         }
 
         void Update()
@@ -30,13 +30,13 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void ChangeRadius(float f)
         {
-            light.pointLightInnerRadius = f - 1;
-            light.pointLightOuterRadius = f;
+            lightt.pointLightInnerRadius = f - 1;
+            lightt.pointLightOuterRadius = f;
         }
 
         void ChangeIntensity(float f)
         {
-            light.intensity = f;
+            lightt.intensity = f;
         }
     }
 }

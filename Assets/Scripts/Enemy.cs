@@ -6,7 +6,7 @@ using Cinemachine;
 public class Enemy : MonoBehaviour
 {
     GameObject player;
-    SpriteRenderer renderer;
+    SpriteRenderer spr_renderer;
     bool isMoving;
     Rigidbody2D rb;
     Animator anim;
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Character");
-        renderer = GetComponent<SpriteRenderer>();
+        spr_renderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -38,11 +38,11 @@ public class Enemy : MonoBehaviour
 
             if(direction.normalized.x > 0)
             {
-                renderer.flipX = true;
+                spr_renderer.flipX = true;
             }
             else if(direction.normalized.x < 0)
             {
-                renderer.flipX = false;
+                spr_renderer.flipX = false;
             }
         }
     }

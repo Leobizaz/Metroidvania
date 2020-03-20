@@ -6,13 +6,13 @@ public class Gunshot : MonoBehaviour
 {
     public float speed = 10f;
     bool moving;
-    CircleCollider2D collider;
+    CircleCollider2D c_collider;
 
     private void Start()
     {
         moving = true;
         Destroy(gameObject, 2f);
-        collider = GetComponent<CircleCollider2D>();
+        c_collider = GetComponent<CircleCollider2D>();
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class Gunshot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        collider.enabled = false;
+        c_collider.enabled = false;
         moving = false;
     }
 }

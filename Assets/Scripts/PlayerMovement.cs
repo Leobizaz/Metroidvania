@@ -51,13 +51,13 @@ public class PlayerMovement : MonoBehaviour
             isAttacking = true;
             if (facingright == true)
             {
-                gun.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                 Instantiate(bullet, gun.transform.position, gun.transform.rotation);
                 Invoke("StopAttacking", 0.5f);
             }
             if (facingleft == true)
             {
-                gun.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                gun.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
                 Instantiate(bullet, gun.transform.position, Quaternion.Inverse(gun.transform.rotation));
                 Invoke("StopAttacking", 0.5f);
             }

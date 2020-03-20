@@ -6,12 +6,9 @@ public class PlayerLanternController : MonoBehaviour
 {
     public PlayerMovement playerMovement;
     public GameObject pivot;
-    bool facingLeft;
-    bool facingRight;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -22,7 +19,6 @@ public class PlayerLanternController : MonoBehaviour
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         diff.Normalize();
 
-        float finalRotz = 0;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
         if (playerMovement.rb.velocity.x > 0)
@@ -37,13 +33,9 @@ public class PlayerLanternController : MonoBehaviour
 
     void FacingLeft()
     {
-        facingLeft = true;
-        facingRight = false;
     }
 
     void FacingRight()
     {
-        facingRight = true;
-        facingLeft = false;
     }
 }

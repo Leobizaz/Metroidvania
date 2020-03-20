@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rocky
-  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
+  m_Shader: {fileID: 4800000, guid: 95690d705412e1045b44397b9418cd89, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,9 +35,53 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SecondTex:
+        m_Texture: {fileID: 2800000, guid: 02e42bf50f199aa498797cb0c3ba607c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mask:
+        m_Texture: {fileID: 2800000, guid: e39fb1e6834a1a649ba980665a287a8f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mask1:
+        m_Texture: {fileID: 2800000, guid: e39fb1e6834a1a649ba980665a287a8f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _EffectRadius: 0
+    - _EffectRadius1: 2.6748476
+    - _EffectRadius2: 2.6748476
+    - _EffectRadiusporra: 16.74977
+    - _EffectRange: 16.74977
     - _EnableExternalAlpha: 0
+    - _Hardness: 0
+    - _Hardness1: 0
+    - _NoiseHardness: 0.67
+    - _NoiseHardness1: 0.67
+    - _NoiseScale: 2.07
+    - _NoiseScale1: 2.07
+    - _Range: 1
+    - _Range1: 1
+    - _Range2: 1
+    - _Ranger: 1
+    - _SecondEffectRadius: 50
+    - _SecondEffectRadius1: 0
+    - _SecondNoiseHardness: 0.67
+    - _SecondNoiseScale: 2.07
+    - _SecondRange: 1
+    - _SecondRange1: 1
+    - _SecondSphereHardness: 1
+    - _SphereHardness: 1
+    - _SphereHardness1: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EffectPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _EffectPosition1: {r: 0, g: 0, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondEffectPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondEffectPosition1: {r: 0, g: 0, b: 0, a: 0}

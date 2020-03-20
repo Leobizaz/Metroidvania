@@ -12,13 +12,13 @@ public class ArmController : MonoBehaviour
 
         //////////////////Mouse/////////////////////////
 
-        //Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
         ///////////////////Controle////////////////////
 
-        Vector3 control_pos = new Vector3(Input.GetAxis("Horizontal2") * 180f, Input.GetAxis("Vertical2") * 180f, 0f);
+        //Vector3 control_pos = new Vector3(Input.GetAxis("Horizontal2") * 180f, Input.GetAxis("Vertical2") * 180f, 0f);
 
-        Vector3 diff = (-control_pos) - transform.position;
+        //Vector3 diff = (-control_pos) - transform.position;
 
         //diff.Normalize();
 

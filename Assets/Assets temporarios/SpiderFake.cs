@@ -8,7 +8,7 @@ public class SpiderFake : MonoBehaviour
     public DriveSpline driver;
     public Animator anim;
     AudioSource audioS;
-    public SpriteRenderer renderer;
+    public SpriteRenderer spr_renderer;
     bool detected;
 
     private void Start()
@@ -28,7 +28,7 @@ public class SpiderFake : MonoBehaviour
 
     void MoveAway()
     {
-        renderer.flipX = true;
+        spr_renderer.flipX = true;
         anim.Play("spider_moving");
         driver.move = true;
     }
