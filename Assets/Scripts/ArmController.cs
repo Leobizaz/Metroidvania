@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArmController : MonoBehaviour
 {
-    public PlayerMovement movement;
+    public PlayerController movement;
 
     public float speed;
     void Update()
@@ -39,9 +39,9 @@ public class ArmController : MonoBehaviour
 
 
         if (PlayerMovement.facingright == true)
-            transform.eulerAngles = new Vector3(0f, 0f, rot_z);
+            transform.localEulerAngles = new Vector3(0f, 0f, rot_z);
         if(PlayerMovement.facingleft == true)
-            transform.eulerAngles = new Vector3(0f, 0f, -rot_z2);
+            transform.localEulerAngles = new Vector3(0f, 0f, -rot_z2);
 
 
     }

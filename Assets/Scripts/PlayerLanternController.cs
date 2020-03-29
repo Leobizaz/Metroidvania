@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerLanternController : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
     public GameObject pivot;
     // Start is called before the first frame update
     void Start()
@@ -21,21 +20,7 @@ public class PlayerLanternController : MonoBehaviour
 
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
-        if (playerMovement.rb.velocity.x > 0)
-            FacingLeft();
-
-        if (playerMovement.rb.velocity.x < 0)
-            FacingRight();
-
         transform.eulerAngles = new Vector3(0f, 0f, rot_z - 90);
 
-    }
-
-    void FacingLeft()
-    {
-    }
-
-    void FacingRight()
-    {
     }
 }

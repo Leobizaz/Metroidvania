@@ -1,0 +1,249 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+
+    // Variaveis ajustaveis
+    public float movementSpeed = 10f;
+    public float movement_acceleration = 0.2f;
+    public float movement_decceleration = 0.05f;
+    public float jumpForce = 2f;
+    public float tempoReload = 1.5f; // Tempo em segundos que leva para recarregar
+
+    // Variaveis essenciais
+    /*[HideInInspector]*/ public bool isMoving;
+    /*[HideInInspector]*/ public bool wantToJump;
+    /*[HideInInspector]*/ public bool onRope;
+    private float yVelocity = 0.0f;
+    private float zVelocity = 0.0f;
+    private float jumpCooldown;
+    private bool isBusy;
+    private float storedAccelerationValue;
+    private int bulletcount;
+    private Vector3 spriteScale;
+    [SerializeField] private float x = 0;
+    [SerializeField] private float y = 0;
+
+    // Variaveis estaticas
+    public static bool facingleft;
+    public static bool facingright;
+
+    // Referencias privadas
+    private PlayerCollision p_collision;
+    private Rigidbody2D rb;
+
+    // Referencias publicas
+    public GameObject playersprite;
+    public Animator playerAnim;
+    public GameObject gun;
+    public GameObject bullet_normal;
+
+
+
+    private void Start()
+    {
+        Initialize();
+
+
+    }
+
+    private void Update()
+    {
+        GroundCheck();
+        MoveCheck();
+        ShootMechanic();
+        if (!isBusy)
+        {
+            FlipSprite();
+            //MovementSmoothing();
+            MovementMechanic();
+        }
+
+    }
+
+    //Funções principais:
+    private void Initialize()
+    {
+        spriteScale = playersprite.transform.localScale;
+        storedAccelerationValue = movement_acceleration;
+        p_collision = GetComponent<PlayerCollision>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+    private void MovementMechanic()
+    {
+        // Essa função controla tudo a respeito da movimentação do jogador
+
+        if (Input.GetAxisRaw("Horizontal") != 0) // Checa se o jogador está apertando para ir pros lados
+        {
+            isMoving = true; // Diz que o jogador está se movimentando
+            x = Mathf.SmoothDamp(x, Input.GetAxis("Horizontal"), ref yVelocity, movement_acceleration); // Registra o valor da movimentação horizontal de acordo com a aceleração
+        }
+        else
+        {
+            isMoving = false; // Diz que o jogador não está se movimentando
+        }
+
+        Vector2 dir = new Vector2(x, y); // Registra o vetor de movimento de acordo com os valores de input horizontal e vertical
+
+
+        if (Input.GetAxisRaw("Horizontal") == 0) // Checa se o jogador não está apertando para andar
+        {
+            x = Mathf.SmoothDamp(x, 0, ref yVelocity, movement_decceleration); // Registra o valor da movimentação horizontal de acordo com a desceleração
+            //animação do jogador parando vai aqui
+        }
+
+        rb.velocity = new Vector2(dir.x * movementSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
+
+
+        if (Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") >= 0)
+        {
+            // Essa função indica que o jogador quer pular
+            // Ela serve pra caso o jogador aperte o botão de pular muito cedo enquanto ainda não tocou no chão
+            // Basicamente deixa o input de pular mais confortável
+            CancelInvoke("ResetWantToJump");
+            Invoke("ResetWantToJump", 0.07f);
+            wantToJump = true;
+        } // Detecção de pulo automático
+        if (p_collision.onGround && jumpCooldown <= 0 && wantToJump == true && Input.GetAxis("Vertical") >= 0) // Realiza o pulo automático da função acima
+        {
+            Jump(); // Execute o pulo
+        } // Realiza o pulo automático da função acima
+
+        if (Input.GetButtonDown("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0) // Checa se o jogador pode pular
+        {
+            Jump(); // Executa o pulo
+            jumpCooldown = 0.5f; // Tempo que leva para o jogador realizar outro pulo
+        } // Pulo tradicional
+
+        if (jumpCooldown > 0)
+        {
+            jumpCooldown = jumpCooldown - Time.deltaTime;
+        } // Reseta o cooldown de pulo
+
+    } // Controla a movimentação do jogador
+    private void Jump()
+    {
+        playerAnim.Play("Jump"); // Toca a animação de pulo
+        p_collision.onGroundCoyote = false; // Indica que o jogador não está mais no chão
+        wantToJump = false; // Indica que o jogador não quer mais pular
+        rb.velocity = new Vector2(rb.velocity.x, 0); // Mantem a velocidade horizontal do player
+        rb.velocity += Vector2.up * jumpForce; // Joga o player para cima de acordo com a força do pulo
+    } // Controla o pulo do jogador
+    private void ShootMechanic()
+    {
+        // Função que controla tudo a respeito das mecânicas de tiro do jogador
+
+        if (Input.GetButtonDown("Fire1") && !isBusy && p_collision.onGround) // Checa se o jogador pode atirar
+        {
+            if (bulletcount < 2) // Caso o jogador ainda tenha munição
+            {
+                bulletcount++; // Indica que o jogador gastou 1 bala
+                FreezeMovement(); // Deixa o jogador parado
+                isBusy = true; // Indica que o jogador está atirando
+
+                if (facingright == true)
+                {
+                    gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                } // Caso o jogador esteja olhando para a direita, mantem a rotação da bala
+                if (facingleft == true)
+                {
+                    gun.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+                } // Caso o jogador esteja olhando para a esquerda, flipe a rotação da bala
+                Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
+                Invoke("StopBeingBusy", 0.5f); // Jogador volta ao normal depois de 'x' segundos
+            } // Caso o jogador atire e tenha munição
+            if (bulletcount >= 2)
+            {
+                // toque sons/animações do player sem munição aqui 
+            } // Caso o jogador tenta atirar sem munição
+
+        } // Atirar
+        if (Input.GetKeyDown(KeyCode.R) && !isBusy && p_collision.onGround && bulletcount != 0) // Checa se o jogador pode recarregar
+        {
+            FreezeMovement(); // Congela o movimento do jogador
+            isBusy = true; // Indica que o jogador está ocupado recarregando
+            Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
+        } // Recarregar
+
+    } // Controla tudo que envolve a mecânica de atirar
+
+    //Funções secundárias
+    private void GroundCheck()
+    {
+        // Essa função realiza ações caso o jogador esteja ou não com os pés no chão
+        if (p_collision.onGround) // Caso esteja no chão
+        {
+            playerAnim.SetBool("OnGround", true); // Animação
+        }
+        else                     // Caso não esteja no chão
+        {
+            playerAnim.SetBool("OnGround", false); // Animação
+        }
+    } // Checa se o jogador está no chão
+    private void MoveCheck()
+    {
+        // Função que realiza ações caso o jogador esteja em movimento
+        if (isMoving) // Caso esteja se movimentando:
+        {
+            playerAnim.SetBool("IsMoving", true); // Animação
+        }
+        else         // Caso não esteja se movimentando:
+        {
+            playerAnim.SetBool("IsMoving", false); // Animação
+        }
+    } // Checa se o jogador está se movimentando
+    public void Reload()
+    {
+        // == ATENÇÃO ==
+        // ESTA FUNÇÃO EXECUTA AÇÕES NO FINAL DO RECARREGAMENTO
+        // PARA AS ANIMAÇÕES, SONS E OUTROS RECURSOS QUE SÃO EXECUTADOS ENQUANTO O JOGADOR RECARREGA
+        // ACESSE A FUNÇÃO ShootMechanic()
+
+        isBusy = false; // Indica que o jogador não está mais ocupado
+        bulletcount = 0; // Reseta a quantidade de balas que o jogador atirou
+    } // Controla o que acontece no final do reload
+    public void StopBeingBusy()
+    {
+        isBusy = false; // Indica que o jogador não está mais ocupado
+    }
+    public void ResetWantToJump()
+    {
+        wantToJump = false;
+    }
+    private void FreezeMovement()
+    {
+        x = 0;
+        y = 0;
+        isMoving = false;
+        rb.velocity = Vector3.zero;
+    }
+    private void FlipSprite()
+    {
+        if(!isBusy) // Caso o jogador não esteja ocupado
+        {
+            if(rb.velocity.x <= 0 && isMoving) // Caso o jogador esteja se movimentando para a esquerda
+            {
+                playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
+                facingleft = true;
+                facingright = false;
+            }
+            else if (isMoving) // Caso o jogador esteja se movimentando para a direita
+            {
+                playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
+                facingright = true;
+                facingleft = false;
+            }
+
+        }
+    }
+    private void MovementSmoothing()
+    {
+        if (!p_collision.onGround)
+            movement_acceleration = Mathf.SmoothDamp(movement_acceleration, 0, ref yVelocity, 0.1f);
+        else 
+            movement_acceleration = 0.04f;
+    } // Controla a aceleração
+
+}
