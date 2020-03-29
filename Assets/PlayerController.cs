@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
                 } // Caso o jogador esteja olhando para a direita, mantem a rotação da bala
                 if (facingleft == true)
                 {
-                    gun.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+                    gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                 } // Caso o jogador esteja olhando para a esquerda, flipe a rotação da bala
                 Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
                 Invoke("StopBeingBusy", 0.5f); // Jogador volta ao normal depois de 'x' segundos
