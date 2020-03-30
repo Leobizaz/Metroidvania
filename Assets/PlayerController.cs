@@ -151,7 +151,15 @@ public class PlayerController : MonoBehaviour
                 {
                     gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                 } // Caso o jogador esteja olhando para a esquerda, flipe a rotação da bala
-                Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
+                if (facingright)
+                {
+                    GameObject instance = Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation);
+                    instance.GetComponent<Gunshot>().speed = -10;
+                }
+                else
+                {
+                    Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
+                }
                 Invoke("StopBeingBusy", 0.5f); // Jogador volta ao normal depois de 'x' segundos
             } // Caso o jogador atire e tenha munição
             if (bulletcount >= 2)
@@ -163,6 +171,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !isBusy && p_collision.onGround && bulletcount != 0) // Checa se o jogador pode recarregar
         {
             FreezeMovement(); // Congela o movimento do jogador
+            playerAnim.Play("Bob_Reload");
             isBusy = true; // Indica que o jogador está ocupado recarregando
             Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
         } // Recarregar

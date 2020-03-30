@@ -1,11 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ArmController : MonoBehaviour
 {
     public float speed;
-    void Update()
+    private float startTime = 2f;
+    private float journeyLength;
+    public GameObject gun;
+    bool once;
+    bool once2;
+    bool once3;
+    bool once4;
+
+
+    private void Start()
+    {
+
+    }
+
+    void LateUpdate()
     {
 
         //////////////////Mouse/////////////////////////
@@ -23,6 +38,9 @@ public class ArmController : MonoBehaviour
         //diff.x = 0;
         //diff.z = 0;
 
+        Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
 
@@ -36,10 +54,57 @@ public class ArmController : MonoBehaviour
         rot_z2 = zLock2;
 
 
+
         if (PlayerController.facingright == true)
-            transform.localEulerAngles = new Vector3(0f, 0f, rot_z);
-        if(PlayerController.facingleft == true)
-            transform.localEulerAngles = new Vector3(0f, 180f, rot_z2);
+        {
+            if (!once)
+            {
+                once = true;
+                once2 = false;
+                DOTween.Kill(transform);
+            }
+
+            if (mousePos.x < 0)
+            {
+                if (!once3)
+                {
+                    once3 = true;
+                    transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
+                    //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(180f, 180f, 135f), 1);
+                    
+                }
+            }
+            else
+            {
+                once3 = false;
+                transform.localEulerAngles = new Vector3(0f, 180f, rot_z);
+            }
+        }
+        if (PlayerController.facingleft == true)
+        {
+
+            if (!once2)
+            {
+                once2 = true;
+                once = false;
+                DOTween.Kill(transform);
+            }
+            if (mousePos.x > 0)
+            {
+                if (!once4)
+                {
+                    once4 = true;
+                    transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
+
+                    //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(180f, 0f, 135f), 1);
+                }
+            }
+            else
+            {
+                once4 = false;
+                transform.localEulerAngles = new Vector3(0f, 180f, rot_z2);
+            }
+        }
 
 
     }
