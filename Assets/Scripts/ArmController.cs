@@ -6,8 +6,6 @@ using DG.Tweening;
 public class ArmController : MonoBehaviour
 {
     public float speed;
-    private float startTime = 2f;
-    private float journeyLength;
     public GameObject gun;
     bool once;
     bool once2;

@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     /*[HideInInspector]*/ public bool wantToJump;
     /*[HideInInspector]*/ public bool onRope;
     private float yVelocity = 0.0f;
-    private float zVelocity = 0.0f;
     private float jumpCooldown;
     private bool isBusy;
     private float storedAccelerationValue;
