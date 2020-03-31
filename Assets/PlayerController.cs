@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
     } // Controla a movimentação do jogador
     private void Jump()
     {
-        playerAnim.Play("Jump"); // Toca a animação de pulo
+        playerAnim.Play("Bob_JumpStill"); // Toca a animação de pulo
         p_collision.onGroundCoyote = false; // Indica que o jogador não está mais no chão
         wantToJump = false; // Indica que o jogador não quer mais pular
         rb.velocity = new Vector2(rb.velocity.x, 0); // Mantem a velocidade horizontal do player
