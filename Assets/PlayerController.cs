@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Update()
+
+
+    private void FixedUpdate()
     {
         GroundCheck();
         MoveCheck();
@@ -231,13 +233,13 @@ public class PlayerController : MonoBehaviour
     {
         if(!isBusy) // Caso o jogador não esteja ocupado
         {
-            if(rb.velocity.x <= 0 && isMoving) // Caso o jogador esteja se movimentando para a esquerda
+            if (Input.GetAxisRaw("Horizontal") < 0 && isMoving) // Caso o jogador esteja se movimentando para a esquerda
             {
                 playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
                 facingleft = true;
                 facingright = false;
             }
-            else if (isMoving) // Caso o jogador esteja se movimentando para a direita
+            else if (Input.GetAxisRaw("Horizontal") > 0 && isMoving) // Caso o jogador esteja se movimentando para a direita
             {
                 playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
                 facingright = true;

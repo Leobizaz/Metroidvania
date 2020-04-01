@@ -10,6 +10,7 @@ TagManager:
   - Safezone
   - Enemy
   - Damage
+  - Ground
   layers:
   - Default
   - TransparentFX
