@@ -256,4 +256,12 @@ public class PlayerController : MonoBehaviour
             movement_acceleration = 0.04f;
     } // Controla a aceleração
 
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "FloorHazard") // Detecta se o player esta preso no inimigo do chão
+        {
+            FreezeMovement();
+        }
+    }
+
 }

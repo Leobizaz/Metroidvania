@@ -4768,9 +4768,10 @@ GameObject:
   - component: {fileID: 4736242287807982370}
   - component: {fileID: 6974345666398250180}
   - component: {fileID: 5638427889474878173}
+  - component: {fileID: 9055372877038228850}
   m_Layer: 0
   m_Name: GunProjectile
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9584,3 +9585,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  gunExplosion: {fileID: 1282503317536100063, guid: d5d6a5927a6ddb0408c515f2aa2e6303,
+    type: 3}
+--- !u!50 &9055372877038228850
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736242287807982373}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

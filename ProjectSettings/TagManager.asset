@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Damage
   - Ground
+  - FloorHazard
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Triggers
   - PostProcessing
   - Effector
-  - 
+  - Player
   - 
   - 
   - 

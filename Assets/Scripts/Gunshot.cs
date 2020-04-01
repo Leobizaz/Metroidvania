@@ -7,6 +7,7 @@ public class Gunshot : MonoBehaviour
     public float speed = 10f;
     bool moving;
     CircleCollider2D c_collider;
+    public GameObject gunExplosion;
 
     private void Start()
     {
@@ -21,9 +22,16 @@ public class Gunshot : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        c_collider.enabled = false;
-        moving = false;
+
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Light" && other.gameObject.tag != "Damage")
+        {
+            c_collider.enabled = false;
+            moving = false;
+       //     gunExplosion.transform.position = this.gameObject.transform.position;
+            Instantiate(gunExplosion, transform.position, transform.rotation);
+        }
     }
+
 }
