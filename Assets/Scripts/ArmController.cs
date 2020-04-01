@@ -11,11 +11,11 @@ public class ArmController : MonoBehaviour
     bool once2;
     bool once3;
     bool once4;
-
+    Sequence sequence;
 
     private void Start()
     {
-
+        sequence = DOTween.Sequence();
     }
 
     void LateUpdate()
@@ -52,7 +52,6 @@ public class ArmController : MonoBehaviour
         rot_z2 = zLock2;
 
 
-
         if (PlayerController.facingright == true)
         {
             if (!once)
@@ -67,13 +66,21 @@ public class ArmController : MonoBehaviour
                 if (!once3)
                 {
                     once3 = true;
-                    transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
-                    //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(180f, 180f, 135f), 1);
-                    
+                    if (mousePos.y > 0)
+                    {
+                        transform.DOLocalRotate(new Vector3(0, 0, -135), 1.0f, RotateMode.FastBeyond360).SetRelative();
+                    }
+                    else
+                    {
+                        transform.DOLocalRotate(new Vector3(0, 0, 45), 0.3f, RotateMode.FastBeyond360).SetRelative();
+                    }
                 }
+
+                //UpdateRotation();
             }
             else
             {
+                DOTween.Kill(transform);
                 once3 = false;
                 transform.localEulerAngles = new Vector3(0f, 180f, rot_z);
             }
@@ -92,18 +99,34 @@ public class ArmController : MonoBehaviour
                 if (!once4)
                 {
                     once4 = true;
-                    transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
+                    if (mousePos.y > 0)
+                    {
+                        transform.DOLocalRotate(new Vector3(0, 0, -135), 1.0f, RotateMode.FastBeyond360).SetRelative();
+                    }
+                    else
+                    {
+                        transform.DOLocalRotate(new Vector3(0, 0, 45), 0.3f, RotateMode.FastBeyond360).SetRelative();
+                        //transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
+                    }
+                    //DOTween.To(UpdateRotation, transform.localRotation.z, 135f, 1);
 
                     //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(180f, 0f, 135f), 1);
                 }
+                //UpdateRotation();
             }
             else
             {
+                DOTween.Kill(transform);
                 once4 = false;
                 transform.localEulerAngles = new Vector3(0f, 180f, rot_z2);
             }
         }
 
 
+    }
+
+    public void UpdateRotation(float z)
+    {
+        transform.localEulerAngles = new Vector3(180, 0, z);
     }
 }
