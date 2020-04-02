@@ -24,4 +24,16 @@ public class Estalactite : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            // tira vida
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            // mata/tira vida
+        }
+    }
+
 }
