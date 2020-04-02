@@ -27,6 +27,11 @@ public class SoundPlayer : MonoBehaviour
         asource.Play();
     }
 
+    public void Stop()
+    {
+        asource.Stop();
+    }
+
     public void PlayOneShot(AudioClip audio)
     {
         asource.PlayOneShot(audio);

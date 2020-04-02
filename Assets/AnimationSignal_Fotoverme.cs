@@ -16,6 +16,11 @@ public class AnimationSignal_Fotoverme : MonoBehaviour
         fotoverme.Grunt();
     }
 
+    public void Come()
+    {
+        fotoverme.Come();
+    }
+
     public void Die()
     {
         fotoverme.Die();

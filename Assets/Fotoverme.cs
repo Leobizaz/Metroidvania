@@ -37,10 +37,13 @@ public class Fotoverme : MonoBehaviour
     public float speed;
     float targetTime = 3;
 
+    public AudioClip idleSound;
+
     public AudioClip[] atk_sounds;
     public AudioClip[] detectedsounds;
     public AudioClip[] hit_sounds;
     public AudioClip[] death_sounds;
+    public AudioClip[] come_sounds;
 
     private void Start()
     {
@@ -257,6 +260,7 @@ public class Fotoverme : MonoBehaviour
 
     void PrepareCharge()
     {
+        soundplayer.Stop();
         particleFX1.Play();
         rb.velocity = Vector3.zero;
         viva_anim.Play("fotoverme_vivo_preparando");
@@ -279,6 +283,7 @@ public class Fotoverme : MonoBehaviour
 
     public void StopCharging()
     {
+        soundplayer.Play(idleSound);
         particleFX1.Stop();
         soundplayer.volume = 1;
         looking = true;
@@ -297,6 +302,8 @@ public class Fotoverme : MonoBehaviour
     public void BreakStun()
     {
         chargeCooldown = false;
+        soundplayer.Play(idleSound);
+        soundplayer.loop = true;
         chasing = true;
         stunned = false;
     }
@@ -315,10 +322,16 @@ public class Fotoverme : MonoBehaviour
 
     public void Die()
     {
+        soundplayer.Stop();
         skin_viva.SetActive(false);
         skin_morta.SetActive(true);
         DOVirtual.Float(morto_anim.speed, 0, 3, UpdateAnimSpeed).SetEase(Ease.OutQuad);
         Invoke("Delete", 3.4f);
+    }
+
+    public void Come()
+    {
+        soundplayer.PlayOneShotRandom(come_sounds);
     }
 
     void UpdateAnimSpeed(float x)
