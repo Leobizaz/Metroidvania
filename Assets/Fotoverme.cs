@@ -17,7 +17,7 @@ public class Fotoverme : MonoBehaviour
     bool looking;
     public bool chargeCooldown;
     public GameObject cadaver;
-    public float chargeForce = 2f;
+    public float chargeForce = 1f;
     public PhysicsMaterial2D slippery;
     public PhysicsMaterial2D sticky;
     public ParticleSystem particleFX1;
