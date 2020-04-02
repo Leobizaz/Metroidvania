@@ -287,6 +287,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag == "FloorHazard") // Detecta se o player esta preso no inimigo do chão
         {
             FreezeMovement();
+            jumpCooldown = 0.5f;
         }
     }
 
