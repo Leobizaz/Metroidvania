@@ -7,6 +7,7 @@ public class Gunshot : MonoBehaviour
     public float speed = 10f;
     bool moving;
     CircleCollider2D c_collider;
+    
     public GameObject gunExplosion;
 
     private void Start()
@@ -31,6 +32,7 @@ public class Gunshot : MonoBehaviour
             moving = false;
        //     gunExplosion.transform.position = this.gameObject.transform.position;
             Instantiate(gunExplosion, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 

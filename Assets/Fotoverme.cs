@@ -1,85 +1,163 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Fotoverme : MonoBehaviour
 {
+    SoundPlayer soundplayer;
+    public int maxHP = 2;
+    int currentHP;
     public bool upsideDown;
-    bool detected;
+    public bool detected;
     bool once;
     bool onLight;
-    bool stunned;
+    public bool stunned;
+    public bool chasing;
+    bool looking;
+    public bool chargeCooldown;
+    public GameObject cadaver;
+    public float chargeForce = 2f;
+    public PhysicsMaterial2D slippery;
+    public PhysicsMaterial2D sticky;
+    public ParticleSystem particleFX1;
     float timeOnLight;
+    float timeOnLight2;
     float timeOutOfLight;
     public LayerMask layerMask;
     Rigidbody2D rb;
     public GameObject skin_viva;
     Animator viva_anim;
+    Animator morto_anim;
     public GameObject skin_morta;
     public GameObject skin_charging;
     public GameObject player;
     GameObject skins;
+    bool died;
     public float speed;
+    float targetTime = 3;
+
+    public AudioClip[] atk_sounds;
+    public AudioClip[] detectedsounds;
+    public AudioClip[] hit_sounds;
+    public AudioClip[] death_sounds;
+
     private void Start()
     {
         Initialize();
+        targetTime = 0.5f;
     }
 
     void Update()
     {
+        if(currentHP <= 0)
+        {
+            if (!died)
+            {
+                died = true;
+                skin_charging.SetActive(false);
+                skin_morta.SetActive(false);
+                skin_viva.SetActive(true);
+                viva_anim.Play("fotoverme_vivo_morrendo");
+                soundplayer.PlayOneShotRandom(death_sounds);
+            }
+            return;
+        }
+        if (onLight)
+        {
+            targetTime -= Time.deltaTime;
+        }
+
+
+
         if (upsideDown)
         {
             FlipRaycast();
         }
 
+        if (detected)
+        {
+            ChasePlayer();
+        }
+        /*
         if (detected && stunned)
         {
             if (onLight)
             {
-                timeOutOfLight = 0;
-                timeOnLight = 1 + Time.time;
+                timeOnLight += Time.deltaTime;
             }
             else
             {
-                timeOutOfLight = Time.time;
-                if(timeOutOfLight > timeOnLight)
-                {
-                    stunned = false;
-                    CancelInvoke("BreakStun");
-                }
+                stunned = false;
+                chasing = true;
+            }
+            if (timeOnLight < 2)
+            {
+                stunned = false;
+                chasing = true;
             }
         }
         else if (detected && !stunned)
         {
             ChasePlayer();
         }
+        */
 
 
 
 
     }
 
+
     void Initialize()
     {
         rb = GetComponent<Rigidbody2D>();
         viva_anim = skin_viva.GetComponent<Animator>();
+        morto_anim = skin_morta.GetComponent<Animator>();
         skins = skin_viva.transform.parent.gameObject;
+        looking = true;
+        soundplayer = GetComponent<SoundPlayer>();
+        currentHP = maxHP;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Light")
         {
-            if(!once) GetDetected();
+            if (targetTime <= 0)
+            {
+                if (!once)
+                {
+                    Grunt();
+                    once = true;
+                    Invoke("GetDetected", 1f);
+                }
+            }
             onLight = true;
         }
+
+        if (collision.tag == "PlayerWeapon")
+        {
+            GetHit();
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Light")
+        if (collision.tag == "Light")
         {
             onLight = true;
+            if (targetTime <= 0)
+            {
+                if (!once)
+                {
+                    Grunt();
+                    once = true;
+                    Invoke("GetDetected", 1f);
+                }
+            }
+        
         }
     }
 
@@ -88,6 +166,7 @@ public class Fotoverme : MonoBehaviour
         if(collision.tag == "Light")
         {
             onLight = false;
+            targetTime = 0.5f;
         }
     }
 
@@ -110,12 +189,18 @@ public class Fotoverme : MonoBehaviour
 
     public void GetDetected()
     {
-        Invoke("BreakStun", 7f);
-        once = true;
+        Debug.Log("Fuck");
+        soundplayer.loop = false;
+        soundplayer.GetComponent<AudioSource>().Stop();
+        Grunt();
+        particleFX1.Stop();
+        Invoke("BreakStun", 4f);
         detected = true;
+        chasing = true;
+
         rb.isKinematic = false;
         rb.WakeUp();
-        stunned = true;
+        //stunned = true;
         if (upsideDown)
         {
             skin_viva.SetActive(false);
@@ -129,29 +214,136 @@ public class Fotoverme : MonoBehaviour
 
     void ChasePlayer()
     {
-        viva_anim.Play("fotoverme_vivo_andando");
-        Debug.Log("I'm chasing you");
-
         var heading = player.transform.position - this.transform.position;
         var distance = heading.magnitude;
         Vector2 direction = heading / distance;
 
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
-
-        if (direction.normalized.x > 0)
+        if (looking)
         {
-            skins.transform.localScale = new Vector3(-1, 1, 1);
+            if (direction.normalized.x > 0)
+            {
+                skins.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (direction.normalized.x < 0)
+            {
+                skins.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
-        else if (direction.normalized.x < 0)
+
+        if (chasing)
         {
-            skins.transform.localScale = new Vector3(1, 1, 1);
+            if (Vector3.Dot(transform.up, Vector3.down) > 0.7f)
+            {
+                //Is upside down
+                transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+            }
+
+            viva_anim.Play("fotoverme_vivo_andando");
+
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
+
+            if(distance < 6 && !chargeCooldown)
+            {
+                chargeCooldown = true;
+                chasing = false;
+                PrepareCharge();
+            }
+
         }
 
 
+
+    }
+
+    void PrepareCharge()
+    {
+        particleFX1.Play();
+        rb.velocity = Vector3.zero;
+        viva_anim.Play("fotoverme_vivo_preparando");
+    }
+
+    public void Charge()
+    {
+        soundplayer.PlayOneShotRandom(atk_sounds);
+        looking = false;
+        rb.mass = 0.5f;
+        rb.sharedMaterial = slippery;
+
+        skin_viva.SetActive(false);
+        skin_charging.SetActive(true);
+        Vector3 force = new Vector3(Mathf.Clamp(((player.transform.position.x - transform.position.x) * chargeForce), -6, 6), chargeForce, 0);
+        Debug.Log("Launching with force: " + force);
+        rb.AddForce(force, ForceMode2D.Impulse);
+        Invoke("StopCharging", 1);
+    }
+
+    public void StopCharging()
+    {
+        particleFX1.Stop();
+        soundplayer.volume = 1;
+        looking = true;
+        rb.mass = 30;
+        rb.sharedMaterial = sticky;
+        skin_charging.SetActive(false);
+        skin_viva.SetActive(true);
+        chasing = true;
+        Invoke("ResetChargeCooldown", 4f);
+    }
+    void ResetChargeCooldown()
+    {
+        chargeCooldown = false;
     }
 
     public void BreakStun()
     {
+        chargeCooldown = false;
+        chasing = true;
         stunned = false;
     }
+
+    public void Grunt()
+    {
+        soundplayer.volume = 0.2f;
+        soundplayer.PlayOneShotRandom(detectedsounds);
+    }
+
+    public void GetHit()
+    {
+        soundplayer.PlayOneShotRandom(hit_sounds);
+        currentHP--;
+    }
+
+    public void Die()
+    {
+        skin_viva.SetActive(false);
+        skin_morta.SetActive(true);
+        DOVirtual.Float(morto_anim.speed, 0, 3, UpdateAnimSpeed).SetEase(Ease.OutQuad);
+        Invoke("Delete", 3.4f);
+    }
+
+    void UpdateAnimSpeed(float x)
+    {
+        morto_anim.speed = x;
+    }
+
+    void Delete()
+    {
+        var heading = player.transform.position - this.transform.position;
+        var distance = heading.magnitude;
+        Vector2 direction = heading / distance;
+
+        if (direction.normalized.x > 0)
+        {
+            var instance = Instantiate(cadaver, this.transform.position, this.transform.rotation);
+            instance.transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+        }
+        else
+        {
+            Instantiate(cadaver, this.transform.position, this.transform.rotation);
+        }
+
+        Destroy(this.gameObject);
+    }
+
+
 }

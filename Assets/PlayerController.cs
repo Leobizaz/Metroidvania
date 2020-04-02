@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float storedAccelerationValue;
     private int bulletcount;
     private Vector3 spriteScale;
+    private Vector3 mousePos;
     [SerializeField] private float x = 0;
     [SerializeField] private float y = 0;
 
@@ -32,14 +33,13 @@ public class PlayerController : MonoBehaviour
     // Referencias privadas
     private PlayerCollision p_collision;
     private Rigidbody2D rb;
+    private SoundPlayer soundplayer;
 
     // Referencias publicas
     public GameObject playersprite;
     public Animator playerAnim;
     public GameObject gun;
     public GameObject bullet_normal;
-
-
 
     private void Start()
     {
@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
     private void Initialize()
     {
         spriteScale = playersprite.transform.localScale;
+        soundplayer = GetComponent<SoundPlayer>();
         storedAccelerationValue = movement_acceleration;
         p_collision = GetComponent<PlayerCollision>();
         rb = GetComponent<Rigidbody2D>();
@@ -136,14 +137,13 @@ public class PlayerController : MonoBehaviour
     {
         // Função que controla tudo a respeito das mecânicas de tiro do jogador
 
+        mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+
         if (Input.GetButtonDown("Fire1") && !isBusy && p_collision.onGround) // Checa se o jogador pode atirar
         {
             if (bulletcount < 2) // Caso o jogador ainda tenha munição
             {
-                bulletcount++; // Indica que o jogador gastou 1 bala
-                FreezeMovement(); // Deixa o jogador parado
-                isBusy = true; // Indica que o jogador está atirando
-
                 if (facingright == true)
                 {
                     gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
@@ -152,15 +152,22 @@ public class PlayerController : MonoBehaviour
                 {
                     gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                 } // Caso o jogador esteja olhando para a esquerda, flipe a rotação da bala
-                if (facingright)
+                if (facingright && mousePos.x > 0)
                 {
                     GameObject instance = Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation);
                     instance.GetComponent<Gunshot>().speed = -10;
                 }
-                else
+                else if (facingleft && mousePos.x < 0)
                 {
                     Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
                 }
+                else
+                {
+                    return;
+                }
+                bulletcount++; // Indica que o jogador gastou 1 bala
+                FreezeMovement(); // Deixa o jogador parado
+                isBusy = true; // Indica que o jogador está atirando
                 Invoke("StopBeingBusy", 0.5f); // Jogador volta ao normal depois de 'x' segundos
             } // Caso o jogador atire e tenha munição
             if (bulletcount >= 2)
@@ -233,18 +240,37 @@ public class PlayerController : MonoBehaviour
     {
         if(!isBusy) // Caso o jogador não esteja ocupado
         {
-            if (Input.GetAxisRaw("Horizontal") < 0 && isMoving) // Caso o jogador esteja se movimentando para a esquerda
+            if (Input.GetAxis("Horizontal") <= -0.7f && isMoving) // Caso o jogador esteja se movimentando para a esquerda
             {
                 playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
                 facingleft = true;
                 facingright = false;
+                return;
             }
-            else if (Input.GetAxisRaw("Horizontal") > 0 && isMoving) // Caso o jogador esteja se movimentando para a direita
+            if (Input.GetAxisRaw("Horizontal") >= 0.7f && isMoving) // Caso o jogador esteja se movimentando para a direita
             {
                 playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
                 facingright = true;
                 facingleft = false;
+                return;
             }
+
+            if(mousePos.x > 0)
+            {
+                playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
+                facingright = true;
+                facingleft = false;
+                return;
+            }
+            if(mousePos.x < 0)
+            {
+                playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
+                facingleft = true;
+                facingright = false;
+                return;
+            }
+
+
 
         }
     }
