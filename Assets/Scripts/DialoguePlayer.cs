@@ -16,6 +16,7 @@ public class DialoguePlayer : MonoBehaviour
     public AnimationCurve curveOpen;
     public AnimationCurve curveClose;
     public bool animate;
+    public bool fadeOut;
     public Vector3 startScale;
     public Vector3 endScale;
     public float animationSpeed;
@@ -55,11 +56,17 @@ public class DialoguePlayer : MonoBehaviour
             if (dialogueText.instantReplace)
             {
                 textBox.text = null;
-                textBox.DOText(dialogueText.text, dialogueText.duration, true).SetEase(Ease.Linear);
+                if(dialogueText.scramble)
+                    textBox.DOText(dialogueText.text, dialogueText.duration, true, ScrambleMode.All).SetEase(Ease.Linear);
+                else
+                    textBox.DOText(dialogueText.text, dialogueText.duration, true).SetEase(Ease.Linear);
             }
             else
             {
-                textBox.DOText(dialogueText.text, dialogueText.replaceDuration).SetEase(Ease.Linear);
+                if(dialogueText.scramble)
+                    textBox.DOText(dialogueText.text, dialogueText.replaceDuration, true, ScrambleMode.All).SetEase(Ease.Linear);
+                else
+                    textBox.DOText(dialogueText.text, dialogueText.replaceDuration, true).SetEase(Ease.Linear);
             }
         }
         else
@@ -114,7 +121,14 @@ public class DialoguePlayer : MonoBehaviour
 
     public void Close()
     {
-        parent.DOScale(startScale, animationSpeed).SetEase(curveClose);
+        if (fadeOut)
+        {
+            textBox.DOColor(new Color32(255, 255, 255, 0), animationSpeed+2);
+        }
+        else
+        {
+            parent.DOScale(startScale, animationSpeed).SetEase(curveClose);
+        }
         Destroy(parent.gameObject, animationSpeed + 3);
     }
 

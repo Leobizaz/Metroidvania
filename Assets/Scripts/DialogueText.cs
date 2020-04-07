@@ -10,9 +10,11 @@ public class DialogueText : MonoBehaviour
     public bool replace;
     public bool instantReplace;
     public float replaceDuration;
+    public bool scramble;
     public bool playNext;
     public float timeForNext;
     public AudioClip audio;
     public bool audioloop;
     public int eventID;
+    
 }

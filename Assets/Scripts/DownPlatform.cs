@@ -7,11 +7,13 @@ public class DownPlatform : MonoBehaviour
     bool playerOnTop;
     private PlatformEffector2D effector;
     public float wait;
+    float normalOffset;
 
 
     void Start()
     {
         effector = GetComponent<PlatformEffector2D>();
+        normalOffset = effector.rotationalOffset;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,14 +44,14 @@ public class DownPlatform : MonoBehaviour
             wait = 0;
             if (wait <= 0.5 && Input.GetKey(KeyCode.Space) && playerOnTop)
             {
-                effector.rotationalOffset = 180f;
+                effector.rotationalOffset = normalOffset - 180; ;
               
             }
         }
         if (wait == 0.5f)
         {
             StopAllCoroutines();
-            effector.rotationalOffset = 0f;
+            effector.rotationalOffset = normalOffset;
         }
     }
     private IEnumerator Wait()
