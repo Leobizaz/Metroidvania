@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class GUIPointer : MonoBehaviour
 {
@@ -10,10 +12,14 @@ public class GUIPointer : MonoBehaviour
     float angle;
     Vector3 dir;
     private Rect rect;
+    Transform parent;
+    public AnimationCurve curve;
 
-    void Start()
+    private void OnEnable()
     {
-        //rect = new Rect(pivot.x - tex.width * 0.5f, pivot.y - tex.height * 0.5f, tex.width, tex.height);
+        parent = this.transform.parent.transform;
+        parent.localScale = new Vector3(1, 0, 1);
+        parent.DOScale(new Vector3(1, 1, 1), 1).SetEase(curve);
     }
 
     private void OnGUI()
@@ -21,9 +27,5 @@ public class GUIPointer : MonoBehaviour
         Vector3 targetPosLocal = Camera.main.transform.InverseTransformPoint(target.position);
         angle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, angle);
-
-        //dir = target.position - transform.position;
-        //angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
-        //transform.eulerAngles = new Vector3(0, 0, angle);
     }
 }
