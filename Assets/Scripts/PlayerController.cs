@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnim;
     public GameObject gun;
     public GameObject bullet_normal;
+    public GameObject BackLight;
 
     private void Start()
     {
@@ -184,8 +185,23 @@ public class PlayerController : MonoBehaviour
             Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
         } // Recarregar
 
-    } // Controla tudo que envolve a mecânica de atirar
+        if (Input.GetKeyDown(KeyCode.E) && !isBusy && p_collision.onGround && DestroyBackLight.backLight == false) // Checa se a lampada esta quebrada
+        {
+            FreezeMovement(); // Congela o movimento do jogador
+            /////playerAnim.Play("Bob_Reload");//animação para conserto da lampada
+            isBusy = true; // Indica que o jogador está ocupado 
+            Invoke("Lamp", tempoReload); // Conserta a lampada depois de 'x' segundos
 
+        }
+    }
+    private void Lamp()
+    {
+        isBusy = false; // Libera o movimento
+        DestroyBackLight.backLight = true; // Retorna a variavel estatica
+        BackLight.SetActive(true); // Ativa a lampada
+        ///////////////////Tocar som ////////////
+
+    }
     //Funções secundárias
     private void GroundCheck()
     {
