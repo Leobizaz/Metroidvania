@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cfe511f5ae84c24e82fbf88db7e24ae, type: 3}
-  m_Name: Terrain Material
+  m_Name: CavesOLD
   m_EditorClassIdentifier: 
-  _fillMaterial: {fileID: 2100000, guid: 95c4b794c420eb54fa8e18d3e7fa4c78, type: 2}
+  _fillMaterial: {fileID: 2100000, guid: 8e8b41f09ffe16240a08c3fc64facf39, type: 2}
   _edgeMaterial: {fileID: 2100000, guid: af27d70761ca1fe4a8504840bce6a056, type: 2}
   _descriptors:
   - _applyTo: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
       height: 0
     _rightCaps:
     - serializedVersion: 2
-      x: 0.8865967
+      x: 0.8873698
       y: 0.07265123
       width: 0
       height: 0
@@ -85,10 +85,10 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 0.5161133
       y: 0.07265123
-      width: 0.3704834
+      width: 0.37125653
       height: 0.069012776
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
@@ -105,8 +105,8 @@ MonoBehaviour:
       height: 0
     _leftCaps:
     - serializedVersion: 2
-      x: 0.5161133
-      y: 0.07282151
+      x: 0.5175781
+      y: 0.37837708
       width: 0
       height: 0
     _leftCapWeights: []
@@ -136,8 +136,8 @@ MonoBehaviour:
       height: 0
     _rightCaps:
     - serializedVersion: 2
-      x: 0.88720703
-      y: 0.07282151
+      x: 0.8886719
+      y: 0.37837708
       width: 0
       height: 0
     _rightCapWeights: []
@@ -161,12 +161,12 @@ MonoBehaviour:
     - 0
     _bodies:
     - serializedVersion: 2
-      x: 0.5161133
-      y: 0.07282151
+      x: 0.5175781
+      y: 0.37837708
       width: 0.37109375
       height: 0.06617636
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
       width: 0.3701172
       height: 0.067471296
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
@@ -332,7 +332,7 @@ MonoBehaviour:
       width: 0.1233724
       height: 0.06901279
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
@@ -410,7 +410,7 @@ MonoBehaviour:
       width: 0.36604816
       height: 0.069012776
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
@@ -428,7 +428,7 @@ MonoBehaviour:
     _leftCaps:
     - serializedVersion: 2
       x: 0.51660156
-      y: 0.4036601
+      y: 0.37848648
       width: 0
       height: 0
     _leftCapWeights: []
@@ -459,7 +459,7 @@ MonoBehaviour:
     _rightCaps:
     - serializedVersion: 2
       x: 0.89160156
-      y: 0.4036601
+      y: 0.37848648
       width: 0
       height: 0
     _rightCapWeights: []
@@ -484,11 +484,11 @@ MonoBehaviour:
     _bodies:
     - serializedVersion: 2
       x: 0.51660156
-      y: 0.4036601
+      y: 0.37848648
       width: 0.375
       height: 0.07091962
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
@@ -566,7 +566,7 @@ MonoBehaviour:
       width: 0.38183594
       height: 0.07091962
     _bodyWeights: []
-    _yOffsetPercent: 0
+    _yOffsetPercent: -0.5
     _colliderOffset: 0
     _colliderThickness: 1
     _physicsMaterial2D: {fileID: 0}
