@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gun;
     public GameObject bullet_normal;
     public GameObject BackLight;
+    public AudioClip LampDone;
 
     private void Start()
     {
@@ -199,8 +200,7 @@ public class PlayerController : MonoBehaviour
         isBusy = false; // Libera o movimento
         DestroyBackLight.backLight = true; // Retorna a variavel estatica
         BackLight.SetActive(true); // Ativa a lampada
-        ///////////////////Tocar som ////////////
-
+        
     }
     //Funções secundárias
     private void GroundCheck()
