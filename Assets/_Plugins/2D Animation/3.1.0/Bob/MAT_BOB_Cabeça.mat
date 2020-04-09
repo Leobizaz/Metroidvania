@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EmissiveMushroom
+  m_Name: "MAT_BOB_Cabe\xE7a"
   m_Shader: {fileID: -6465566751694194690, guid: 5278b1f8cb7f3a24c949cae32b1ae94e,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -39,8 +39,8 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Color_A80192A8: {r: 0, g: 1.772549, b: 4, a: 1}
+    - Color_A80192A8: {r: 0.69687426, g: 0.67859775, b: 0.23996142, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorEmissive: {r: 0, g: 1.1353015, b: 1.0936935, a: 1}
+    - _ColorEmissive: {r: 0, g: 0.5487427, b: 1.1149987, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

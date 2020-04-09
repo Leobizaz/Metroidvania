@@ -39,7 +39,8 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Color_A80192A8: {r: 0.70521075, g: 2.8811977, b: 0.5843939, a: 1}
+    - Color_A80192A8: {r: 0.8468836, g: 3.4415908, b: 0.7027332, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorEmissive: {r: 0, g: 1.960784, b: 4, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

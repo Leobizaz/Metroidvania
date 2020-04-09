@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1746662795
+CRC: 136217883
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 21e7598f5d1d50e346ceca3b21632feb
+    Hash: 336b2fb5a8781a6b4ebd3daf29f4ca15
   TypeTreeHash:
     serializedVersion: 2
     Hash: d7b7bcdb2fe17342b8c63e4ffc509534
@@ -18,8 +18,6 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- "Assets/Teste anima\xE7\xE3o/2D Animation/3.1.0/Samples/5 SpriteSwap/Sprites/Rikr
-  Poison.png"
-- "Assets/Teste anima\xE7\xE3o/2D Animation/3.1.0/Samples/5 SpriteSwap/Sprite Library/Rikr
-  Poison.asset"
+- Assets/_Plugins/2D Animation/3.1.0/Samples/5 SpriteSwap/Sprites/Rikr Poison.png
+- Assets/_Plugins/2D Animation/3.1.0/Samples/5 SpriteSwap/Sprite Library/Rikr Poison.asset
 Dependencies: []
