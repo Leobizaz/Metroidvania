@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: 62642388088440368
     second: Estalactititev2 to exporte_2
+  - first:
+      213: -7753272798952810461
+    second: estalactite_cotoco
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -103,7 +106,7 @@ TextureImporter:
         width: 160
         height: 295
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -124,7 +127,7 @@ TextureImporter:
         width: 163
         height: 302
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,7 +148,7 @@ TextureImporter:
         width: 22
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,6 +156,27 @@ TextureImporter:
       bones: []
       spriteID: 036c4e98bec8ed000800000000000000
       internalID: 62642388088440368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: estalactite_cotoco
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 615
+        width: 167
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32818bbc777d66490800000000000000
+      internalID: -7753272798952810461
       vertices: []
       indices: 
       edges: []

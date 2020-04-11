@@ -41,6 +41,6 @@ Material:
     m_Colors:
     - Color_A80192A8: {r: 0, g: 1.772549, b: 4, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorEmissive: {r: 0, g: 1.1353015, b: 1.0936935, a: 1}
+    - _ColorEmissive: {r: 0, g: 2.9960785, b: 2.8862746, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

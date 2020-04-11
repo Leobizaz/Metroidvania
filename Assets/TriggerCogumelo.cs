@@ -6,6 +6,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
 {
     public class TriggerCogumelo : MonoBehaviour
     {
+        public SpriteRenderer spr_renderer;
         public bool startOn;
         public bool canBeTriggered = true;
         public bool fades = true;
@@ -25,7 +26,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void Start()
         {
-            mat = GetComponent<SpriteRenderer>().material;
+            mat = spr_renderer.material;
+
             def_color = mat.GetColor("_ColorEmissive");
             mat.SetColor("_ColorEmissive", def_color / divisionValue);
             def_lightValue = light2d.intensity;

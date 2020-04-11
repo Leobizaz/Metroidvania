@@ -7,6 +7,7 @@ public class Estalactite : MonoBehaviour
     /////////////// Fazer Sistema de Dano ao player/////////////////
 
 
+    public bool trap = false;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class Estalactite : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && trap)
         {
             this.rb.bodyType = RigidbodyType2D.Dynamic;
         }

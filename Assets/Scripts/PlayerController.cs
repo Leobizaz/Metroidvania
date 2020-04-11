@@ -174,7 +174,11 @@ public class PlayerController : MonoBehaviour
             } // Caso o jogador atire e tenha munição
             if (bulletcount >= 2)
             {
-                // toque sons/animações do player sem munição aqui 
+                FreezeMovement(); // Congela o movimento do jogador
+                playerAnim.Play("Bob_Reload");
+                isBusy = true; // Indica que o jogador está ocupado recarregando
+                Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
+                // ou toque sons/animações do player sem munição aqui 
             } // Caso o jogador tenta atirar sem munição
 
         } // Atirar

@@ -26,8 +26,9 @@ public class Gunshot : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Light" && other.gameObject.tag != "Damage")
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Light" && other.gameObject.tag != "Damage" && other.gameObject.tag != "Trigger")
         {
+            Debug.Log("Gun hit object " + other.name);
             c_collider.enabled = false;
             moving = false;
        //     gunExplosion.transform.position = this.gameObject.transform.position;
