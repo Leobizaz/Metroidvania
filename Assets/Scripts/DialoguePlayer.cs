@@ -116,7 +116,7 @@ public class DialoguePlayer : MonoBehaviour
 
     void EnableSpecific()
     {
-        objects.EnableSpecific(4);
+        objects.EnableSpecific(2);
     }
 
     public void Close()

@@ -145,7 +145,7 @@ MonoBehaviour:
     - 1
     _rightCapColliderType: 00000000
     _rightCapOffset:
-    - -0.9
+    - -0.51
     _legacyInnerRightCap:
       serializedVersion: 2
       x: 0
