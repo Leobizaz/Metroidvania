@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
     public float tempoReload = 1.5f; // Tempo em segundos que leva para recarregar
 
     // Variaveis essenciais
-    /*[HideInInspector]*/ public bool isMoving;
-    /*[HideInInspector]*/ public bool wantToJump;
-    /*[HideInInspector]*/ public bool onRope;
+    /*[HideInInspector]*/
+    public bool isMoving;
+    /*[HideInInspector]*/
+    public bool wantToJump;
+    /*[HideInInspector]*/
+    public bool onRope;
     private float yVelocity = 0.0f;
     private float jumpCooldown;
     private bool isBusy;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     // Variaveis estaticas
     public static bool facingleft;
     public static bool facingright;
+    public static int hits = 3;
 
     // Referencias privadas
     private PlayerCollision p_collision;
@@ -42,12 +46,11 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet_normal;
     public GameObject BackLight;
     public AudioClip LampDone;
+    public GameObject DMG;
 
     private void Start()
     {
         Initialize();
-
-
     }
 
 
@@ -204,7 +207,7 @@ public class PlayerController : MonoBehaviour
         isBusy = false; // Libera o movimento
         DestroyBackLight.backLight = true; // Retorna a variavel estatica
         BackLight.SetActive(true); // Ativa a lampada
-        
+
     }
     //Funções secundárias
     private void GroundCheck()
@@ -258,7 +261,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FlipSprite()
     {
-        if(!isBusy) // Caso o jogador não esteja ocupado
+        if (!isBusy) // Caso o jogador não esteja ocupado
         {
             if (Input.GetAxis("Horizontal") <= -0.7f && isMoving) // Caso o jogador esteja se movimentando para a esquerda
             {
@@ -275,14 +278,14 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            if(mousePos.x > 0)
+            if (mousePos.x > 0)
             {
                 playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
                 facingright = true;
                 facingleft = false;
                 return;
             }
-            if(mousePos.x < 0)
+            if (mousePos.x < 0)
             {
                 playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
                 facingleft = true;
@@ -298,17 +301,38 @@ public class PlayerController : MonoBehaviour
     {
         if (!p_collision.onGround)
             movement_acceleration = Mathf.SmoothDamp(movement_acceleration, 0, ref yVelocity, 0.1f);
-        else 
+        else
             movement_acceleration = 0.04f;
     } // Controla a aceleração
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if(other.gameObject.tag == "FloorHazard") // Detecta se o player esta preso no inimigo do chão
+        if (other.gameObject.tag == "FloorHazard") // Detecta se o player esta preso no inimigo do chão
         {
             FreezeMovement();
             jumpCooldown = 0.5f;
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {              
+
+        if (other.gameObject.tag == "Enemy" && hits > 0)// Detecta se o player tomou dano e não está morto
+            {
+
+            hits -= 1;
+            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            
+            var magnitude = 1000;
+
+            var force = transform.position - other.transform.position;
+
+            force.Normalize();
+            GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
+           
+            }
+
+    }
+
+    
 }
