@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EmissiveMushroomRed
+  m_Name: EmissiveMushroomGreen
   m_Shader: {fileID: -6465566751694194690, guid: 5278b1f8cb7f3a24c949cae32b1ae94e,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -40,6 +40,6 @@ Material:
     - _EnableExternalAlpha: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorEmissive: {r: 4.78613, g: 1.046892, b: 0.92561936, a: 1}
+    - _ColorEmissive: {r: 0.9683323, g: 5.6570992, b: 0.25482428, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

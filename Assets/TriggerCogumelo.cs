@@ -72,6 +72,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
                 triggered = true;
                 DOVirtual.Float(divisionValue, 1, activationTime, ChangeProperty);
                 DOVirtual.Float(0, def_lightValue, activationTime, ChangeLight);
+                Invoke("LightTriggerOn", activationTime);
                 if (chain_reaction.Length != 0)
                 {
                     Invoke("TriggerChain", chainDelay);
@@ -148,6 +149,17 @@ namespace UnityEngine.Experimental.Rendering.Universal
             DOVirtual.Float(1, divisionValue, activationTime, ChangeProperty);
             DOVirtual.Float(def_lightValue, 0, activationTime, ChangeLight);
             triggered = false;
+            Invoke("LightTriggerOff", activationTime);
+        }
+
+        void LightTriggerOff()
+        {
+            light2d.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        }
+
+        void LightTriggerOn()
+        {
+            light2d.gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
     }
 }
