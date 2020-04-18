@@ -11,23 +11,23 @@ public class PlayerController : MonoBehaviour
     public float movement_decceleration = 0.05f;
     public float jumpForce = 2f;
     public float tempoReload = 1.5f; // Tempo em segundos que leva para recarregar
+    public float flashCooldown = 2;
 
     // Variaveis essenciais
-    /*[HideInInspector]*/
-    public bool isMoving;
-    /*[HideInInspector]*/
-    public bool wantToJump;
-    /*[HideInInspector]*/
-    public bool onRope;
+    [HideInInspector] public bool isMoving;
+    [HideInInspector] public bool wantToJump;
+    [HideInInspector] public bool onRope;
+    public bool unlockedFlash;
     private float yVelocity = 0.0f;
     private float jumpCooldown;
-    private bool isBusy;
+    [HideInInspector] public bool isBusy;
     private float storedAccelerationValue;
     private int bulletcount;
     private Vector3 spriteScale;
     private Vector3 mousePos;
     [SerializeField] private float x = 0;
     [SerializeField] private float y = 0;
+    private float flashTime;
 
     // Variaveis estaticas
     public static bool facingleft;
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public GameObject BackLight;
     public AudioClip LampDone;
     public GameObject DMG;
+    public GameObject flash;
 
     private void Start()
     {
@@ -65,6 +66,13 @@ public class PlayerController : MonoBehaviour
             FlipSprite();
             //MovementSmoothing();
             MovementMechanic();
+
+            if (unlockedFlash)
+            {
+                FlashMechanic();
+
+            }
+
         }
 
     }
@@ -98,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") == 0) // Checa se o jogador não está apertando para andar
         {
             x = Mathf.SmoothDamp(x, 0, ref yVelocity, movement_decceleration); // Registra o valor da movimentação horizontal de acordo com a desceleração
-            //animação do jogador parando vai aqui
+                                                                               //animação do jogador parando vai aqui
         }
 
         rb.velocity = new Vector2(dir.x * movementSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
@@ -181,7 +189,7 @@ public class PlayerController : MonoBehaviour
                 playerAnim.Play("Bob_Reload");
                 isBusy = true; // Indica que o jogador está ocupado recarregando
                 Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
-                // ou toque sons/animações do player sem munição aqui 
+                                               // ou toque sons/animações do player sem munição aqui 
             } // Caso o jogador tenta atirar sem munição
 
         } // Atirar
@@ -196,7 +204,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !isBusy && p_collision.onGround && DestroyBackLight.backLight == false) // Checa se a lampada esta quebrada
         {
             FreezeMovement(); // Congela o movimento do jogador
-            /////playerAnim.Play("Bob_Reload");//animação para conserto da lampada
+                              /////playerAnim.Play("Bob_Reload");//animação para conserto da lampada
             isBusy = true; // Indica que o jogador está ocupado 
             Invoke("Lamp", tempoReload); // Conserta a lampada depois de 'x' segundos
 
@@ -265,16 +273,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") <= -0.7f && isMoving) // Caso o jogador esteja se movimentando para a esquerda
             {
-                playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
-                facingleft = true;
-                facingright = false;
+                FaceLeft();
                 return;
             }
             if (Input.GetAxisRaw("Horizontal") >= 0.7f && isMoving) // Caso o jogador esteja se movimentando para a direita
             {
-                playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
-                facingright = true;
-                facingleft = false;
+                FaceRight();
                 return;
             }
 
@@ -297,6 +301,25 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    public void Freio()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0f;
+    }
+
+    public void FaceLeft()
+    {
+        playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
+        facingleft = true;
+        facingright = false;
+    }
+    public void FaceRight()
+    {
+        playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
+        facingright = true;
+        facingleft = false;
+    }
     private void MovementSmoothing()
     {
         if (!p_collision.onGround)
@@ -304,6 +327,23 @@ public class PlayerController : MonoBehaviour
         else
             movement_acceleration = 0.04f;
     } // Controla a aceleração
+    public void UnlockFlash()
+    {
+        unlockedFlash = true;
+    }
+
+    private void FlashMechanic()
+    {
+        if (flashTime <= 0 && Input.GetKeyDown(KeyCode.F))
+        {
+            flash.SetActive(true);
+            flashTime = flashCooldown;
+        }
+        else
+        {
+            flashTime -= Time.deltaTime;
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D other)
     {
@@ -315,29 +355,29 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other)
-    {              
+    {
 
         if (other.gameObject.tag == "Enemy" && hits > 0)// Detecta se o player tomou dano e não está morto
-            {
+        {
 
             hits -= 1;
             Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
-            
+
             var magnitude = 1000;
 
             var force = transform.position - other.transform.position;
 
             force.Normalize();
             GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
-           
+
         }
 
-        if(other.gameObject.tag == "FloorHazard")
+        if (other.gameObject.tag == "FloorHazard")
         {
             Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
         }
 
     }
 
-    
+
 }

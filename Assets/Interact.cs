@@ -7,6 +7,8 @@ public class Interact : MonoBehaviour
     public GameObject indicator;
     bool onArea;
     public bool oneTime = true;
+    public bool destroy = true;
+    bool once;
 
     public GameObject[] objectsToActivate;
 
@@ -16,11 +18,12 @@ public class Interact : MonoBehaviour
     }
     void Update()
     {
-        if(onArea && Input.GetKeyDown(KeyCode.E))
+        if(onArea && Input.GetKeyDown(KeyCode.E) && !once)
         {
+            if (oneTime) once = true;
             Execute();
             indicator.SetActive(false);
-            if (oneTime) Destroy(gameObject);
+            if(destroy) Destroy(gameObject, 0.1f);
         }
     }
 

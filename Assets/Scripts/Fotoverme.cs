@@ -9,10 +9,14 @@ public class Fotoverme : MonoBehaviour
     public int maxHP = 2;
     int currentHP;
     public bool upsideDown;
+    bool fleeing;
     public bool detected;
     bool once;
     bool onLight;
+    bool invLooking;
     public bool stunned;
+    public GameObject blindFX;
+    public bool blinded;
     public bool chasing;
     bool looking;
     public bool chargeCooldown;
@@ -36,6 +40,7 @@ public class Fotoverme : MonoBehaviour
     bool died;
     public float speed;
     float targetTime = 3;
+    float distance;
 
     public AudioClip idleSound;
 
@@ -71,7 +76,10 @@ public class Fotoverme : MonoBehaviour
             targetTime -= Time.deltaTime;
         }
 
-
+        if (fleeing)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), -2.5f * speed * Time.deltaTime);
+        }
 
         if (upsideDown)
         {
@@ -80,31 +88,37 @@ public class Fotoverme : MonoBehaviour
 
         if (detected)
         {
-            ChasePlayer();
+            if(!blinded)
+                ChasePlayer();
         }
-        /*
-        if (detected && stunned)
+
+        var heading = player.transform.position - this.transform.position;
+        distance = heading.magnitude;
+        Vector2 direction = heading / distance;
+
+        if (looking)
         {
-            if (onLight)
+            if (direction.normalized.x > 0)
             {
-                timeOnLight += Time.deltaTime;
+                skins.transform.localScale = new Vector3(-1, 1, 1);
             }
-            else
+            else if (direction.normalized.x < 0)
             {
-                stunned = false;
-                chasing = true;
-            }
-            if (timeOnLight < 2)
-            {
-                stunned = false;
-                chasing = true;
+                skins.transform.localScale = new Vector3(1, 1, 1);
             }
         }
-        else if (detected && !stunned)
+
+        if (invLooking)
         {
-            ChasePlayer();
+            if (direction.normalized.x > 0)
+            {
+                skins.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (direction.normalized.x < 0)
+            {
+                skins.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
-        */
 
 
 
@@ -144,10 +158,17 @@ public class Fotoverme : MonoBehaviour
             GetHit();
         }
 
+        if (collision.tag == "Flash" && !blinded && !died)
+        {
+            blinded = true;
+            Stunned();
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
         if (collision.tag == "Light")
         {
             onLight = true;
@@ -160,7 +181,11 @@ public class Fotoverme : MonoBehaviour
                     Invoke("GetDetected", 1f);
                 }
             }
-        
+        }
+
+        if(collision.tag == "Flash")
+        {
+            CancelInvoke("BackToNormal");
         }
     }
 
@@ -217,24 +242,10 @@ public class Fotoverme : MonoBehaviour
 
     void ChasePlayer()
     {
-        var heading = player.transform.position - this.transform.position;
-        var distance = heading.magnitude;
-        Vector2 direction = heading / distance;
-
-        if (looking)
-        {
-            if (direction.normalized.x > 0)
-            {
-                skins.transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (direction.normalized.x < 0)
-            {
-                skins.transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
 
         if (chasing)
         {
+            looking = true;
             if (Vector3.Dot(transform.up, Vector3.down) > 0.7f)
             {
                 //Is upside down
@@ -358,5 +369,35 @@ public class Fotoverme : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    void Stunned()
+    {
+        looking = false;
+        rb.mass = 30;
+        rb.sharedMaterial = sticky;
+        skin_charging.SetActive(false);
+        skin_viva.SetActive(true);
+        viva_anim.Play("fotoverme_vivo_agonizando");
+        blindFX.SetActive(true);
+        Invoke("Flee", 1);
+    }
 
+    void Flee()
+    {
+        viva_anim.Play("fotoverme_vivo_andando");
+        viva_anim.speed = 2;
+        invLooking = true;
+        fleeing = true;
+        
+        Invoke("BackToNormal", 3f);
+    }
+
+    void BackToNormal()
+    {
+        viva_anim.speed = 1;
+        invLooking = false;
+        fleeing = false;
+        blinded = false;
+        blindFX.SetActive(false);
+        BreakStun();
+    }
 }

@@ -13,8 +13,6 @@ public class ShakeCamera : MonoBehaviour
     public float shakeAmplitude;
     public float shakeFrequency;
 
-    public event Action onShake;
-
     private void Awake()
     {
         current = this;
