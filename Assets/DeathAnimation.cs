@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 [ExecuteInEditMode]
 public class DeathAnimation : MonoBehaviour
@@ -35,7 +36,7 @@ public class DeathAnimation : MonoBehaviour
 
     public void DeathAnimationPlay()
     {
-        for(int a = 0; a <= airparticles.Length; a++)
+        for(int a = 0; a < airparticles.Length; a++)
         {
             airparticles[a].Play();
         }
@@ -67,6 +68,8 @@ public class DeathAnimation : MonoBehaviour
             {
                 sprite.material = silhouetteMat;
                 Camera.main.cullingMask = (1 << LayerMask.NameToLayer("DeathSprite"));
+                Camera.main.GetComponent<CinemachineBrain>().enabled = false;
+                Camera.main.GetComponent<Follow>().enabled = true;
             }
         }
     }

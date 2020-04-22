@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float y = 0;
     private float flashTime;
     private bool died;
+    GameObject lastEnemyToHit;
 
     // Variaveis estaticas
     public static bool facingleft;
@@ -51,6 +52,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip LampDone;
     public GameObject DMG;
     public GameObject flash;
+    public Animator hud_dmg;
+    public Animator hud_noFlash;
+    public Material red_material;
 
     private void Start()
     {
@@ -191,9 +195,11 @@ public class PlayerController : MonoBehaviour
                 FreezeMovement(); // Deixa o jogador parado
                 isBusy = true; // Indica que o jogador está atirando
                 Invoke("StopBeingBusy", 0.5f); // Jogador volta ao normal depois de 'x' segundos
+                return;
             } // Caso o jogador atire e tenha munição
             if (bulletcount >= 2)
             {
+                CancelInvoke("StopBeingBusy");
                 FreezeMovement(); // Congela o movimento do jogador
                 playerAnim.Play("Bob_Reload");
                 isBusy = true; // Indica que o jogador está ocupado recarregando
@@ -346,6 +352,7 @@ public class PlayerController : MonoBehaviour
         if (flashTime <= 0 && Input.GetKeyDown(KeyCode.F))
         {
             flash.SetActive(true);
+            hud_noFlash.Play("hud_icon_noflash");
             flashTime = flashCooldown;
         }
         else
@@ -370,12 +377,9 @@ public class PlayerController : MonoBehaviour
         {
             if (hitCooldown <= 0)
             {
-                hits -= 1;
-                hitCooldown = invulnerabilityFrame;
-                Invoke("ResetHitCooldown", invulnerabilityFrame);
-                Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
-
-                var magnitude = 1000;
+                GetHit();
+                lastEnemyToHit = other.gameObject;
+                var magnitude = 400;
 
                 var force = transform.position - other.transform.position;
 
@@ -396,13 +400,36 @@ public class PlayerController : MonoBehaviour
         hitCooldown = 0;
     }
 
+    public void GetHit()
+    {
+        hud_dmg.Play("hud_damage"); //animação da hud
+        hits -= 1;
+        hitCooldown = invulnerabilityFrame;
+        Invoke("ResetHitCooldown", invulnerabilityFrame);
+        Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+        //Som do player tomando dano ta no gameobject que é instanciado acima (bruh)
+    }
+
     void DeathCheck()
     {
         if (hits <= 0 && !died)
         {
+            rb.isKinematic = true;
             died = true;
             Freio();
+            Debug.Log(lastEnemyToHit.name);
+            PaintLastEnemy();
             playerAnim.Play("Death_verme");
+        }
+    }
+
+    void PaintLastEnemy()
+    {
+        if(lastEnemyToHit.name == "fotoverme_charging")
+        {
+            lastEnemyToHit.transform.parent.transform.parent.GetComponent<Fotoverme>().Congela();
+            lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().material = red_material;
+            lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().gameObject.layer = LayerMask.NameToLayer("DeathSprite");
         }
     }
 

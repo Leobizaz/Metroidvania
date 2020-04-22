@@ -21,7 +21,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
         bool isfading;
         bool triggered;
         Material mat;
-        Color def_color;
+        public Color def_color;
         private float def_lightValue;
 
         void Start()
@@ -29,7 +29,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
             mat = spr_renderer.material;
 
             def_color = mat.GetColor("_ColorEmissive");
-            mat.SetColor("_ColorEmissive", def_color / divisionValue);
+            mat.SetColor("_ColorEmissive", new Color32(0,0,0,0));
             def_lightValue = light2d.intensity;
             light2d.intensity = 0;
             if (startOn) Trigger();
@@ -70,7 +70,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
             {
                 DOTween.Kill(gameObject);
                 triggered = true;
-                DOVirtual.Float(divisionValue, 1, activationTime, ChangeProperty);
+                //DOVirtual.Float(divisionValue, 1, activationTime, ChangeProperty);
+                mat.DOColor(def_color, "_ColorEmissive" , activationTime);
                 DOVirtual.Float(0, def_lightValue, activationTime, ChangeLight);
                 Invoke("LightTriggerOn", activationTime);
                 if (chain_reaction.Length != 0)
@@ -140,13 +141,14 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void ChangeProperty(float m)
         {
-            mat.SetColor("_ColorEmissive", def_color / m);
+            //mat.SetColor("_ColorEmissive", new Color32(0,0,0,0));
         }
 
         void FadeOut()
         {
             fading = false;
-            DOVirtual.Float(1, divisionValue, activationTime, ChangeProperty);
+            //DOVirtual.Float(1, divisionValue, activationTime, ChangeProperty);
+            mat.DOColor(new Color32(0, 0, 0, 0), "_ColorEmissive" , activationTime);
             DOVirtual.Float(def_lightValue, 0, activationTime, ChangeLight);
             triggered = false;
             Invoke("LightTriggerOff", activationTime);

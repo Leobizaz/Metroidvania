@@ -269,6 +269,13 @@ public class Fotoverme : MonoBehaviour
 
     }
 
+    public void Congela()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0f;
+        CancelInvoke("StopCharging");
+    }
+
     void PrepareCharge()
     {
         soundplayer.Stop();
@@ -279,6 +286,7 @@ public class Fotoverme : MonoBehaviour
 
     public void Charge()
     {
+        soundplayer.volume = 1;
         soundplayer.PlayOneShotRandom(atk_sounds);
         looking = false;
         rb.mass = 0.5f;
