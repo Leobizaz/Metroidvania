@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool wantToJump;
     [HideInInspector] public bool onRope;
     public bool unlockedFlash;
-    private float invulnerabilityFrame = 0.5f;
-    private float hitCooldown;
     private float yVelocity = 0.0f;
     private float jumpCooldown;
     [HideInInspector] public bool isBusy;
@@ -30,7 +28,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float x = 0;
     [SerializeField] private float y = 0;
     private float flashTime;
-    private bool died;
 
     // Variaveis estaticas
     public static bool facingleft;
@@ -61,27 +58,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        DeathCheck();
-
-        if (!died)
+        GroundCheck();
+        MoveCheck();
+        ShootMechanic();
+        if (!isBusy)
         {
-            GroundCheck();
-            MoveCheck();
-            ShootMechanic();
-            if (!isBusy)
+            FlipSprite();
+            //MovementSmoothing();
+            MovementMechanic();
+
+            if (unlockedFlash)
             {
-                FlipSprite();
-                //MovementSmoothing();
-                MovementMechanic();
-
-                if (unlockedFlash)
-                {
-                    FlashMechanic();
-
-                }
+                FlashMechanic();
 
             }
+
         }
 
     }
@@ -368,20 +359,16 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy" && hits > 0)// Detecta se o player tomou dano e não está morto
         {
-            if (hitCooldown <= 0)
-            {
-                hits -= 1;
-                hitCooldown = invulnerabilityFrame;
-                Invoke("ResetHitCooldown", invulnerabilityFrame);
-                Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
 
-                var magnitude = 1000;
+            hits -= 1;
+            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
 
-                var force = transform.position - other.transform.position;
+            var magnitude = 1000;
 
-                force.Normalize();
-                GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
-            }
+            var force = transform.position - other.transform.position;
+
+            force.Normalize();
+            GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
 
         }
 
@@ -391,18 +378,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    void ResetHitCooldown()
-    {
-        hitCooldown = 0;
-    }
 
-    void DeathCheck()
-    {
-        if (hits <= 0 && !died)
-        {
-            died = true;
-            playerAnim.Play("Death_verme");
-        }
-    }
 
 }
