@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
         DestroyBackLight.backLight = true; // Retorna a variavel estatica
         BackLight.SetActive(true); // Ativa a lampada
 
-    }
+    } 
     //Funções secundárias
     private void GroundCheck()
     {
@@ -401,6 +401,7 @@ public class PlayerController : MonoBehaviour
         if (hits <= 0 && !died)
         {
             died = true;
+            Freio();
             playerAnim.Play("Death_verme");
         }
     }
