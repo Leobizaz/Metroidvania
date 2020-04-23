@@ -19,11 +19,11 @@ public class GameController : MonoBehaviour
         {
             health1.SetActive(false);
         }
-        else if (PlayerController.hits <= 1)
+        if (PlayerController.hits <= 1)
         {
             health2.SetActive(false);
         }
-        else if(PlayerController.hits <= 0)
+        if(PlayerController.hits <= 0)
             health3.SetActive(false);
         
         if(Input.GetKeyDown (KeyCode.P) && pause == false)

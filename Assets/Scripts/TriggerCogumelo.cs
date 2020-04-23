@@ -14,6 +14,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
         public float divisionValue = 3;
         public float activationTime = 3;
         public Light2D light2d;
+        public AudioClip[] sons;
+        AudioSource audioS;
         public TriggerCogumelo[] chain_reaction;
         public float chainDelay = 0;
         [HideInInspector] public GameObject ignore;
@@ -27,7 +29,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
         void Start()
         {
             mat = spr_renderer.material;
-
+            if(GetComponent<AudioSource>())
+                audioS = GetComponent<AudioSource>();
             def_color = mat.GetColor("_ColorEmissive");
             mat.SetColor("_ColorEmissive", new Color32(0,0,0,0));
             def_lightValue = light2d.intensity;
@@ -60,7 +63,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
                 CancelInvoke("ChainFadeOut");
                 CancelInvoke("FadeOut");
                 //Invoke("ChainFadeOut", 8f);
-                Invoke("FadeOut", fadeOutTime);
+                if(!canBeTriggered)
+                    Invoke("FadeOut", fadeOutTime);
             }
         }
 
@@ -68,6 +72,9 @@ namespace UnityEngine.Experimental.Rendering.Universal
         {
             if (!triggered)
             {
+                if (GetComponent<AudioSource>())
+                    PlayOneShotRandom(sons);
+
                 DOTween.Kill(gameObject);
                 triggered = true;
                 //DOVirtual.Float(divisionValue, 1, activationTime, ChangeProperty);
@@ -83,6 +90,13 @@ namespace UnityEngine.Experimental.Rendering.Universal
                     Invoke("FadeOut", fadeOutTime);
                 }
             }
+
+        }
+
+        public void PlayOneShotRandom(AudioClip[] audios)
+        {
+            int i = Random.Range(0, audios.Length);
+            audioS.PlayOneShot(audios[i]);
 
         }
 
@@ -146,16 +160,20 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void FadeOut()
         {
-            fading = false;
-            //DOVirtual.Float(1, divisionValue, activationTime, ChangeProperty);
-            mat.DOColor(new Color32(0, 0, 0, 0), "_ColorEmissive" , activationTime);
-            DOVirtual.Float(def_lightValue, 0, activationTime, ChangeLight);
-            triggered = false;
-            Invoke("LightTriggerOff", activationTime);
+            if (fades)
+            {
+                fading = false;
+                //DOVirtual.Float(1, divisionValue, activationTime, ChangeProperty);
+                mat.DOColor(new Color32(0, 0, 0, 0), "_ColorEmissive", activationTime);
+                DOVirtual.Float(def_lightValue, 0, activationTime, ChangeLight);
+                triggered = false;
+                Invoke("LightTriggerOff", activationTime);
+            }
         }
 
         void LightTriggerOff()
         {
+            if(fades)
             light2d.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
 

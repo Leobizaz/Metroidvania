@@ -8,12 +8,17 @@ public class Estalactite : MonoBehaviour
 
 
     public bool trap = false;
+    bool once;
     private Rigidbody2D rb;
+    AudioSource audioS;
+    public ParticleSystem FX;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioS = GetComponent<AudioSource>();
+
     }
 
 
@@ -30,6 +35,11 @@ public class Estalactite : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             // tira vida
+        }
+        if(other.gameObject.tag == "Ground" && !once)
+        {
+            once = true;
+            FX.Play();
         }
         if (other.gameObject.tag == "Enemy")
         {

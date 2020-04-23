@@ -5,6 +5,7 @@ public class ActivateObject : MonoBehaviour
     public GameObject obj;
     public bool oneTime = true;
     bool once;
+    public bool deActivate;
 
     public bool onEnable = false;
     public float onEnableDelay = 0;
@@ -33,6 +34,11 @@ public class ActivateObject : MonoBehaviour
 
     public void Activate()
     {
+        if (deActivate)
+        {
+            obj.SetActive(false);
+            return;
+        }
         obj.SetActive(true);
     }
 }

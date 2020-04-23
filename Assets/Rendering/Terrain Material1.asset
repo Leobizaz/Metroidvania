@@ -64,7 +64,7 @@ MonoBehaviour:
       height: 0.1793899
     _rightCapWeights: []
     _rightCapColliderSize:
-    - 1
+    - 0.45
     _rightCapColliderType: 00000000
     _rightCapOffset:
     - -1
@@ -249,7 +249,7 @@ MonoBehaviour:
       height: 0.14932856
     _leftCapWeights: []
     _leftCapColliderSize:
-    - 1
+    - 0.65
     _leftCapColliderType: 00000000
     _leftCapOffset:
     - -0.71

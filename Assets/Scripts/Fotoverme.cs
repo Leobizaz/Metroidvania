@@ -50,10 +50,16 @@ public class Fotoverme : MonoBehaviour
     public AudioClip[] death_sounds;
     public AudioClip[] come_sounds;
 
-    private void Start()
+    private void Awake()
     {
         Initialize();
         targetTime = 0.5f;
+        //if (detected) GetDetected();
+    }
+
+    private void OnEnable()
+    {
+        if (detected) Invoke("GetDetected", 0.1f);
     }
 
     void Update()
@@ -211,6 +217,7 @@ public class Fotoverme : MonoBehaviour
                 skin_morta.SetActive(false);
                 viva_anim.Play("fotoverme_vivo_agonizando");
                 transform.localScale = new Vector3(1, 1, 1);
+                //skins.transform.localScale = new Vector3(1, -1, 1);
             }
         }
     }
@@ -273,6 +280,7 @@ public class Fotoverme : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0f;
+        rb.isKinematic = true;
         CancelInvoke("StopCharging");
     }
 
@@ -286,7 +294,7 @@ public class Fotoverme : MonoBehaviour
 
     public void Charge()
     {
-        soundplayer.volume = 1;
+        //soundplayer.volume = 1;
         soundplayer.PlayOneShotRandom(atk_sounds);
         looking = false;
         rb.mass = 0.5f;
@@ -304,7 +312,7 @@ public class Fotoverme : MonoBehaviour
     {
         soundplayer.Play(idleSound);
         particleFX1.Stop();
-        soundplayer.volume = 1;
+        //soundplayer.volume = 1;
         looking = true;
         rb.mass = 30;
         rb.sharedMaterial = sticky;
@@ -329,7 +337,7 @@ public class Fotoverme : MonoBehaviour
 
     public void Grunt()
     {
-        soundplayer.volume = 0.2f;
+        //soundplayer.volume = 0.2f;
         soundplayer.PlayOneShotRandom(detectedsounds);
     }
 

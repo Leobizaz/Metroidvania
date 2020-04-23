@@ -8,10 +8,13 @@ public class FlashAnimation : MonoBehaviour
     public GameObject flashFX;
     public GameObject spriteLanterna;
     public GameObject luzQacordaosBixo;
+    AudioSource audioS;
+    public AudioClip SFX_arranca;
 
     private void Awake()
     {
         player = transform.parent.GetComponent<PlayerController>();
+        audioS = player.GetComponent<AudioSource>();
     }
 
     public void Play()
@@ -30,6 +33,7 @@ public class FlashAnimation : MonoBehaviour
     public void RemoveSprite()
     {
         spriteLanterna.SetActive(false);
+        audioS.PlayOneShot(SFX_arranca);
     }
 
     public void FlashFX()
