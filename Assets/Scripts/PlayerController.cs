@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private PlayerCollision p_collision;
     private Rigidbody2D rb;
     private SoundPlayer soundplayer;
+    private AudioSource reload;
 
     // Referencias publicas
     public GameObject playersprite;
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
         storedAccelerationValue = movement_acceleration;
         p_collision = GetComponent<PlayerCollision>();
         rb = GetComponent<Rigidbody2D>();
+        reload = gun.GetComponent<AudioSource>();
     }
     private void MovementMechanic()
     {
@@ -201,6 +203,7 @@ public class PlayerController : MonoBehaviour
             {
                 CancelInvoke("StopBeingBusy");
                 FreezeMovement(); // Congela o movimento do jogador
+                reload.Play();
                 playerAnim.Play("Bob_Reload");
                 isBusy = true; // Indica que o jogador está ocupado recarregando
                 Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
