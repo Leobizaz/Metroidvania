@@ -394,7 +394,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "FloorHazard")
         {
-            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            //Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
         }
 
     }
