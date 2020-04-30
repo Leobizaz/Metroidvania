@@ -23,6 +23,7 @@ public class SoundPlayer : MonoBehaviour
 
     public void Play(AudioClip audio)
     {
+        GameEvents.current.MakeSound(gameObject);
         asource.clip = audio;
         asource.Play();
     }
@@ -34,11 +35,13 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlayOneShot(AudioClip audio)
     {
+        GameEvents.current.MakeSound(gameObject);
         asource.PlayOneShot(audio);
     }
 
     public void PlayOneShotRandom(AudioClip[] audios)
     {
+        GameEvents.current.MakeSound(gameObject);
         int i = Random.Range(0, audios.Length);
         asource.PlayOneShot(audios[i]);
 

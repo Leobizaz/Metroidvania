@@ -48,6 +48,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2628733533
+    locked: 0
+  - name: BackgroundEnemy
+    uniqueID: 3070511953
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

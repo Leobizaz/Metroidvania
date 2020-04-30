@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
   m_Intensity: 1.04
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000005d4aaf9c514b04b7
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -276,6 +276,7 @@ MonoBehaviour:
   divisionValue: 3
   activationTime: 3
   light2d: {fileID: 2447099925625689745}
+  sons: []
   chain_reaction: []
   chainDelay: 0
   ignore: {fileID: 0}

@@ -18,6 +18,7 @@ public class FloorHazard : MonoBehaviour
     public AudioClip sfx_crunching;
     public AudioClip sfx_crunchend;
     GameObject perna;
+    GameObject capturedObject;
 
     void Start()
     {
@@ -59,7 +60,9 @@ public class FloorHazard : MonoBehaviour
 
         if (other.gameObject.tag == "Player" && !once)
         {
-            hinge.connectedBody = other.GetComponent<Rigidbody2D>();
+            capturedObject = other.gameObject;
+            LockRigidbody();
+            //Invoke("LockRigidbody", 0.5f);
             redlight.intensity = storedIntensity;
             perna.transform.position = this.transform.position;
             perna.transform.GetComponentInParent<LimbSolver2D>().enabled = true;
@@ -91,6 +94,24 @@ public class FloorHazard : MonoBehaviour
     {
         sprite.DOColor(new Color(0, 0, 0, 0), 3);
         Destroy(gameObject, 4);
+    }
+
+    void LockRigidbody()
+    {
+        hinge.connectedBody = capturedObject.GetComponent<Rigidbody2D>();
+        hinge.autoConfigureConnectedAnchor = false;
+        DOVirtual.Float(hinge.connectedAnchor.x, 0, 2, UpdateHingeX);
+        DOVirtual.Float(hinge.connectedAnchor.y, 0, 2, UpdateHingeY);
+
+    }
+
+    void UpdateHingeX(float v)
+    {
+        hinge.connectedAnchor = new Vector2(v, hinge.connectedAnchor.y);
+    }
+    void UpdateHingeY(float v)
+    {
+        hinge.connectedAnchor = new Vector2(hinge.connectedAnchor.x, v);
     }
 
     void ChangeLight(float v)

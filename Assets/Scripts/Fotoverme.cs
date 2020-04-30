@@ -74,6 +74,7 @@ public class Fotoverme : MonoBehaviour
                 skin_viva.SetActive(true);
                 viva_anim.Play("fotoverme_vivo_morrendo");
                 soundplayer.PlayOneShotRandom(death_sounds);
+                GameEvents.current.MakeSound(gameObject);
             }
             return;
         }
@@ -296,6 +297,7 @@ public class Fotoverme : MonoBehaviour
     {
         //soundplayer.volume = 1;
         soundplayer.PlayOneShotRandom(atk_sounds);
+        GameEvents.current.MakeSound(gameObject);
         looking = false;
         rb.mass = 0.5f;
         rb.sharedMaterial = slippery;
@@ -337,6 +339,7 @@ public class Fotoverme : MonoBehaviour
 
     public void Grunt()
     {
+        GameEvents.current.MakeSound(gameObject);
         //soundplayer.volume = 0.2f;
         soundplayer.PlayOneShotRandom(detectedsounds);
     }
@@ -354,11 +357,14 @@ public class Fotoverme : MonoBehaviour
         skin_morta.SetActive(true);
         DOVirtual.Float(morto_anim.speed, 0, 3, UpdateAnimSpeed).SetEase(Ease.OutQuad);
         Invoke("Delete", 3.4f);
+        GameEvents.current.MakeSound(gameObject);
+
     }
 
     public void Come()
     {
         soundplayer.PlayOneShotRandom(come_sounds);
+        //GameEvents.current.MakeSound(gameObject);
     }
 
     void UpdateAnimSpeed(float x)

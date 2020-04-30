@@ -25,6 +25,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         private void Start()
         {
+            light2d.enabled = true;
+
             if (startOn)
                 Trigger();
             else
@@ -41,6 +43,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         public void Trigger()
         {
+            GameEvents.current.MakeSound(gameObject);
             CancelInvoke("FadeCollider");
             light2d.intensity = def_lightValue;
             audioS.Play();

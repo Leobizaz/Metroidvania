@@ -48,6 +48,7 @@ public class FakeWall : MonoBehaviour
 
         if (doBreakFX)
         {
+            GameEvents.current.MakeBigSound(gameObject);
             sprite.enabled = false;
             fx.Play();
         }

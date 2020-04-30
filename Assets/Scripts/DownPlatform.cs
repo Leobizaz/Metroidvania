@@ -5,6 +5,7 @@ using UnityEngine;
 public class DownPlatform : MonoBehaviour
 {
     bool playerOnTop;
+    public bool keepSprite = false;
     private PlatformEffector2D effector;
     public float wait = 0.3f;
     float normalOffset;
@@ -19,6 +20,10 @@ public class DownPlatform : MonoBehaviour
         effector = GetComponent<PlatformEffector2D>();
         normalOffset = effector.rotationalOffset;
         boxcollider.OverlapCollider(contactFilter, neighbors);
+        if (!keepSprite)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;  
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

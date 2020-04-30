@@ -12,6 +12,7 @@ public class Gunshot : MonoBehaviour
 
     private void Start()
     {
+        GameEvents.current.MakeBigSound(gameObject);
         moving = true;
         Destroy(gameObject, 2f);
         c_collider = GetComponent<CircleCollider2D>();
@@ -33,6 +34,7 @@ public class Gunshot : MonoBehaviour
             moving = false;
        //     gunExplosion.transform.position = this.gameObject.transform.position;
             Instantiate(gunExplosion, transform.position, transform.rotation);
+            GameEvents.current.MakeBigSound(gameObject);
             Destroy(gameObject);
         }
     }

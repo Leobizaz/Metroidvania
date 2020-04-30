@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float flashCooldown = 2;
 
     // Variaveis essenciais
+    float currentMoveSpeed;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool wantToJump;
     [HideInInspector] public bool onRope;
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
     //Funções principais:
     private void Initialize()
     {
+        currentMoveSpeed = movementSpeed;
         spriteScale = playersprite.transform.localScale;
         soundplayer = GetComponent<SoundPlayer>();
         storedAccelerationValue = movement_acceleration;
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
                                                                                //animação do jogador parando vai aqui
         }
 
-        rb.velocity = new Vector2(dir.x * movementSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
+        rb.velocity = new Vector2(dir.x * currentMoveSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
 
 
         if (Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") >= 0)
@@ -151,6 +153,19 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldown = jumpCooldown - Time.deltaTime;
         } // Reseta o cooldown de pulo
+
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerAnim.SetBool("IsSlow", true);
+            currentMoveSpeed = movementSpeed / 3;
+        }
+        else
+        {
+            playerAnim.SetBool("IsSlow", false);
+            currentMoveSpeed = movementSpeed;
+        }
+
 
     } // Controla a movimentação do jogador
     private void Jump()
@@ -205,6 +220,7 @@ public class PlayerController : MonoBehaviour
                 FreezeMovement(); // Congela o movimento do jogador
                 reload.Play();
                 playerAnim.Play("Bob_Reload");
+                GameEvents.current.MakeBigSound(gameObject);
                 isBusy = true; // Indica que o jogador está ocupado recarregando
                 Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
                                                // ou toque sons/animações do player sem munição aqui 
@@ -398,6 +414,19 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Damage" && hits > 0)
+        {
+            if(hitCooldown <= 0)
+            {
+                GetHit();
+                lastEnemyToHit = collision.gameObject.transform.parent.gameObject;
+            }
+        }
+    }
+
     void ResetHitCooldown()
     {
         hitCooldown = 0;
@@ -431,6 +460,12 @@ public class PlayerController : MonoBehaviour
         if(lastEnemyToHit.name == "fotoverme_charging")
         {
             lastEnemyToHit.transform.parent.transform.parent.GetComponent<Fotoverme>().Congela();
+            lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().material = red_material;
+            lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().gameObject.layer = LayerMask.NameToLayer("DeathSprite");
+        }
+        if(lastEnemyToHit.name == "carapaça")
+        {
+            lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().sortingLayerID = 0;
             lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().material = red_material;
             lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().gameObject.layer = LayerMask.NameToLayer("DeathSprite");
         }
