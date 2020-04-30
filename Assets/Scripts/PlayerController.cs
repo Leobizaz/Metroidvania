@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     // Variaveis essenciais
     float currentMoveSpeed;
+    bool isSlow;
+    bool reloading;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool wantToJump;
     [HideInInspector] public bool onRope;
@@ -155,7 +157,7 @@ public class PlayerController : MonoBehaviour
         } // Reseta o cooldown de pulo
 
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || reloading)
         {
             playerAnim.SetBool("IsSlow", true);
             currentMoveSpeed = movementSpeed / 3;
@@ -210,6 +212,7 @@ public class PlayerController : MonoBehaviour
                 }
                 bulletcount++; // Indica que o jogador gastou 1 bala
                 FreezeMovement(); // Deixa o jogador parado
+
                 isBusy = true; // Indica que o jogador está atirando
                 Invoke("StopBeingBusy", 0.5f); // Jogador volta ao normal depois de 'x' segundos
                 return;
@@ -217,11 +220,12 @@ public class PlayerController : MonoBehaviour
             if (bulletcount >= 2)
             {
                 CancelInvoke("StopBeingBusy");
-                FreezeMovement(); // Congela o movimento do jogador
+                //FreezeMovement(); // Congela o movimento do jogador
+                reloading = true;
                 reload.Play();
                 playerAnim.Play("Bob_Reload");
                 GameEvents.current.MakeBigSound(gameObject);
-                isBusy = true; // Indica que o jogador está ocupado recarregando
+                //isBusy = true; // Indica que o jogador está ocupado recarregando
                 Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
                                                // ou toque sons/animações do player sem munição aqui 
             } // Caso o jogador tenta atirar sem munição
@@ -229,9 +233,10 @@ public class PlayerController : MonoBehaviour
         } // Atirar
         if (Input.GetKeyDown(KeyCode.R) && !isBusy && p_collision.onGround && bulletcount != 0) // Checa se o jogador pode recarregar
         {
-            FreezeMovement(); // Congela o movimento do jogador
+            //FreezeMovement(); // Congela o movimento do jogador
+            reloading = true;
             playerAnim.Play("Bob_Reload");
-            isBusy = true; // Indica que o jogador está ocupado recarregando
+            //isBusy = true; // Indica que o jogador está ocupado recarregando
             Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
         } // Recarregar
 
@@ -282,7 +287,7 @@ public class PlayerController : MonoBehaviour
         // ESTA FUNÇÃO EXECUTA AÇÕES NO FINAL DO RECARREGAMENTO
         // PARA AS ANIMAÇÕES, SONS E OUTROS RECURSOS QUE SÃO EXECUTADOS ENQUANTO O JOGADOR RECARREGA
         // ACESSE A FUNÇÃO ShootMechanic()
-
+        reloading = false;
         isBusy = false; // Indica que o jogador não está mais ocupado
         bulletcount = 0; // Reseta a quantidade de balas que o jogador atirou
     } // Controla o que acontece no final do reload

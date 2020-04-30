@@ -10,6 +10,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
         public bool startOn;
         public bool canBeTriggered = true;
         public bool fades = true;
+        public bool fadeOnTrigger = false;
         public float fadeOutTime = 8;
         public float divisionValue = 3;
         public float activationTime = 3;
@@ -40,6 +41,13 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if(fadeOnTrigger && collision.tag == "Player")
+            {
+                CancelFade();
+                Trigger();
+                return;
+            }
+
             if (collision.tag == "Light" && canBeTriggered)
             {
                 CancelFade();
@@ -49,6 +57,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         private void OnTriggerStay2D(Collider2D collision)
         {
+            if (fadeOnTrigger) return;
             if (collision.tag == "Light" && canBeTriggered)
             {
                 CancelFade();
@@ -58,6 +67,12 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         private void OnTriggerExit2D(Collider2D collision)
         {
+            if(fadeOnTrigger && collision.tag == "Player")
+            {
+                TriggeredFadeOut();
+                return;
+            }
+
             if (collision.tag == "Light" && triggered)
             {
                 CancelInvoke("ChainFadeOut");
@@ -171,6 +186,16 @@ namespace UnityEngine.Experimental.Rendering.Universal
             }
         }
 
+        void TriggeredFadeOut()
+        {
+            fading = false;
+            //DOVirtual.Float(1, divisionValue, activationTime, ChangeProperty);
+            mat.DOColor(new Color32(0, 0, 0, 0), "_ColorEmissive", activationTime);
+            DOVirtual.Float(def_lightValue, 0, activationTime, ChangeLight);
+            triggered = false;
+            Invoke("LightTriggerOff", activationTime);
+        }
+
         void LightTriggerOff()
         {
             if(fades)
@@ -179,6 +204,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void LightTriggerOn()
         {
+            if(!fadeOnTrigger)
             light2d.gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
     }
