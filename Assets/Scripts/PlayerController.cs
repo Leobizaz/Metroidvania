@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     public static bool facingleft;
     public static bool facingright;
     public static int hits = 3;
+    public static bool OnMovement = true;
 
     // Referencias privadas
     private PlayerCollision p_collision;
@@ -167,7 +168,12 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetBool("IsSlow", false);
             currentMoveSpeed = movementSpeed;
         }
-
+        if (OnMovement == false)
+        {
+            FreezeMovement();
+        }
+        else
+            isMoving = true;
 
     } // Controla a movimentação do jogador
     private void Jump()
