@@ -154,4 +154,12 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Intro");
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void UnPause()
+    {
+        Time.timeScale = 1;
+    }
 }
