@@ -168,12 +168,13 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetBool("IsSlow", false);
             currentMoveSpeed = movementSpeed;
         }
+
         if (OnMovement == false)
         {
             FreezeMovement();
         }
-        else
-            isMoving = true;
+        //else
+            //isMoving = true;
 
     } // Controla a movimentação do jogador
     private void Jump()
