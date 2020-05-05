@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     public Animator hud_dmg;
     public Animator hud_noFlash;
     public Material red_material;
+    public GameObject ReloadIcon;
 
     private void Start()
     {
@@ -230,6 +231,7 @@ public class PlayerController : MonoBehaviour
                 //FreezeMovement(); // Congela o movimento do jogador
                 reloading = true;
                 reload.Play();
+                ReloadIcon.SetActive(true);
                 playerAnim.Play("Bob_Reload");
                 GameEvents.current.MakeBigSound(gameObject);
                 //isBusy = true; // Indica que o jogador está ocupado recarregando
@@ -243,6 +245,7 @@ public class PlayerController : MonoBehaviour
             //FreezeMovement(); // Congela o movimento do jogador
             reloading = true;
             playerAnim.Play("Bob_Reload");
+            ReloadIcon.SetActive(true);
             //isBusy = true; // Indica que o jogador está ocupado recarregando
             Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
         } // Recarregar
@@ -297,6 +300,7 @@ public class PlayerController : MonoBehaviour
         reloading = false;
         isBusy = false; // Indica que o jogador não está mais ocupado
         bulletcount = 0; // Reseta a quantidade de balas que o jogador atirou
+        ReloadIcon.SetActive(false);// Desliga o ícone de reload
     } // Controla o que acontece no final do reload
     public void StopBeingBusy()
     {

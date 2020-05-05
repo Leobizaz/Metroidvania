@@ -9588,6 +9588,7 @@ MonoBehaviour:
   speed: 15
   gunExplosion: {fileID: 1282503317536100063, guid: d5d6a5927a6ddb0408c515f2aa2e6303,
     type: 3}
+  Reflect: {fileID: 4736242287807982373}
 --- !u!50 &9055372877038228850
 Rigidbody2D:
   serializedVersion: 4
