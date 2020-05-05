@@ -10110,6 +10110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loop: 0
   volume: 0
+  makeSound: 0
 --- !u!1 &6511364368038966841
 GameObject:
   m_ObjectHideFlags: 0

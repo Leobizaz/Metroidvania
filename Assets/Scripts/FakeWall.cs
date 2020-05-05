@@ -38,6 +38,15 @@ public class FakeWall : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player" && isTrigger && !once)
+        {
+            once = true;
+            Break();
+        }
+    }
+
     public void SpawnParticles()
     {
         if(hideSecret != null)
