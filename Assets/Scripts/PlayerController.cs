@@ -32,8 +32,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePos;
     [SerializeField] private float x = 0;
     [SerializeField] private float y = 0;
+    float chargedShotCooldown;
     private float flashTime;
     private bool died;
+    bool wasCharging;
+    bool isCharging;
+    bool shotReady;
     GameObject lastEnemyToHit;
 
     // Variaveis estaticas
@@ -50,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
     // Referencias publicas
     public GameObject playersprite;
+    public ParticleSystem FX_tiroCarregado;
+    public GameObject FX_chargedLight;
+    public ParticleSystem FX_fizzle;
     public Animator playerAnim;
     public GameObject gun;
     public GameObject bullet_normal;
@@ -78,7 +85,9 @@ public class PlayerController : MonoBehaviour
         {
             GroundCheck();
             MoveCheck();
-            ShootMechanic();
+            //ShootMechanic(); old
+            ChargedShootMechanic();
+            MecanicaRecarregar();
             if (!isBusy)
             {
                 FlipSprite();
@@ -159,7 +168,7 @@ public class PlayerController : MonoBehaviour
         } // Reseta o cooldown de pulo
 
 
-        if (Input.GetKey(KeyCode.LeftShift) || reloading)
+        if (Input.GetKey(KeyCode.LeftShift) || reloading || isCharging)
         {
             playerAnim.SetBool("IsSlow", true);
             currentMoveSpeed = movementSpeed / 3;
@@ -180,18 +189,18 @@ public class PlayerController : MonoBehaviour
     } // Controla a movimentação do jogador
     private void Jump()
     {
-        playerAnim.Play("Bob_JumpStill"); // Toca a animação de pulo
-        p_collision.onGroundCoyote = false; // Indica que o jogador não está mais no chão
-        wantToJump = false; // Indica que o jogador não quer mais pular
-        rb.velocity = new Vector2(rb.velocity.x, 0); // Mantem a velocidade horizontal do player
-        rb.velocity += Vector2.up * jumpForce; // Joga o player para cima de acordo com a força do pulo
+        if (!isCharging)
+        {
+            playerAnim.Play("Bob_JumpStill"); // Toca a animação de pulo
+            p_collision.onGroundCoyote = false; // Indica que o jogador não está mais no chão
+            wantToJump = false; // Indica que o jogador não quer mais pular
+            rb.velocity = new Vector2(rb.velocity.x, 0); // Mantem a velocidade horizontal do player
+            rb.velocity += Vector2.up * jumpForce; // Joga o player para cima de acordo com a força do pulo
+        }
     } // Controla o pulo do jogador
     private void ShootMechanic()
     {
         // Função que controla tudo a respeito das mecânicas de tiro do jogador
-
-        mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
 
         if (Input.GetButtonDown("Fire1") && !isBusy && p_collision.onGround) // Checa se o jogador pode atirar
         {
@@ -239,16 +248,7 @@ public class PlayerController : MonoBehaviour
                                                // ou toque sons/animações do player sem munição aqui 
             } // Caso o jogador tenta atirar sem munição
 
-        } // Atirar
-        if (Input.GetKeyDown(KeyCode.R) && !isBusy && p_collision.onGround && bulletcount != 0) // Checa se o jogador pode recarregar
-        {
-            //FreezeMovement(); // Congela o movimento do jogador
-            reloading = true;
-            playerAnim.Play("Bob_Reload");
-            ReloadIcon.SetActive(true);
-            //isBusy = true; // Indica que o jogador está ocupado recarregando
-            Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
-        } // Recarregar
+        } // Atirar old
 
         if (Input.GetKeyDown(KeyCode.E) && !isBusy && p_collision.onGround && DestroyBackLight.backLight == false) // Checa se a lampada esta quebrada
         {
@@ -259,6 +259,102 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+    private void ChargedShootMechanic()
+    {
+
+        mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+
+        if (chargedShotCooldown > 0) chargedShotCooldown -= Time.deltaTime;
+
+
+        if (Input.GetButton("Fire1") && !isBusy && p_collision.onGround && !isCharging && chargedShotCooldown <= 0)
+        {
+            isCharging = true;
+            wasCharging = true;
+            FX_chargedLight.SetActive(true);
+            chargedShotCooldown = 1;
+            if(bulletcount >= 2)
+            {
+                FX_fizzle.Play();
+                return;
+            }
+            FX_tiroCarregado.gameObject.SetActive(true);
+            FX_tiroCarregado.Play();
+            Invoke("ShotLoaded", 1.7f);
+
+
+        }
+        if (Input.GetButtonUp("Fire1") || isBusy || !p_collision.onGround && wasCharging)
+        {
+            CancelInvoke("ShotLoaded");
+            FX_chargedLight.SetActive(false);
+            isCharging = false;
+            wasCharging = false;
+            FX_tiroCarregado.Stop();
+            FX_tiroCarregado.gameObject.SetActive(false);
+            if (shotReady)
+            {
+                shotReady = false;
+                chargedShotCooldown = 1;
+                ShootNormal();
+                bulletcount++;
+            }
+            else
+            {
+                FX_fizzle.Play();
+            }
+        }
+    }
+
+    void MecanicaRecarregar()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && !isBusy && p_collision.onGround && bulletcount != 0) // Checa se o jogador pode recarregar
+        {
+            Reload();
+        } // Recarregar
+    }
+
+    public void Reload()
+    {
+        //FreezeMovement(); // Congela o movimento do jogador
+        reloading = true;
+        playerAnim.Play("Bob_Reload");
+        ReloadIcon.SetActive(true);
+        //isBusy = true; // Indica que o jogador está ocupado recarregando
+        Invoke("ReloadFinish", tempoReload); // Recarrega as balas depois de 'x' segundos
+    }
+
+    void ShootNormal()
+    {
+        if (facingright == true)
+        {
+            gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+        } // Caso o jogador esteja olhando para a direita, mantem a rotação da bala
+        if (facingleft == true)
+        {
+            gun.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+        } // Caso o jogador esteja olhando para a esquerda, flipe a rotação da bala
+        if (facingright && mousePos.x > 0)
+        {
+            GameObject instance = Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation);
+            instance.GetComponent<Gunshot>().speed = -10;
+        }
+        else if (facingleft && mousePos.x < 0)
+        {
+            Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    void ShotLoaded()
+    {
+        shotReady = true;
+    }
+
     private void Lamp()
     {
         isBusy = false; // Libera o movimento
@@ -291,7 +387,7 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetBool("IsMoving", false); // Animação
         }
     } // Checa se o jogador está se movimentando
-    public void Reload()
+    public void ReloadFinish()
     {
         // == ATENÇÃO ==
         // ESTA FUNÇÃO EXECUTA AÇÕES NO FINAL DO RECARREGAMENTO

@@ -41,7 +41,7 @@ public class Gunshot : MonoBehaviour
             //     gunExplosion.transform.position = this.gameObject.transform.position;
             Instantiate(gunExplosion, transform.position, transform.rotation);
             GameEvents.current.MakeBigSound(gameObject);
-         //   Destroy(gameObject);
+            Destroy(gameObject);
         }
         if(other.gameObject.tag == "Reflect")
         {
