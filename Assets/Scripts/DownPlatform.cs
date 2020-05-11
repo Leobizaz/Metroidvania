@@ -112,7 +112,7 @@ public class DownPlatform : MonoBehaviour
 
     public void Twist()
     {
-        GameObject.Find("Bob sprite").GetComponent<Animator>().Play("Bob_Queda");
+        GameObject.Find("Bob sprite").GetComponent<Animator>().Play("Bob_DescerPlat");
         effector.rotationalOffset = normalOffset - 180;
         boxcollider.enabled = false;
     }

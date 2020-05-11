@@ -21,11 +21,15 @@ public class PlayerLanternController : MonoBehaviour
         sequence = DOTween.Sequence();
     }
 
+    private void LateUpdate()
+    {
+        this.transform.position = pivot.transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
-        this.transform.position = pivot.transform.position;
+       
         /*
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         diff.Normalize();
