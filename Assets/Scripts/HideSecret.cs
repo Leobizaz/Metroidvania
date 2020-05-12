@@ -15,6 +15,7 @@ public class HideSecret : MonoBehaviour
     private void Awake()
     {
         bgMaterial = background.material;
+        if (inverted) Unhide();
     }
 
     public void DelayedUnhide()
@@ -35,12 +36,12 @@ public class HideSecret : MonoBehaviour
 
     public void Hide()
     {
-        DOVirtual.Float(bgMaterial.color.a, 100, time, UpdateColor).SetEase(Ease.Linear);
+        DOVirtual.Float(bgMaterial.color.a, 255, time, UpdateColor).SetEase(Ease.Linear);
     }
 
     void UpdateColor(float a)
     {
-        bgMaterial.SetColor("_Color", new Color32(0, 0, 0, (byte)(a * 255)));
+        bgMaterial.SetColor("_Color", new Color(0, 0, 0, a));
     }
 
 

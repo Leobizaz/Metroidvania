@@ -7,6 +7,7 @@ public class ActivateObject : MonoBehaviour
     bool once;
     public bool deActivate;
 
+    public bool onInside = false;
     public bool onEnable = false;
     public float onEnableDelay = 0;
 
@@ -28,6 +29,17 @@ public class ActivateObject : MonoBehaviour
             {
                 once = true;
                 Destroy(gameObject, 0.1f);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (onInside)
+        {
+            if(collision.gameObject.tag == "Player")
+            {
+                obj.SetActive(false);
             }
         }
     }
