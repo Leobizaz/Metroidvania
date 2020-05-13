@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 45f1bf6608bac1345a246949e3aa1fd8, type: 3}
   - {fileID: 8300000, guid: f27b348294e2e2b448e85b0fa2bb13f0, type: 3}
   fx_ground: {fileID: 7104713287951269853}
+  onScreen: 0
 --- !u!114 &7104713286865254588
 MonoBehaviour:
   m_ObjectHideFlags: 0
