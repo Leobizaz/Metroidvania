@@ -7,6 +7,8 @@ public class PlaySound : MonoBehaviour
     AudioSource aSource;
     public float delay;
     public bool onEnable;
+    public bool oneTime = true;
+    bool once;
 
     private void Awake()
     {
@@ -15,12 +17,13 @@ public class PlaySound : MonoBehaviour
 
     private void OnEnable()
     {
-        if(onEnable)
+        if(onEnable && !once)
             Invoke("Play", delay);
     }
 
     public void Play()
     {
+        if (oneTime) once = true;
         aSource.Play();
     }
 

@@ -24,6 +24,7 @@ public class DialoguePlayer : MonoBehaviour
     public bool skipped;
     private void OnEnable()
     {
+        parent = transform.parent.transform;
         if (!skipped)
         {
             Initialize();
