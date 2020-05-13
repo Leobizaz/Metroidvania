@@ -20,15 +20,23 @@ public class DialoguePlayer : MonoBehaviour
     public Vector3 startScale;
     public Vector3 endScale;
     public float animationSpeed;
-
+    public bool isPlaying;
+    public bool skipped;
     private void OnEnable()
     {
-        Initialize();
-        if (animate)
+        if (!skipped)
+        {
+            Initialize();
+            if (animate)
+            {
+                parent.localScale = startScale;
+                parent.DOScale(endScale, animationSpeed).SetEase(curveOpen);
+
+            }
+        }
+        else
         {
             parent.localScale = startScale;
-            parent.DOScale(endScale, animationSpeed).SetEase(curveOpen);
-
         }
     }
 
@@ -39,6 +47,7 @@ public class DialoguePlayer : MonoBehaviour
         parent = transform.parent.transform;
         id = 0;
         audioS = GetComponent<AudioSource>();
+        isPlaying = true;
     }
 
     public void PlayText()
@@ -121,6 +130,7 @@ public class DialoguePlayer : MonoBehaviour
 
     public void Close()
     {
+        isPlaying = false;
         if (fadeOut)
         {
             textBox.DOColor(new Color32(255, 255, 255, 0), animationSpeed+2);

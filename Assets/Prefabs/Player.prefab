@@ -10420,6 +10420,7 @@ MonoBehaviour:
   obj: {fileID: 0}
   oneTime: 1
   deActivate: 0
+  onInside: 0
   onEnable: 1
   onEnableDelay: 8
 --- !u!114 &1706995629088140226
@@ -10437,6 +10438,7 @@ MonoBehaviour:
   obj: {fileID: 0}
   oneTime: 1
   deActivate: 0
+  onInside: 0
   onEnable: 1
   onEnableDelay: 3
 --- !u!114 &1706995629088140225
@@ -10454,6 +10456,7 @@ MonoBehaviour:
   obj: {fileID: 0}
   oneTime: 1
   deActivate: 0
+  onInside: 0
   onEnable: 1
   onEnableDelay: 6
 --- !u!1 &1706995629265852686
@@ -32722,6 +32725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundplayer: {fileID: 1706995630419362544}
+  metal: 0
   sons_de_passo:
   - {fileID: 8300000, guid: 7db9df9405d58fd4e81ae3589204c28e, type: 3}
   - {fileID: 8300000, guid: 7896ebac0e5d22944bf8e40a09967046, type: 3}
@@ -32732,6 +32736,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a9f413b5e665cfe4fad7eadcf3deb8ce, type: 3}
   - {fileID: 8300000, guid: b2141bd327e6a77448718b9646099d10, type: 3}
   - {fileID: 8300000, guid: 56a1a793d67ea794496b44f3543da91e, type: 3}
+  sons_de_passo_metal: []
   sons_de_mexendoMetal:
   - {fileID: 8300000, guid: 72dae027dc065aa47aa31636998ad452, type: 3}
   - {fileID: 8300000, guid: fe01b20e973cec84fb5bb5856195ff8f, type: 3}

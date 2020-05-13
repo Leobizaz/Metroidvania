@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     // Variaveis estaticas
     public static bool facingleft;
     public static bool facingright;
-    public static int hits = 3;
+    public static int hits = 2;
     public static bool OnMovement = true;
 
     // Referencias privadas

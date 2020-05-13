@@ -14,7 +14,7 @@ public class Interact : MonoBehaviour
 
     void Start()
     {
-        
+        indicator.SetActive(false);
     }
     void Update()
     {

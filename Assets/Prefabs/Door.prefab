@@ -710,8 +710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 3477262035887197084}
   sfx:
-  - {fileID: 8300000, guid: 53ebd6fb6a6fde347b62b26d8c152204, type: 3}
-  - {fileID: 8300000, guid: dda88d0b962194944bb7942d9aed5107, type: 3}
+  - {fileID: 8300000, guid: 9577c986ec7d3ab44b535af2e9860d62, type: 3}
+  - {fileID: 8300000, guid: 5634b29b65ddb6b468a9c0fb56a1a722, type: 3}
 --- !u!82 &6102351362579951318
 AudioSource:
   m_ObjectHideFlags: 0
