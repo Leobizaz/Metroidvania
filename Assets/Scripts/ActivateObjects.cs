@@ -7,6 +7,7 @@ public class ActivateObjects : MonoBehaviour
     public GameObject[] objects;
     public bool onStartup;
     public float timeBetweenObjects;
+    public bool deActivate = false;
     public float delay;
     public bool automatic;
     int i;
@@ -15,7 +16,23 @@ public class ActivateObjects : MonoBehaviour
     {
         if (onStartup)
         {
+            if (deActivate)
+            {
+                Invoke("Disable", delay);
+                return;
+            }
             Invoke("Enable", delay);
+        }
+    }
+
+    public void Disable()
+    {
+        if (objects.Length > i)
+        {
+            objects[i].SetActive(false);
+            i++;
+            if (automatic)
+                Invoke("Disable", timeBetweenObjects);
         }
     }
 

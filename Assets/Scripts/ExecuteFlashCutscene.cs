@@ -5,8 +5,10 @@ using UnityEngine;
 public class ExecuteFlashCutscene : MonoBehaviour
 {
     public FlashAnimation flashAnim;
-    private void Start()
+    public GameObject newEntry;
+    private void OnEnable()
     {
         flashAnim.Play();
+        LogUnlocker.current.UnlockLog(0);
     }
 }

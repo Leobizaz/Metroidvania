@@ -10,13 +10,25 @@ public class ReatorOnEnable : MonoBehaviour
     public GameObject subFX;
     public GameObject monitores;
     public GameObject powerUP_event;
+    public PlayerController player;
+    bool once;
 
     private void OnEnable()
     {
-        //ReatorPowerUP();
-        //sfx
+        if (!once)
+        {
+            player.transform.position = new Vector3(-28.899f, -21.266f, 0);
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+            player.Freio();
 
-        Invoke("ReactorLightUP", 1);
+            if (!PlayerController.facingleft)
+                player.FaceLeft();
+
+            player.isBusy = true;
+            player.gameObject.GetComponentInChildren<Animator>().Play("Bob_InteractConsole");
+            once = true;
+            Invoke("ReactorLightUP", 1);
+        }
     }
 
     void Start()

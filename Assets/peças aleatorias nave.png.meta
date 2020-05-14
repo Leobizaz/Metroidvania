@@ -1,0 +1,526 @@
+fileFormatVersion: 2
+guid: 57e9cd7b039e89f4db4130b707dd3d9b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6257785452092076084
+    second: "pe\xE7as aleatorias nave_0"
+  - first:
+      213: -8454347269437880132
+    second: "pe\xE7as aleatorias nave_1"
+  - first:
+      213: 5571310512071619018
+    second: "pe\xE7as aleatorias nave_2"
+  - first:
+      213: 6225919024152228189
+    second: "pe\xE7as aleatorias nave_3"
+  - first:
+      213: 3543150132826663398
+    second: "pe\xE7as aleatorias nave_4"
+  - first:
+      213: -2345812801665014601
+    second: "pe\xE7as aleatorias nave_5"
+  - first:
+      213: 2815085466262885322
+    second: "pe\xE7as aleatorias nave_6"
+  - first:
+      213: 4290179078147569812
+    second: "pe\xE7as aleatorias nave_7"
+  - first:
+      213: -7862109243257157110
+    second: "pe\xE7as aleatorias nave_8"
+  - first:
+      213: 188318800788110003
+    second: "pe\xE7as aleatorias nave_9"
+  - first:
+      213: 5150123216271076322
+    second: "pe\xE7as aleatorias nave_10"
+  - first:
+      213: -5093926576920327211
+    second: "pe\xE7as aleatorias nave_11"
+  - first:
+      213: -1391980815997031127
+    second: "pe\xE7as aleatorias nave_12"
+  - first:
+      213: 5095613668888478379
+    second: "pe\xE7as aleatorias nave_13"
+  - first:
+      213: 307905370233660147
+    second: "pe\xE7as aleatorias nave_14"
+  - first:
+      213: 5091437010893169610
+    second: "pe\xE7as aleatorias nave_15"
+  - first:
+      213: 1397125691402947896
+    second: "pe\xE7as aleatorias nave_16"
+  - first:
+      213: -8364790033016926775
+    second: "pe\xE7as aleatorias nave_17"
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_0"
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 333
+        width: 386
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 52, y: 0, z: 23, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4303e88a6be18d650800000000000000
+      internalID: 6257785452092076084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_1"
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 345
+        width: 193
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 12, z: 9, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb88c5593ff1caa80800000000000000
+      internalID: -8454347269437880132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_2"
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 287
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 18, z: 0, w: 15}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1bd658465415d40800000000000000
+      internalID: 5571310512071619018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_3"
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 318
+        width: 225
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d51b0fabd58e66650800000000000000
+      internalID: 6225919024152228189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_4"
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 209
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9e20df54ccb2130800000000000000
+      internalID: 3543150132826663398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_5"
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 209
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b4613f7faff17fd0800000000000000
+      internalID: -2345812801665014601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_6"
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 164
+        width: 83
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3d6fc0151311720800000000000000
+      internalID: 2815085466262885322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_7"
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 175
+        width: 230
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4987cc72427c98b30800000000000000
+      internalID: 4290179078147569812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_8"
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 152
+        width: 152
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a875a6c4d24e290800000000000000
+      internalID: -7862109243257157110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_9"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 157
+        width: 230
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bab08993fa0d9200800000000000000
+      internalID: 188318800788110003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_10"
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 144
+        width: 231
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb645757c9e87740800000000000000
+      internalID: 5150123216271076322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_11"
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 92
+        width: 70
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db0ebe54ccbe49b0800000000000000
+      internalID: -5093926576920327211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_12"
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 91
+        width: 119
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92da658a2d0beace0800000000000000
+      internalID: -1391980815997031127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_13"
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 106
+        width: 225
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba209b652a147b640800000000000000
+      internalID: 5095613668888478379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_14"
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 12
+        width: 128
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 31, y: 22, z: 16, w: 21}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f266398d46e54400800000000000000
+      internalID: 307905370233660147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_15"
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 36
+        width: 53
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3609e5cfa68a640800000000000000
+      internalID: 5091437010893169610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "pe\xE7as aleatorias nave_16"
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 36
+        width: 54
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d05aef966936310800000000000000
+      internalID: 1397125691402947896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

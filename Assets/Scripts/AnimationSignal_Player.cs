@@ -9,6 +9,12 @@ public class AnimationSignal_Player : MonoBehaviour
     public AudioClip[] sons_de_passo;
     public AudioClip[] sons_de_passo_metal;
     public AudioClip[] sons_de_mexendoMetal;
+    PlayerController player;
+
+    private void Awake()
+    {
+        player = transform.parent.GetComponent<PlayerController>();
+    }
 
     public void SomDePasso()
     {
@@ -23,6 +29,16 @@ public class AnimationSignal_Player : MonoBehaviour
     public void SomDeMexendoSeiLa()
     {
         soundplayer.PlayOneShotRandom(sons_de_mexendoMetal);
+    }
+
+    public void PushButton()
+    {
+        //sfx botão
+    }
+
+    public void NotBusy()
+    {
+        player.isBusy = false;
     }
 
 
