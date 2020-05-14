@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 3477262035776127114}
   - component: {fileID: 3477262035776127113}
   - component: {fileID: 3477262035776127112}
+  - component: {fileID: 7913070592092036476}
   - component: {fileID: 6102351362579951318}
   m_Layer: 0
   m_Name: Door
@@ -712,6 +713,22 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: 9577c986ec7d3ab44b535af2e9860d62, type: 3}
   - {fileID: 8300000, guid: 5634b29b65ddb6b468a9c0fb56a1a722, type: 3}
+--- !u!114 &7913070592092036476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477262035776127111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0403872ee40bbd4a94fa067bd305e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Efeito: 1
+  Ambiente: 0
+  Musica: 0
+  audiosource: {fileID: 6102351362579951318}
 --- !u!82 &6102351362579951318
 AudioSource:
   m_ObjectHideFlags: 0

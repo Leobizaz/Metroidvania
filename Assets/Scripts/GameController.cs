@@ -28,15 +28,21 @@ public class GameController : MonoBehaviour
         
         if(Input.GetKeyDown (KeyCode.P) && pause == false)
         {
-            PausePannel.SetActive(true);
-            Time.timeScale = 0;
-            pause = true;
+            if (PausePannel != null)
+            {
+                PausePannel.SetActive(true);
+                Time.timeScale = 0;
+                pause = true;
+            }
         }
         else if(Input.GetKeyDown(KeyCode.P) && pause == true)
         {
-            PausePannel.SetActive(false);
-            Time.timeScale = 1;
-            pause = false;
+            if (PausePannel != null)
+            {
+                PausePannel.SetActive(false);
+                Time.timeScale = 1;
+                pause = false;
+            }
         }
     }
 

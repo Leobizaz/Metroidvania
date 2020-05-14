@@ -9532,6 +9532,7 @@ GameObject:
   - component: {fileID: 6974345666398250180}
   - component: {fileID: 5638427889474878173}
   - component: {fileID: 9055372877038228850}
+  - component: {fileID: 5264663917778915853}
   - component: {fileID: 7320721204637427599}
   m_Layer: 0
   m_Name: GunProjectile
@@ -14374,6 +14375,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5264663917778915853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736242287807982373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0403872ee40bbd4a94fa067bd305e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Efeito: 1
+  Ambiente: 0
+  Musica: 0
+  audiosource: {fileID: 7320721204637427599}
 --- !u!82 &7320721204637427599
 AudioSource:
   m_ObjectHideFlags: 0

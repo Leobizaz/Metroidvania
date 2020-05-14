@@ -9532,6 +9532,7 @@ GameObject:
   - component: {fileID: 8964544030004310092}
   - component: {fileID: 5953221495835373141}
   - component: {fileID: 6992553677414236666}
+  - component: {fileID: 8178248380422168879}
   - component: {fileID: 8735226275060773639}
   m_Layer: 0
   m_Name: GunReflect
@@ -14374,6 +14375,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8178248380422168879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709004888061837229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0403872ee40bbd4a94fa067bd305e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Efeito: 1
+  Ambiente: 0
+  Musica: 0
+  audiosource: {fileID: 8735226275060773639}
 --- !u!82 &8735226275060773639
 AudioSource:
   m_ObjectHideFlags: 0

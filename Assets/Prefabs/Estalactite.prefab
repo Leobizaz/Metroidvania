@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2103157110729663710}
   - component: {fileID: 2103157110729663711}
+  - component: {fileID: 8231548340173657961}
   - component: {fileID: 2103157110729663697}
   - component: {fileID: 2103157110729663696}
   - component: {fileID: 2103157110729663699}
@@ -53,6 +54,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trap: 0
   FX: {fileID: 5562123101942045879}
+--- !u!114 &8231548340173657961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103157110729663701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0403872ee40bbd4a94fa067bd305e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Efeito: 1
+  Ambiente: 0
+  Musica: 0
+  audiosource: {fileID: 7113502980489980363}
 --- !u!212 &2103157110729663697
 SpriteRenderer:
   m_ObjectHideFlags: 0

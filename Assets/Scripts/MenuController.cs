@@ -16,6 +16,18 @@ public class MenuController : MonoBehaviour
     public Dropdown DropdownResolution;
     public Toggle FullScreen;
 
+    public float volumeEfeitos;
+    public float volumeAmbiente;
+    public float volumeMusica;
+
+    public Slider sliderEfeitos;
+    public Slider sliderAmbiente;
+    public Slider sliderMusica;
+
+    public static float Saved_volumeEfeitos;
+    public static float Saved_volumeAmbiente;
+    public static float Saved_volumeMusica;
+
     void Awake()
     {
         DropdownQuality.value = QualitySettings.GetQualityLevel();
@@ -23,10 +35,18 @@ public class MenuController : MonoBehaviour
         {
             DropDownValueChanged(DropdownResolution);
         });
+        GetSavedOptions();
     }
 
     void Update()
     {
+
+        volumeEfeitos = sliderEfeitos.value;
+        volumeAmbiente = sliderAmbiente.value;
+        volumeMusica = sliderMusica.value;
+
+        SetSavedOptions();
+
         if (DropdownQuality.value == 0)
         {
             SetVeryLow();
@@ -161,5 +181,25 @@ public class MenuController : MonoBehaviour
     public void UnPause()
     {
         Time.timeScale = 1;
+    }
+    void GetSavedOptions()
+    {
+
+        sliderEfeitos.value = Saved_volumeEfeitos;
+        sliderAmbiente.value = Saved_volumeAmbiente;
+        sliderMusica.value = Saved_volumeMusica;
+
+        volumeEfeitos = Saved_volumeEfeitos;
+        volumeAmbiente = Saved_volumeAmbiente;
+        volumeMusica = Saved_volumeMusica;
+
+    }
+    void SetSavedOptions()
+    {
+        
+        Saved_volumeEfeitos = volumeEfeitos;
+        Saved_volumeAmbiente = volumeAmbiente;
+        Saved_volumeMusica = volumeMusica;
+     
     }
 }

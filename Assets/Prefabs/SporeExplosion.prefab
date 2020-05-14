@@ -4929,6 +4929,7 @@ GameObject:
   - component: {fileID: 4170631886034254798}
   - component: {fileID: 5678852385922865120}
   - component: {fileID: 856689965518482181}
+  - component: {fileID: 3983298391360178653}
   - component: {fileID: 2419701359132553877}
   m_Layer: 0
   m_Name: SporeExplosion
@@ -9741,6 +9742,22 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &3983298391360178653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524696549578474621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0403872ee40bbd4a94fa067bd305e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Efeito: 1
+  Ambiente: 0
+  Musica: 0
+  audiosource: {fileID: 2419701359132553877}
 --- !u!82 &2419701359132553877
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9753,7 +9770,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 551a2fd7a494e9c44a37cad7050e0e26, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.28
+  m_Volume: 0.17
   m_Pitch: 1
   Loop: 0
   Mute: 0
