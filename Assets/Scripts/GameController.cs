@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
     public GameObject health2;
     public GameObject health3;
     public GameObject PausePannel;
+    public GameObject Inventario;
+    public GameObject Opcoes;
+    public GameObject Data;
     private bool pause = false;
 
     // Update is called once per frame
@@ -35,10 +38,13 @@ public class GameController : MonoBehaviour
                 pause = true;
             }
         }
-        else if(Input.GetKeyDown(KeyCode.P) && pause == true)
+        else if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PausePannel != null)
+            if (PausePannel != null && pause == true)
             {
+                Inventario.SetActive(true);
+                Data.SetActive(false);
+                Opcoes.SetActive(false);
                 PausePannel.SetActive(false);
                 Time.timeScale = 1;
                 pause = false;
