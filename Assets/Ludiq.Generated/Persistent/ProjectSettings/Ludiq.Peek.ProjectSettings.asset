@@ -16,11 +16,310 @@ MonoBehaviour:
     _json: 
     _objectReferences: []
   _odinData:
-    SerializedFormat: 0
-    SerializedBytes: 01010a000000640069006300740069006f006e006100720079002f000000000166000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00440069006300740069006f006e00610072007900600032005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d002c005b00530079007300740065006d002e004f0062006a006500630074002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c00690062000000000001010800000063006f006d00700061007200650072002f010000000159000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00470065006e00650072006900630045007100750061006c0069007400790043006f006d0070006100720065007200600031005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c00690062000100000005060d00000000000000042e27010200000024006b00010e000000700072006f00620065004c0061007900650072004d00610073006b00010102000000240076002f02000000012d00000055006e0069007400790045006e00670069006e0065002e004c0061007900650072004d00610073006b002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c0065000200000018fbffffff0505042e27010200000024006b0001100000006300720065006100740065005000720069006d00690074006900760065007300010102000000240076002f030000000118000000530079007300740065006d002e0042006f006f006c00650061006e002c0020006d00730063006f0072006c0069006200030000002c000505042e27010200000024006b00010d0000006300720065006100740065005000720065006600610062007300010102000000240076003003000000040000002c010505042e27010200000024006b00010c0000006300720065006100740065004d006f00640065006c007300010102000000240076003003000000050000002c000505042e27010200000024006b00010d0000006300720065006100740065005300700072006900740065007300010102000000240076003003000000060000002c010505042e27010200000024006b00010e0000006300720065006100740065004f006e0042006f0075006e0064007300010102000000240076003003000000070000002c010505042e27010200000024006b00010f000000630072006500610074006f00720055006e0069007400530069007a006500010102000000240076002f040000000117000000530079007300740065006d002e00530069006e0067006c0065002c0020006d00730063006f0072006c006900620008000000200000803f0505042e27010200000024006b0001130000006300720065006100740065004d0065006e00750042006c00610063006b006c00690073007400010102000000240076002f050000000146000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c006900620009000000060000000000000000070505042e27010200000024006b00011500000063007200650061007400650046006f006c0064006500720042006c00610063006b006c006900730074000101020000002400760030050000000a00000006010000000000000028011a0000004100730073006500740073002f005f004100730073006500740073002000740065006d0070006f0072006100720069006f007300070505042e27010200000024006b00010d0000007400610062007300570068006900740065006c00690073007400010102000000240076002f060000000144000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530079007300740065006d002e0054007900700065002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c00690062000b000000060000000000000000070505042e27010200000024006b00010d000000740061006200730042006c00610063006b006c006900730074000101020000002400760030060000000c000000060200000000000000022f07000000011c000000530079007300740065006d002e00520075006e00740069006d00650054007900700065002c0020006d00730063006f0072006c00690062000d00000028012800000055006e0069007400790045006400690074006f0072002e0049006e00730070006500630074006f007200570069006e0064006f0077002c00200055006e0069007400790045006400690074006f007200050230070000000e00000028012200000055006e0069007400790045006400690074006f0072002e005300630065006e00650056006900650077002c00200055006e0069007400790045006400690074006f00720005070505042e27010200000024006b000115000000700072006f006a006500630074005300650074007500700043006f006d0070006c0065007400650064000101020000002400760030030000000f0000002c010505042e27010200000024006b00010c00000073006100760065006400560065007200730069006f006e00010102000000240076002f0800000001350000004c0075006400690071002e005000650065006b0043006f00720065002e00530065006d0061006e00740069006300560065007200730069006f006e002c0020004c0075006400690071002e005000650065006b0043006f00720065002e0045006400690074006f007200100000001701050000006d0061006a006f007200010000001701050000006d0069006e006f0072000100000017010500000070006100740063006800080000002d01050000006c006100620065006c0017010900000069006e006300720065006d0065006e0074000000000005050705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: dictionary
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 13
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: probeLayerMask
+    - Name: $v
+      Entry: 7
+      Data: 2|UnityEngine.LayerMask, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createPrimitives
+    - Name: $v
+      Entry: 7
+      Data: 3|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createPrefabs
+    - Name: $v
+      Entry: 7
+      Data: 4|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createModels
+    - Name: $v
+      Entry: 7
+      Data: 5|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createSprites
+    - Name: $v
+      Entry: 7
+      Data: 6|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createOnBounds
+    - Name: $v
+      Entry: 7
+      Data: 7|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: creatorUnitSize
+    - Name: $v
+      Entry: 7
+      Data: 8|System.Single, mscorlib
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createMenuBlacklist
+    - Name: $v
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: createFolderBlacklist
+    - Name: $v
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: Assets/_Assets temporarios
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: tabsWhitelist
+    - Name: $v
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[System.Type, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: tabsBlacklist
+    - Name: $v
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[System.Type, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 13|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UnityEditor.InspectorWindow, UnityEditor
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: UnityEditor.SceneView, UnityEditor
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: projectSetupCompleted
+    - Name: $v
+      Entry: 7
+      Data: 15|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: savedVersion
+    - Name: $v
+      Entry: 7
+      Data: 16|Ludiq.PeekCore.SemanticVersion, Ludiq.PeekCore.Editor
+    - Name: major
+      Entry: 3
+      Data: 1
+    - Name: minor
+      Entry: 3
+      Data: 1
+    - Name: patch
+      Entry: 3
+      Data: 8
+    - Name: label
+      Entry: 6
+      Data: 
+    - Name: increment
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

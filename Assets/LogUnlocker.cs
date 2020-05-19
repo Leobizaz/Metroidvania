@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class LogUnlocker : MonoBehaviour
 {
@@ -17,4 +16,5 @@ public class LogUnlocker : MonoBehaviour
     {
         logs[id].unlocked = true;
     }
+
 }

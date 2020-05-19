@@ -19,12 +19,16 @@ public class Elevador : MonoBehaviour
     public ParticleSystem stompFX;
     float distance;
     public GameObject jaula;
+    public GameObject setaCima;
+    public GameObject setaBaixo;
 
     private void Start()
     {
         aSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         GameEvents.current.onReatorPowerUP += PowerUP;
+        setaCima.SetActive(false);
+        setaBaixo.SetActive(false);
     }
 
     private void Update()
@@ -41,6 +45,8 @@ public class Elevador : MonoBehaviour
                     }
                     else
                     {
+                        setaCima.SetActive(false);
+                        setaBaixo.SetActive(true);
                         DOTween.Kill(this.transform);
                         CancelInvoke("Unlock");
                         moving = true;
@@ -68,6 +74,8 @@ public class Elevador : MonoBehaviour
                     }
                     else
                     {
+                        setaBaixo.SetActive(false);
+                        setaCima.SetActive(true);
                         DOTween.Kill(this.transform);
                         CancelInvoke("Unlock");
                         jaula.SetActive(true);
@@ -95,6 +103,8 @@ public class Elevador : MonoBehaviour
 
     void Unlock()
     {
+        setaBaixo.SetActive(false);
+        setaCima.SetActive(false);
         jaula.SetActive(false);
         aSource.Stop();
         moving = false;
