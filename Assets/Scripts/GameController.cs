@@ -18,11 +18,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerController.hits <= 2)
+        if(PlayerController.hits < 2)
         {
             health1.SetActive(false);
         }
-        if (PlayerController.hits <= 1)
+        if (PlayerController.hits <= 1.5)
         {
             health2.SetActive(false);
         }

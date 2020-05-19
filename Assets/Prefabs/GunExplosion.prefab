@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8838935949841707418}
   - component: {fileID: 6897235103739429238}
   - component: {fileID: 1602787116602889450}
+  - component: {fileID: -716191480081328991}
   - component: {fileID: 4552244294889959832}
   m_Layer: 0
   m_Name: GunExplosion
@@ -4867,6 +4868,22 @@ MonoBehaviour:
   - {x: 0.2945118, y: 0.07336426, z: 0}
   - {x: -0.43392563, y: 0.0016593933, z: 0}
   - {x: -0.48615074, y: -0.045681, z: 0}
+--- !u!114 &-716191480081328991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282503317536100063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0403872ee40bbd4a94fa067bd305e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Efeito: 1
+  Ambiente: 0
+  Musica: 0
+  audiosource: {fileID: 4552244294889959832}
 --- !u!82 &4552244294889959832
 AudioSource:
   m_ObjectHideFlags: 0
