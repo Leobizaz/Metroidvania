@@ -5,4 +5,5 @@ using UnityEngine;
 public class Log : MonoBehaviour
 {
     public bool unlocked = false;
+    public string logtag;
 }
