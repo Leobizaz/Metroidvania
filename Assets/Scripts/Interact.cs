@@ -23,7 +23,11 @@ public class Interact : MonoBehaviour
             if (oneTime) once = true;
             Execute();
             indicator.SetActive(false);
-            if(destroy) Destroy(gameObject, 0.1f);
+            if (destroy)
+            {
+                Destroy(gameObject, 0.1f);
+                Destroy(indicator, 0.1f);
+            }
         }
     }
 
@@ -32,6 +36,7 @@ public class Interact : MonoBehaviour
         for(int i = 0; i < objectsToActivate.Length; i++)
         {
             objectsToActivate[i].SetActive(true);
+            
         }
     }
 

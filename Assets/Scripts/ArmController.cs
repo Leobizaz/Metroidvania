@@ -48,9 +48,9 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
             float rot_z2 = Mathf.Atan2(-diff.y, -diff.x) * -Mathf.Rad2Deg;
 
-            var zLock = Mathf.Clamp(rot_z, -90, 90);
+            var zLock = Mathf.Clamp(rot_z, -80f, 80f);
             if (zLock < 0) zLock = 360 + zLock;
-            var zLock2 = Mathf.Clamp(rot_z2, -90, 90);
+            var zLock2 = Mathf.Clamp(rot_z2, -80f, 80f);
             if (zLock2 < 0) zLock2 = 360 + zLock2;
             rot_z = zLock;
             rot_z2 = zLock2;
