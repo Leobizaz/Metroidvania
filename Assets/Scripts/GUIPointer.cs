@@ -21,7 +21,10 @@ public class GUIPointer : MonoBehaviour
         parent.localScale = new Vector3(1, 0, 1);
         parent.DOScale(new Vector3(1, 1, 1), 1).SetEase(curve);
     }
-
+    void Update()
+    {
+        Target.GUIName = target;
+    }
     private void OnGUI()
     {
         Vector3 targetPosLocal = Camera.main.transform.InverseTransformPoint(target.position);
