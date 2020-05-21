@@ -11,6 +11,7 @@ public class HideSecret : MonoBehaviour
     public float time;
     public SpriteShapeRenderer background;
     private Material bgMaterial;
+    public GameObject fade;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class HideSecret : MonoBehaviour
     public void Unhide()
     {
         DOVirtual.Float(bgMaterial.color.a, 0, time, UpdateColor).SetEase(Ease.Linear);
+        if (fade != null) fade.SetActive(false);
     }
 
     public void Hide()
