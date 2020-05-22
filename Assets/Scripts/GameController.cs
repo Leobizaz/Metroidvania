@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         if(PlayerController.hits <= 0)
             health3.SetActive(false);
         
-        if(Input.GetKeyDown (KeyCode.P) && pause == false)
+        if(Input.GetKeyDown (KeyCode.P) && pause == false && !PromptNome.current.nomeando)
         {
             if (PausePannel != null)
             {

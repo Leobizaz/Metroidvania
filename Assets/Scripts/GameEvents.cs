@@ -13,6 +13,8 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
     public event Action onReatorPowerUP;
+    public event Action<GameObject> onNewBeacon;
+    public event Action<GameObject> onRemoveBeacon;
     public event Action<GameObject> onMakeSound;
     public event Action<GameObject> onMakeBigSound;
 
@@ -21,6 +23,22 @@ public class GameEvents : MonoBehaviour
         if(onMakeSound != null)
         {
             onMakeSound(obj);
+        }
+    }
+
+    public void RemoveBeacon(GameObject obj)
+    {
+        if(onRemoveBeacon != null)
+        {
+            onRemoveBeacon(obj);
+        }
+    }
+
+    public void NewBeacon(GameObject obj)
+    {
+        if(onNewBeacon != null)
+        {
+            onNewBeacon(obj);
         }
     }
 

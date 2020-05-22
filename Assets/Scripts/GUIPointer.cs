@@ -23,7 +23,10 @@ public class GUIPointer : MonoBehaviour
     }
     void Update()
     {
-        Target.GUIName = target;
+        if (target != null)
+        {
+            Target.GUIName = target;
+        }
     }
     private void OnGUI()
     {
