@@ -35,10 +35,7 @@ public class Credits : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Next"))
-            Next();
-        else if (Input.GetButtonDown("Previous"))
-            Prev();
+
     }
 
     public void Prev()
