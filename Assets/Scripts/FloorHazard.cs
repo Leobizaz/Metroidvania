@@ -62,6 +62,7 @@ public class FloorHazard : MonoBehaviour
         {
             capturedObject = other.gameObject;
             LockRigidbody();
+            GameEvents.current.MakeBigSound(this.gameObject);
             //Invoke("LockRigidbody", 0.5f);
             redlight.intensity = storedIntensity;
             perna.transform.position = this.transform.position;
@@ -80,6 +81,7 @@ public class FloorHazard : MonoBehaviour
 
     void UnlockPlayer()
     {
+        
         audioSource.Stop();
         audioSource.PlayOneShot(sfx_crunchend);
         DOVirtual.Float(storedIntensity, 0, 2, ChangeLight);
@@ -88,6 +90,7 @@ public class FloorHazard : MonoBehaviour
         hinge.connectedBody = null;
         spriteAnimator.Play("dead");
         PlayerLocked = false;
+        
         Invoke("HideSprite", 2);
     }
     void HideSprite()

@@ -3228,7 +3228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5274527594924939
 Transform:
   m_ObjectHideFlags: 0
@@ -9182,6 +9182,11 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 5274527594924940}
+    - target: {fileID: 7339898096186216381, guid: 58624ecbe41b9e14e90d7c73e1345da2,
+        type: 3}
+      propertyPath: time
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8273701754413715466, guid: 58624ecbe41b9e14e90d7c73e1345da2,
         type: 3}
       propertyPath: m_DynamicOccludee
@@ -10609,6 +10614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 1.4569206
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120715100062210551, guid: c97aa7531a8f53049a0f9a9bffe31e4f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97aa7531a8f53049a0f9a9bffe31e4f, type: 3}

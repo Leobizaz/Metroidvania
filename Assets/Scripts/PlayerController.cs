@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 2f;
     public float tempoReload = 1.5f; // Tempo em segundos que leva para recarregar
     public float flashCooldown = 2;
+    public bool unlockedBeacon;
+    public bool unlockedFlash;
 
     // Variaveis essenciais
     float currentMoveSpeed;
@@ -20,7 +22,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool wantToJump;
     [HideInInspector] public bool onRope;
-    public bool unlockedFlash;
     private float invulnerabilityFrame = 0.5f;
     private float hitCooldown;
     private float yVelocity = 0.0f;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private bool died;
     bool wasCharging;
     bool isCharging;
+    bool playerPaused;
     bool shotReady;
     GameObject lastEnemyToHit;
 
@@ -69,12 +71,23 @@ public class PlayerController : MonoBehaviour
     public Material red_material;
     public GameObject ReloadIcon;
 
+
     private void Start()
     {
+        GameEvents.current.onUnPausePlayer += UnPausePlayer;
+        GameEvents.current.onPausePlayer += PausePlayer;
         Initialize();
     }
 
+    void PausePlayer()
+    {
+        playerPaused = true;
+    }
 
+    void UnPausePlayer()
+    {
+        playerPaused = false;
+    }
 
     private void FixedUpdate()
     {
@@ -83,23 +96,26 @@ public class PlayerController : MonoBehaviour
 
         if (!died)
         {
-            GroundCheck();
-            MoveCheck();
-            //ShootMechanic(); old
-            ChargedShootMechanic();
-            MecanicaRecarregar();
-            if (!isBusy)
+            if (!playerPaused)
             {
-                FlipSprite();
-                //MovementSmoothing();
-                MovementMechanic();
-
-                if (unlockedFlash)
+                GroundCheck();
+                MoveCheck();
+                //ShootMechanic(); old
+                ChargedShootMechanic();
+                MecanicaRecarregar();
+                if (!isBusy)
                 {
-                    FlashMechanic();
+                    FlipSprite();
+                    //MovementSmoothing();
+                    MovementMechanic();
+
+                    if (unlockedFlash)
+                    {
+                        FlashMechanic();
+
+                    }
 
                 }
-
             }
         }
 

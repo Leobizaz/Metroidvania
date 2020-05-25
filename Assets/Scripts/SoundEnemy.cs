@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundEnemy : MonoBehaviour
 {
+    int index;
     [SerializeField] GameObject currentTarget;
     GameObject lastTargetObj;
     [SerializeField] private Vector3 lastTargetPosition;
@@ -24,6 +25,7 @@ public class SoundEnemy : MonoBehaviour
     public LayerMask whatIsGround;
     public ParticleSystem bumpFX;
     [SerializeField] bool block;
+    float atkCooldown;
 
     void Start()
     {
@@ -35,6 +37,8 @@ public class SoundEnemy : MonoBehaviour
 
     void Update()
     {
+        if (atkCooldown > 0) atkCooldown -= Time.deltaTime;
+
         if (looking)
         {
             var heading = lastTargetPosition - this.transform.position;
@@ -71,7 +75,7 @@ public class SoundEnemy : MonoBehaviour
                 }
             }
 
-            if (Mathf.Abs(dist) <= 0.4f)
+            if (Mathf.Abs(dist) <= 0.4f && atkCooldown <= 0)
             {
                 StopMoving();
                 Attack();
@@ -89,6 +93,9 @@ public class SoundEnemy : MonoBehaviour
 
     private void OnListenSound(GameObject obj)
     {
+        
+
+
         if (focusedListening)
         {
             float dist = this.transform.position.x - obj.transform.position.x;
@@ -96,13 +103,28 @@ public class SoundEnemy : MonoBehaviour
             {
                 if(obj == lastTargetObj)
                 {
+                    index++;
                     CancelInvoke("StopFocusedListening");
                     lastTargetObj = currentTarget;
                     currentTarget = obj;
                     lastTargetPosition = currentTarget.transform.position;
                     giveUpTimer = 8;
                     Invoke("StopFocusedListening", 2);
+                    if(index > 3)
+                    {
+                        anim.Play("run");
+                        currentspeed = speed * 2.5f;
+                        anim.speed = 2;
+                    }
                 }
+                else
+                {
+                    index = 0;
+                }
+            }
+            else
+            {
+                index = 0;
             }
         }
 
@@ -144,7 +166,7 @@ public class SoundEnemy : MonoBehaviour
                 anim.Play("run");
                 currentTarget = obj;
                 lastTargetPosition = currentTarget.transform.position;
-                giveUpTimer = 8;
+                giveUpTimer = 14;
                 aSource.PlayOneShot(sfx[1]);
                 looking = true;
                 moving = true;
@@ -168,6 +190,8 @@ public class SoundEnemy : MonoBehaviour
 
     void Attack()
     {
+        atkCooldown = 2f;
+        index = 0;
         anim.speed = 1;
         anim.Play("attack");
         //aSource.PlayOneShot(sfx[3]);

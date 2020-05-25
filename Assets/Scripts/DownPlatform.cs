@@ -83,10 +83,13 @@ public class DownPlatform : MonoBehaviour
     {
         foreach(Collider2D collider in neighbors)
         {
-            if (collider.gameObject.GetComponent<DownPlatform>())
+            if (collider != null)
             {
-                collider.gameObject.GetComponent<DownPlatform>().Twist();
-                //if (collider.gameObject != exclude) collider.gameObject.GetComponent<DownPlatform>().TwistNeighbors(this.gameObject);
+                if (collider.gameObject.GetComponent<DownPlatform>())
+                {
+                    collider.gameObject.GetComponent<DownPlatform>().Twist();
+                    //if (collider.gameObject != exclude) collider.gameObject.GetComponent<DownPlatform>().TwistNeighbors(this.gameObject);
+                }
             }
         }
     }

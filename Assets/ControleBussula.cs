@@ -8,11 +8,16 @@ public class ControleBussula : MonoBehaviour
     public BeaconList beaconList;
     public GUIPointer ponteiro;
     public Text nameIndicator;
+    public Text countIndicator;
+    public GameObject arrows;
+    public Color colorSafe;
+    public Color colorOof;
     bool safe;
     [SerializeField] int index = 0;
 
     private void Start()
     {
+        arrows.SetActive(false);
         ponteiro.gameObject.SetActive(false);
         nameIndicator.gameObject.SetActive(false);
         GameEvents.current.onNewBeacon += Startup;
@@ -21,8 +26,21 @@ public class ControleBussula : MonoBehaviour
 
     void Close(GameObject obj) // desliga o ponteiro se não houver nenhum sinalizador
     {
-        if (beaconList.beacons.Count == 1) 
+        countIndicator.text = (4 - beaconList.beacons.Count).ToString();
+        if (countIndicator.text != "0") countIndicator.color = colorSafe;
+        if (countIndicator.text == "0") countIndicator.color = colorOof;
+
+        if (beaconList.beacons.Count == 1)
         {
+            arrows.SetActive(false);
+            ponteiro.target = beaconList.beacons[0].gameObject.transform;
+            nameIndicator.text = beaconList.beacons[0].gameObject.name;
+
+        }
+
+        if (beaconList.beacons.Count == 0) 
+        {
+            arrows.SetActive(false);
             ponteiro.target = null;
             ponteiro.gameObject.SetActive(false);
             nameIndicator.text = null;
@@ -35,14 +53,14 @@ public class ControleBussula : MonoBehaviour
     {
         if (safe) // "safe" indica que tem pelo menos um sinalizador presente
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow)) //setas alternam entre a lista de sinalizadores
+            if (Input.GetKeyDown(KeyCode.N)) //setas alternam entre a lista de sinalizadores
             {
                 index--;
                 if (index < 0) index = beaconList.beacons.Count - 1;
                 ponteiro.target = beaconList.beacons[index].transform;
                 nameIndicator.text = beaconList.beacons[index].name;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.M))
             {
                 index++;
                 if (index > beaconList.beacons.Count - 1) index = 0;
@@ -56,6 +74,10 @@ public class ControleBussula : MonoBehaviour
 
     void Startup(GameObject obj) //ocorre assim que o primeiro sinalizador é criado
     {
+        countIndicator.text = (4 - beaconList.beacons.Count).ToString();
+        if (countIndicator.text != "0") countIndicator.color = colorSafe;
+        if (countIndicator.text == "0") countIndicator.color = colorOof;
+
         if (!safe)
         {
             //ativa o ponteiro e já seleciona o primeiro sinalizador
@@ -66,6 +88,14 @@ public class ControleBussula : MonoBehaviour
             nameIndicator.gameObject.SetActive(true);
             nameIndicator.text = obj.name;
         }
+        if (safe)
+        {
+            if(beaconList.beacons.Count > 1)
+            {
+                arrows.SetActive(true);
+            }
+        }
+
     }
 
 }

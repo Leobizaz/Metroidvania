@@ -13,10 +13,28 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
     public event Action onReatorPowerUP;
+    public event Action onPausePlayer;
+    public event Action onUnPausePlayer;
     public event Action<GameObject> onNewBeacon;
     public event Action<GameObject> onRemoveBeacon;
     public event Action<GameObject> onMakeSound;
     public event Action<GameObject> onMakeBigSound;
+
+    public void PausePlayer()
+    {
+        if(onPausePlayer != null)
+        {
+            onPausePlayer();
+        }
+    }
+
+    public void UnPausePlayer()
+    {
+        if(onUnPausePlayer != null)
+        {
+            onUnPausePlayer();
+        }
+    }
 
     public void MakeSound(GameObject obj)
     {

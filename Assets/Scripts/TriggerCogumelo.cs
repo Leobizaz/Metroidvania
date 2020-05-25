@@ -87,6 +87,14 @@ namespace UnityEngine.Experimental.Rendering.Universal
         {
             if (!triggered)
             {
+                if (light2d.gameObject.GetComponent<CircleCollider2D>())
+                {
+                    CircleCollider2D lightCol = light2d.gameObject.GetComponent<CircleCollider2D>();
+                    lightCol.enabled = true;
+                    lightCol.radius = lightCol.radius - 2;
+                    lightCol.radius = lightCol.radius + 2;
+                }
+
                 if (GetComponent<AudioSource>())
                     PlayOneShotRandom(sons);
 

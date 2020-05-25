@@ -48,7 +48,7 @@ public class PromptNome : MonoBehaviour
 
     public void EndNaming() //assim que o player termina de digitar no InputField, essa função é acionada pelo componente (tipo aqueles event de botão)
     {
-        if (inputField.text == null) //cancela a colocação do beacon se o nome não for preenchido
+        if (ConsistsOfWhiteSpace(inputField.text) || inputField.text == null) //cancela a colocação do beacon se o nome não for preenchido
         {
             Cancel(); 
             return;
@@ -58,6 +58,15 @@ public class PromptNome : MonoBehaviour
         currentNome = inputField.text;
         beaconPlacer.PlaceBeacon(currentNome); //finalmente coloca o beacon (e passa o nome que foi digitado pra ele)
         panel.SetActive(false); //fecha a janela de nomeação
+    }
+
+    public bool ConsistsOfWhiteSpace(string s)
+    {
+        foreach(char c in s)
+        {
+            if (c != ' ') return false;
+        }
+        return true;
     }
 
 

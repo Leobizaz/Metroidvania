@@ -8,9 +8,11 @@ public class BeaconPlacer : MonoBehaviour
     public Transform placement;
     public PromptNome promptNome;
     PlayerController playerControl;
+    public int beaconCount;
 
     private void Start()
     {
+        GameEvents.current.onRemoveBeacon += BeaconRemoved;
         playerControl = GetComponent<PlayerController>();
     }
 
@@ -18,11 +20,21 @@ public class BeaconPlacer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (!playerControl.isBusy && !promptNome.nomeando)
+            if (!playerControl.isBusy && !promptNome.nomeando && playerControl.unlockedBeacon)
             {
-                TryPlaceBeacon();
+                if(beaconCount < 4)
+                    TryPlaceBeacon();
+                else
+                {
+                    //n vai dar n
+                }
             }
         }
+    }
+
+    void BeaconRemoved(GameObject obj)
+    {
+        beaconCount--;
     }
 
     public void TryPlaceBeacon()
@@ -32,6 +44,7 @@ public class BeaconPlacer : MonoBehaviour
 
     public void PlaceBeacon(string nome) //recebe o nome através de "PromptNome.cs"
     {
+        beaconCount++;
         var newBeacon = Instantiate(beaconPrefab, placement.position, Quaternion.identity);
         newBeacon.GetComponent<Beacon>().nome = nome;
     }

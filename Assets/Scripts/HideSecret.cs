@@ -13,7 +13,7 @@ public class HideSecret : MonoBehaviour
     private Material bgMaterial;
     public GameObject fade;
 
-    private void Awake()
+    private void Start()
     {
         bgMaterial = background.material;
         if (inverted) Unhide();
