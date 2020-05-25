@@ -18,17 +18,19 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerController.hits < 2)
+        if (PausePannel != null)
         {
-            health1.SetActive(false);
+            if (PlayerController.hits < 2)
+            {
+                health1.SetActive(false);
+            }
+            if (PlayerController.hits <= 1.5)
+            {
+                health2.SetActive(false);
+            }
+            if (PlayerController.hits <= 0)
+                health3.SetActive(false);
         }
-        if (PlayerController.hits <= 1.5)
-        {
-            health2.SetActive(false);
-        }
-        if(PlayerController.hits <= 0)
-            health3.SetActive(false);
-        
         if(Input.GetKeyDown (KeyCode.P) && pause == false && !PromptNome.current.nomeando)
         {
             if (PausePannel != null)
@@ -54,6 +56,6 @@ public class GameController : MonoBehaviour
 
     public void Menu()
     {
-       // SceneManager.LoadScene();
+        SceneManager.LoadScene("MainMenu");
     }
 }
