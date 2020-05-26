@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1255,7 +1255,7 @@ MonoBehaviour:
 
     Discord: Nei#3219'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -1557,7 +1557,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Concept art\n- Arte do cen\xE1rio\n- Arte da interface\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -2187,7 +2187,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.33, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_text: "- Produ\xE7\xE3o\n- Programa\xE7\xE3o geral\n- Level design\n- Efeitos
     visuais\n\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -3054,7 +3054,7 @@ MonoBehaviour:
 
     Instagram: tollwolfz177'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -3364,7 +3364,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Anima\xE7\xE3o\n- Sound design\n\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -3600,7 +3600,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.33
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8014,9 +8014,9 @@ MonoBehaviour:
   DropdownQuality: {fileID: 731326394}
   DropdownResolution: {fileID: 456773911}
   FullScreen: {fileID: 1312648843}
-  volumeEfeitos: 0.22
-  volumeAmbiente: 0.3
-  volumeMusica: 0.3
+  volumeEfeitos: 0
+  volumeAmbiente: 0
+  volumeMusica: 0
   sliderEfeitos: {fileID: 2125234708}
   sliderAmbiente: {fileID: 631618970}
   sliderMusica: {fileID: 280506052}
@@ -9128,7 +9128,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.27
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10032,7 +10032,7 @@ MonoBehaviour:
     Email:
     leobizaz12@gmail.com'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -10188,7 +10188,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Discord: Gui#9934'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -10344,7 +10344,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Concept Art\n- Arte do cen\xE1rio\n- Backgrounds\n\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -11447,7 +11447,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Anima\xE7\xE3o\n- Playtest com usu\xE1rios\n\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -13561,7 +13561,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.18, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13633,8 +13633,8 @@ RectTransform:
   m_Father: {fileID: 1324734961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.27, y: 0}
-  m_AnchorMax: {x: 0.27, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15748,7 +15748,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Programa\xE7\xE3o\n- Level design\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -18939,7 +18939,7 @@ MonoBehaviour:
 
     Email: felipe.abdalla.souza@gmail.com'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -19847,7 +19847,7 @@ MonoBehaviour:
 
     (clique para abrir)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -20902,7 +20902,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.27, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20999,7 +20999,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Documenta\xE7\xE3o\n- Apresenta\xE7\xE3o\n- Level Design\n\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -22325,7 +22325,7 @@ MonoBehaviour:
     Whatsapp:
     (35)99111-5431'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -22815,8 +22815,8 @@ RectTransform:
   m_Father: {fileID: 1019541794}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.33, y: 0}
-  m_AnchorMax: {x: 0.33, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23505,7 +23505,7 @@ MonoBehaviour:
 
     Discord: igorg1202#5964'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -24491,7 +24491,7 @@ MonoBehaviour:
 
     (clique para abrir)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -24935,8 +24935,8 @@ RectTransform:
   m_Father: {fileID: 2071601327}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.18, y: 0}
-  m_AnchorMax: {x: 0.18, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -25346,7 +25346,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Dire\xE7\xE3o de arte\n- Arte do personagem\n- Playtest com usu\xE1rios\n\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c6034751dda1024e8ded33065b92c54, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -2390749487713583783, guid: 3c6034751dda1024e8ded33065b92c54,
     type: 2}
   m_fontSharedMaterials: []
@@ -27272,7 +27272,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.18
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

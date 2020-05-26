@@ -8,9 +8,13 @@ public class CamaraDeCura : MonoBehaviour
     public GameObject indicator;
     bool onArea;
     bool once;
+    private float timer;
+    private bool timeOn;
 
     private void Start()
     {
+        timeOn = false;
+        timer = 0;
         indicator.SetActive(false);
     }
 
@@ -18,14 +22,24 @@ public class CamaraDeCura : MonoBehaviour
     {
         if (onArea && Input.GetKeyDown(KeyCode.E))
         {
-            Execute();
             indicator.SetActive(false);
+            timeOn = true;
+
+        }
+        if(timeOn)
+            timer += Time.deltaTime;
+
+        if (timer >= 5f)
+        {
+            Execute();
         }
     }
 
     public void Execute()
     {
         PlayerController.hits = 3;
+        timer = 0f;
+        timeOn = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

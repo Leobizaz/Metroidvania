@@ -34,15 +34,27 @@ public class GameController : MonoBehaviour
     {
         if (PausePannel != null)
         {
-            if (PlayerController.hits < 2)
+            if (PlayerController.hits >= 3)
+            {
+                health1.SetActive(true);
+                health2.SetActive(true);
+                health3.SetActive(true);
+            }
+            if (PlayerController.hits >= 2)
+            { 
+                health2.SetActive(true);
+                health3.SetActive(true);
+            }
+
+            if (PlayerController.hits < 2.9)
             {
                 health1.SetActive(false);
             }
-            if (PlayerController.hits <= 1.5)
+            if (PlayerController.hits < 1.9)
             {
                 health2.SetActive(false);
             }
-            if (PlayerController.hits <= 0)
+            if (PlayerController.hits < 0.9)
                 health3.SetActive(false);
         }
         if(Input.GetKeyDown (KeyCode.P) && pause == false && !PromptNome.current.nomeando)

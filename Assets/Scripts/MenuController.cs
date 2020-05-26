@@ -185,6 +185,7 @@ public class MenuController : MonoBehaviour
     void GetSavedOptions()
     {
 
+
         sliderEfeitos.value = Saved_volumeEfeitos;
         sliderAmbiente.value = Saved_volumeAmbiente;
         sliderMusica.value = Saved_volumeMusica;
@@ -196,7 +197,15 @@ public class MenuController : MonoBehaviour
     }
     void SetSavedOptions()
     {
-        
+        if (volumeAmbiente == 0 || volumeEfeitos == 0 || volumeMusica == 0)
+        {
+            volumeEfeitos = 0.3f;
+            volumeAmbiente = 0.12f;
+            volumeMusica = 0.12f;
+            sliderEfeitos.value = volumeEfeitos;
+            sliderAmbiente.value = volumeAmbiente;
+            sliderMusica.value = volumeMusica;
+        }
         Saved_volumeEfeitos = volumeEfeitos;
         Saved_volumeAmbiente = volumeAmbiente;
         Saved_volumeMusica = volumeMusica;

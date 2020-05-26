@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!61 &4361189046919709538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575408271109105679}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.26, y: 1.86}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.85, y: 1}
+  m_EdgeRadius: 0
 --- !u!82 &7104713286865254586
 AudioSource:
   m_ObjectHideFlags: 0
@@ -281,8 +307,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006439209, y: 0}
-  m_Size: {x: 1.980999, y: 1.980999}
+  m_Offset: {x: -0.044466496, y: 0.28}
+  m_Size: {x: 1.88, y: 0.3}
   m_Direction: 0
 --- !u!114 &7104713287028517307
 MonoBehaviour:
@@ -11338,6 +11364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "carapa\xE7a"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442675770455753977, guid: dd4ab75232e171c458e44af77f49811d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Reflect
       objectReference: {fileID: 0}
     - target: {fileID: 3897058745795025520, guid: dd4ab75232e171c458e44af77f49811d,
         type: 3}
