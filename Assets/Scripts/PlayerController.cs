@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         GameEvents.current.onUnPausePlayer += UnPausePlayer;
         GameEvents.current.onPausePlayer += PausePlayer;
+        hits = 2;
         Initialize();
     }
 
@@ -100,7 +101,7 @@ public class PlayerController : MonoBehaviour
             {
                 GroundCheck();
                 MoveCheck();
-                //ShootMechanic(); old
+                //ShootMechanic();
                 ChargedShootMechanic();
                 MecanicaRecarregar();
                 if (!isBusy)
@@ -131,6 +132,16 @@ public class PlayerController : MonoBehaviour
         p_collision = GetComponent<PlayerCollision>();
         rb = GetComponent<Rigidbody2D>();
         reload = gun.GetComponent<AudioSource>();
+
+        if (GameLoad.playerHasDiedOnce)
+        {
+            hits = 3;
+        }
+        else
+        {
+            hits = 2;
+        }
+
     }
     private void MovementMechanic()
     {
@@ -216,10 +227,14 @@ public class PlayerController : MonoBehaviour
     } // Controla o pulo do jogador
     private void ShootMechanic()
     {
+        mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+
         // Função que controla tudo a respeito das mecânicas de tiro do jogador
 
-        if (Input.GetButtonDown("Fire1") && !isBusy && p_collision.onGround) // Checa se o jogador pode atirar
+        if (Input.GetButtonDown("Fire1") && !isBusy && p_collision.onGround && !reloading) // Checa se o jogador pode atirar
         {
+            Debug.Log("Bruh");
             if (bulletcount < 2) // Caso o jogador ainda tenha munição
             {
                 if (facingright == true)
@@ -234,14 +249,16 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject instance = Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation);
                     instance.GetComponent<Gunshot>().speed = -10;
+                    Debug.Log("Bruh2");
                 }
                 else if (facingleft && mousePos.x < 0)
                 {
+                    Debug.Log("Bruh2");
                     Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
                 }
                 else
                 {
-                    return;
+                    //return;
                 }
                 bulletcount++; // Indica que o jogador gastou 1 bala
                 FreezeMovement(); // Deixa o jogador parado
@@ -255,17 +272,18 @@ public class PlayerController : MonoBehaviour
                 CancelInvoke("StopBeingBusy");
                 //FreezeMovement(); // Congela o movimento do jogador
                 reloading = true;
-                reload.Play();
+                
                 ReloadIcon.SetActive(true);
-                playerAnim.Play("Bob_Reload");
+                //playerAnim.Play("Bob_Reload");
                 GameEvents.current.MakeBigSound(gameObject);
                 //isBusy = true; // Indica que o jogador está ocupado recarregando
-                Invoke("Reload", tempoReload); // Recarrega as balas depois de 'x' segundos
+                Reload(); // Recarrega as balas depois de 'x' segundos
                                                // ou toque sons/animações do player sem munição aqui 
             } // Caso o jogador tenta atirar sem munição
 
         } // Atirar old
 
+        /*
         if (Input.GetKeyDown(KeyCode.E) && !isBusy && p_collision.onGround && DestroyBackLight.backLight == false) // Checa se a lampada esta quebrada
         {
             FreezeMovement(); // Congela o movimento do jogador
@@ -274,6 +292,7 @@ public class PlayerController : MonoBehaviour
             Invoke("Lamp", tempoReload); // Conserta a lampada depois de 'x' segundos
 
         }
+        */
     }
     private void ChargedShootMechanic()
     {
@@ -297,24 +316,27 @@ public class PlayerController : MonoBehaviour
             }
             FX_tiroCarregado.gameObject.SetActive(true);
             FX_tiroCarregado.Play();
-            Invoke("ShotLoaded", 1.7f);
+            Invoke("ShotLoaded", 1f);
 
 
         }
-        if (Input.GetButtonUp("Fire1") || isBusy || !p_collision.onGround && wasCharging)
+        if (Input.GetButtonUp("Fire1") && wasCharging)
         {
-            CancelInvoke("ShotLoaded");
-            FX_chargedLight.SetActive(false);
-            isCharging = false;
-            wasCharging = false;
-            FX_tiroCarregado.Stop();
-            FX_tiroCarregado.gameObject.SetActive(false);
-            if (shotReady)
+            if (!isBusy || !p_collision.onGround)
             {
-                shotReady = false;
-                chargedShotCooldown = 1;
-                ShootNormal();
-                bulletcount++;
+                CancelInvoke("ShotLoaded");
+                FX_chargedLight.SetActive(false);
+                isCharging = false;
+                wasCharging = false;
+                FX_tiroCarregado.Stop();
+                FX_tiroCarregado.gameObject.SetActive(false);
+                if (shotReady)
+                {
+                    shotReady = false;
+                    chargedShotCooldown = 1;
+                    ShootNormal();
+                    //bulletcount++;
+                }
             }
             else
             {
@@ -336,6 +358,7 @@ public class PlayerController : MonoBehaviour
         //FreezeMovement(); // Congela o movimento do jogador
         reloading = true;
         playerAnim.Play("Bob_Reload");
+        reload.Play();//som
         ReloadIcon.SetActive(true);
         //isBusy = true; // Indica que o jogador está ocupado recarregando
         Invoke("ReloadFinish", tempoReload); // Recarrega as balas depois de 'x' segundos
@@ -576,6 +599,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.isKinematic = true;
             died = true;
+            GameLoad.playerHasDiedOnce = true;
             Freio();
             Debug.Log(lastEnemyToHit.name);
             PaintLastEnemy();

@@ -14,6 +14,20 @@ public class GameController : MonoBehaviour
     public GameObject Opcoes;
     public GameObject Data;
     private bool pause = false;
+    bool temNotificação;
+    public GameObject notificação;
+
+    private void Start()
+    {
+        GameEvents.current.onNewLogUnlocked += SetNotification; 
+    }
+
+    void SetNotification()
+    {
+        temNotificação = true;
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -38,6 +52,11 @@ public class GameController : MonoBehaviour
                 PausePannel.SetActive(true);
                 Time.timeScale = 0;
                 pause = true;
+                if (temNotificação)
+                {
+                    temNotificação = false;
+                    notificação.SetActive(true);
+                }
             }
         }
         else if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))

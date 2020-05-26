@@ -15,6 +15,13 @@ public class ReatorOnEnable : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameLoad.playerHasDiedOnce)
+        {
+            ForceTurnOn();
+            return;
+        }
+
+
         if (!once)
         {
             player.transform.position = new Vector3(-28.899f, -21.266f, 0);
@@ -68,6 +75,15 @@ public class ReatorOnEnable : MonoBehaviour
         subFX.SetActive(true);
         CameraShake.current.ShakeCamera(4, 0.5f, 2);
         Invoke("ReatorPowerUP", 4);
+    }
+
+    public void ForceTurnOn()
+    {
+        GameEvents.current.ReatorPowerUP();
+        powerUP_event.SetActive(true);
+        monitores.SetActive(true);
+        subFX.SetActive(true);
+        FX.SetActive(true);
     }
 
 }

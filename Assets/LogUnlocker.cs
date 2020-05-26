@@ -7,6 +7,8 @@ public class LogUnlocker : MonoBehaviour
     public static LogUnlocker current;
     public Log[] logs;
 
+
+
     private void Awake()
     {
         current = this;
@@ -15,6 +17,7 @@ public class LogUnlocker : MonoBehaviour
     public void UnlockLog(int id)
     {
         logs[id].unlocked = true;
+        GameEvents.current.NewLogUnlocked();
     }
 
 }

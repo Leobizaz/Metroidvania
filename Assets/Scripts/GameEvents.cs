@@ -14,11 +14,20 @@ public class GameEvents : MonoBehaviour
     }
     public event Action onReatorPowerUP;
     public event Action onPausePlayer;
+    public event Action onNewLogUnlocked;
     public event Action onUnPausePlayer;
     public event Action<GameObject> onNewBeacon;
     public event Action<GameObject> onRemoveBeacon;
     public event Action<GameObject> onMakeSound;
     public event Action<GameObject> onMakeBigSound;
+
+    public void NewLogUnlocked()
+    {
+        if(onNewLogUnlocked != null)
+        {
+            onNewLogUnlocked();
+        }
+    }
 
     public void PausePlayer()
     {
