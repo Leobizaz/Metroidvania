@@ -84,6 +84,7 @@ public class ReatorOnEnable : MonoBehaviour
         monitores.SetActive(true);
         subFX.SetActive(true);
         FX.SetActive(true);
+
     }
 
 }

@@ -24,6 +24,7 @@ public class Elevador : MonoBehaviour
 
     private void Start()
     {
+        
         aSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         GameEvents.current.onReatorPowerUP += PowerUP;
@@ -33,7 +34,7 @@ public class Elevador : MonoBehaviour
 
     private void Update()
     {
-        if (powerOn)
+        if (powerOn || GameLoad.playerHasDiedOnce)
         {
             if (playerOnTop)
             {
@@ -115,7 +116,7 @@ public class Elevador : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if (!first && !powerOn)
+            if (!first && !powerOn && !GameLoad.playerHasDiedOnce)
             {
                 CameraShake.current.ShakeCamera(0.5f, 0.6f, 1);
                 stompFX.Play();
