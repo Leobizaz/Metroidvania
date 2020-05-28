@@ -48,6 +48,11 @@ public class IntroText : MonoBehaviour
         {
             nextCooldown -= Time.deltaTime;
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            LoadScene();
+        }
     }
 
     void DeleteOld()

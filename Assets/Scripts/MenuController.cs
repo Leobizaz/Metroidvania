@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MenuController : MonoBehaviour
     public Dropdown DropdownQuality;
     public Dropdown DropdownResolution;
     public Toggle FullScreen;
+    public TextMeshProUGUI Inicio;
 
     public float volumeEfeitos;
     public float volumeAmbiente;
@@ -36,6 +38,13 @@ public class MenuController : MonoBehaviour
             DropDownValueChanged(DropdownResolution);
         });
         GetSavedOptions();
+        if (Inicio != null)
+        {
+            if (GameLoad.playerHasDiedOnce)
+                Inicio.text = "Reinício";
+            else
+                Inicio.text = "Jogar";
+        }
     }
 
     void Update()
@@ -172,7 +181,10 @@ public class MenuController : MonoBehaviour
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene("Intro");
+        if (GameLoad.playerHasDiedOnce)
+            SceneManager.LoadScene("CENAPRINCIPAL");
+        else
+            SceneManager.LoadScene("Intro");
     }
     public void Quit()
     {

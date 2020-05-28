@@ -11022,7 +11022,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14946,7 +14946,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 346e2c28489cdf9469e84df63e7c216c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2ca80a8c94546a942a90fc71df8d029b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -15220,6 +15220,7 @@ MonoBehaviour:
     m_Center: {x: 0.0013000965, y: 0.002335012, z: 0}
     m_Extent: {x: 1.9837, y: 0.722665, z: 0}
   m_UseBatching: 1
+  m_AlwaysUpdate: 1
 --- !u!1001 &6511364367099442212
 PrefabInstance:
   m_ObjectHideFlags: 0
