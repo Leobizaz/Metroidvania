@@ -12,7 +12,7 @@ public class GameLoad : MonoBehaviour
 
     private void Awake()
     {
-     
+        
     }
 
     private void Start()

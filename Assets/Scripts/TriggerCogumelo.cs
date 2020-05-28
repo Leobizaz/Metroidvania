@@ -25,6 +25,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
         bool triggered;
         Material mat;
         public Color def_color;
+        public Fotoverme[] vermesPraAcordar;
         private float def_lightValue;
 
         void Start()
@@ -95,6 +96,14 @@ namespace UnityEngine.Experimental.Rendering.Universal
                     lightCol.radius = lightCol.radius + 2;
                 }
 
+                if(vermesPraAcordar.Length > 0)
+                {
+                    for(int i = 0; i < vermesPraAcordar.Length; i++)
+                    {
+                        vermesPraAcordar[i].GetDetected();
+                    }
+                }
+
                 if (GetComponent<AudioSource>())
                     PlayOneShotRandom(sons);
 
@@ -140,20 +149,6 @@ namespace UnityEngine.Experimental.Rendering.Universal
         {
             fading = true;
             CancelInvoke("FadeOut");
-            //CancelInvoke("CancelFading");
-            //Invoke("CancelFading", 1f);
-            /*
-            if(chain_reaction.Length != 0)
-            {
-                foreach (TriggerCogumelo cogumelo in chain_reaction)
-                {
-                    if (!cogumelo.fading)
-                    {
-                        cogumelo.CancelFade();
-                    }
-                }
-            }
-            */
             
             Invoke("FadeOut", fadeOutTime);
         }

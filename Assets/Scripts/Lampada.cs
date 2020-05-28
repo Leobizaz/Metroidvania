@@ -8,10 +8,12 @@ public class Lampada : MonoBehaviour
     Animator anim;
     public GameObject redlight;
     public GameObject emissive;
+    public GameObject emissiveRed;
     public GameObject normalLight;
 
     private void Start()
     {
+        emissiveRed.SetActive(true);
         redlight.SetActive(true);
         emissive.SetActive(false);
         normalLight.SetActive(false);
@@ -22,6 +24,7 @@ public class Lampada : MonoBehaviour
 
     void PowerUP()
     {
+        emissiveRed.SetActive(false);
         emissive.SetActive(true);
         redlight.SetActive(false);
         normalLight.SetActive(true);

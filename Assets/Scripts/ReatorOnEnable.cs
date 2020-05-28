@@ -33,6 +33,7 @@ public class ReatorOnEnable : MonoBehaviour
 
             player.isBusy = true;
             player.gameObject.GetComponentInChildren<Animator>().Play("Bob_InteractConsole");
+            player.Freio();
             once = true;
             Invoke("ReactorLightUP", 1);
         }
