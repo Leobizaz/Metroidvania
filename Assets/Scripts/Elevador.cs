@@ -118,7 +118,7 @@ public class Elevador : MonoBehaviour
         {
             if (!first && !powerOn && !GameLoad.playerHasDiedOnce)
             {
-                CameraShake.current.ShakeCamera(0.5f, 0.6f, 1);
+                GameEvents.current.ShakeCamera(0.5f, 0.6f, 1);
                 stompFX.Play();
                 first = true;
                 anim.Play("elevador_stomp");

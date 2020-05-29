@@ -52,7 +52,7 @@ public class ReatorOnEnable : MonoBehaviour
     {
         audioS.Stop();
         GameEvents.current.ReatorPowerUP();
-        CameraShake.current.ShakeCamera(2, 0.3f, 1);
+        GameEvents.current.ShakeCamera(2, 0.3f, 1);
         powerUP_event.SetActive(true);
         FX.SetActive(true);
         Invoke("LessShake", 2);
@@ -60,7 +60,7 @@ public class ReatorOnEnable : MonoBehaviour
 
     void LessShake()
     {
-        CameraShake.current.ShakeCamera(2, 0.1f, 1);
+        GameEvents.current.ShakeCamera(2, 0.1f, 1);
     }
 
     void ReactorLightUP()
@@ -74,7 +74,7 @@ public class ReatorOnEnable : MonoBehaviour
     void Shake()
     {
         subFX.SetActive(true);
-        CameraShake.current.ShakeCamera(4, 0.5f, 2);
+        GameEvents.current.ShakeCamera(4, 0.5f, 2);
         Invoke("ReatorPowerUP", 4);
     }
 

@@ -20,7 +20,7 @@ public class AnimationSignal_Carapaça : MonoBehaviour
         aSource.pitch = Random.Range(1, 0.5f);
 
         if(onScreen)
-            CameraShake.current.ShakeCamera(0.1f, 0.3f, 1.5f);
+            GameEvents.current.ShakeCamera(0.1f, 0.3f, 1.5f);
 
         aSource.PlayOneShot(sfx[0]);
     }

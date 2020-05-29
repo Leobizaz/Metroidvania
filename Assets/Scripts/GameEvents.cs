@@ -16,10 +16,19 @@ public class GameEvents : MonoBehaviour
     public event Action onPausePlayer;
     public event Action onNewLogUnlocked;
     public event Action onUnPausePlayer;
+    public event Action<float,float,float> onCameraShake;
     public event Action<GameObject> onNewBeacon;
     public event Action<GameObject> onRemoveBeacon;
     public event Action<GameObject> onMakeSound;
     public event Action<GameObject> onMakeBigSound;
+
+    public void ShakeCamera(float Duration, float Amplitude, float Frequency)
+    {
+        if(onCameraShake != null)
+        {
+            onCameraShake(Duration, Amplitude, Frequency);
+        }
+    }
 
     public void NewLogUnlocked()
     {

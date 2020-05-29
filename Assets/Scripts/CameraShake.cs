@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class CameraShake : MonoBehaviour
 {
-    public static CameraShake current;
-
     public static float ShakeDuration;          
     public static float ShakeAmplitude;         
     public static float ShakeFrequency;
@@ -22,9 +20,10 @@ public class CameraShake : MonoBehaviour
     /// </summary>
     void Start()
     {
-        current = this;
         if (VirtualCamera != null)
             virtualCameraNoise = VirtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+
+        GameEvents.current.onCameraShake += ShakeCamera;
     }
 
    
