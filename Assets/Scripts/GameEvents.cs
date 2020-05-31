@@ -16,6 +16,7 @@ public class GameEvents : MonoBehaviour
     public event Action onPausePlayer;
     public event Action onNewLogUnlocked;
     public event Action onUnPausePlayer;
+    public event Action onChaseReset;
     public event Action<float,float,float> onCameraShake;
     public event Action<GameObject> onNewBeacon;
     public event Action<GameObject> onRemoveBeacon;
@@ -27,6 +28,14 @@ public class GameEvents : MonoBehaviour
         if(onCameraShake != null)
         {
             onCameraShake(Duration, Amplitude, Frequency);
+        }
+    }
+
+    public void ResetChase()
+    {
+        if(onChaseReset != null)
+        {
+            onChaseReset();
         }
     }
 

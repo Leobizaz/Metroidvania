@@ -104,7 +104,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
                     }
                 }
 
-                if (GetComponent<AudioSource>())
+                if (GetComponent<AudioSource>() && sons.Length > 0)
                     PlayOneShotRandom(sons);
 
                 DOTween.Kill(gameObject);

@@ -12,11 +12,23 @@ public class HideSecret : MonoBehaviour
     public SpriteShapeRenderer background;
     private Material bgMaterial;
     public GameObject fade;
+    public bool chaseEvent;
 
     private void Start()
     {
-        bgMaterial = background.material;
+        if (chaseEvent)
+            GameEvents.current.onChaseReset += OnReset;
+
+        
+
+        background.gameObject.SetActive(true);
+        bgMaterial = background.sharedMaterial;
         if (inverted) Unhide();
+    }
+
+    void OnReset()
+    {
+        bgMaterial.SetColor("_Color", new Color(0, 0, 0, 255));
     }
 
     public void DelayedUnhide()
@@ -43,7 +55,7 @@ public class HideSecret : MonoBehaviour
 
     void UpdateColor(float a)
     {
-        bgMaterial.SetColor("_Color", new Color(0, 0, 0, a));
+        bgMaterial.SetColor("_Color", new Color32(0, 0, 0, (byte)a));
     }
 
 
