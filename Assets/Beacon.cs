@@ -11,6 +11,7 @@ public class Beacon : MonoBehaviour
     public GameObject highLight;
     public GameObject luz;
     public Text nomeUI;
+    public bool storyBeacon;
     public ParticleSystem FX;
     bool playerIn;
     bool once;
@@ -34,7 +35,10 @@ public class Beacon : MonoBehaviour
     void BeaconOnline() //manda um sinal para criar um novo beacon na lista
     {
         gameObject.name = nome;
-        luz.SetActive(true);
+
+        if (!storyBeacon)
+            luz.SetActive(true);
+
         GameEvents.current.NewBeacon(this.gameObject);
         nomeUI.text = nome;
         online = true;
@@ -50,23 +54,29 @@ public class Beacon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && online)
+        if (!storyBeacon)
         {
-            FX.Play();
-            playerIn = true;
-            highLight.SetActive(true);
-            canvas.SetActive(true);
+            if (collision.tag == "Player" && online)
+            {
+                FX.Play();
+                playerIn = true;
+                highLight.SetActive(true);
+                canvas.SetActive(true);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (!storyBeacon)
         {
-            FX.Stop();
-            playerIn = false;
-            highLight.SetActive(false);
-            canvas.SetActive(false);
+            if (collision.tag == "Player")
+            {
+                FX.Stop();
+                playerIn = false;
+                highLight.SetActive(false);
+                canvas.SetActive(false);
+            }
         }
     }
 

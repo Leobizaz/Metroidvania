@@ -12,8 +12,11 @@ public class ChonkChase : MonoBehaviour
     public bool ignoreSpeed;
     public float currentSpeed;
     public GameObject quebraParedeTrigger;
+    public GameObject storybeacon;
     bool touched;
     AudioSource audioS;
+    public AudioClip SFX_continuação;
+    public AudioClip SFX_start;
 
     private void Start()
     {
@@ -26,6 +29,8 @@ public class ChonkChase : MonoBehaviour
         if(collision.gameObject.tag == "Light" && !chaseStarted)
         {
             StartChase();
+            GameEvents.current.RemoveBeacon(storybeacon);
+            storybeacon.SetActive(false);
         }
     }
 
@@ -69,6 +74,7 @@ public class ChonkChase : MonoBehaviour
         if (!PlayerController.facingleft)
             playerCode.FaceLeft();
 
+        CancelInvoke("TocaContinuação");
         StartChase();
         touched = false;
     }
@@ -80,6 +86,7 @@ public class ChonkChase : MonoBehaviour
 
     public void StartChase()
     {
+        audioS.clip = SFX_start;
         audioS.Play();
         quebraParedeTrigger.SetActive(true);
         chaseStarted = true;
@@ -87,6 +94,13 @@ public class ChonkChase : MonoBehaviour
         ignoreSpeed = false;
         anim.speed = 1;
         cameraFocus.SetActive(true);
+        Invoke("TocaContinuação", 31f);
+    }
+
+    public void TocaContinuação()
+    {
+        audioS.clip = SFX_continuação;
+        audioS.Play();
     }
 
 }

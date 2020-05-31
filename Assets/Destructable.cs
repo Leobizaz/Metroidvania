@@ -19,7 +19,7 @@ public class Destructable : MonoBehaviour
         {
             once = true;
             fx.Play();
-            GameEvents.current.ShakeCamera(0.5f, 2, 1);
+            GameEvents.current.ShakeCamera(0.3f, 2, 1);
             Invoke("ResetOnce", 3f);
         }
     }

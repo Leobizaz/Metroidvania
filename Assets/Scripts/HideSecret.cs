@@ -22,7 +22,7 @@ public class HideSecret : MonoBehaviour
         
 
         background.gameObject.SetActive(true);
-        bgMaterial = background.sharedMaterial;
+        bgMaterial = background.material;
         if (inverted) Unhide();
     }
 

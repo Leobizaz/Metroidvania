@@ -6,16 +6,11 @@ using DG.Tweening;
 public class AnimationSignal_Chonk : MonoBehaviour
 {
     public AudioClip[] audioclips;
-    AudioSource aSource;
+    public AudioSource aSource;
     public QuebraParede chaoInfect;
     public QuebraParede barreira;
     public ChonkChase chonk;
 
-
-    private void Awake()
-    {
-        aSource = GetComponent<AudioSource>();
-    }
     public void QuebraPorta()
     {
         barreira.Quebra();
@@ -26,14 +21,44 @@ public class AnimationSignal_Chonk : MonoBehaviour
         GameEvents.current.ShakeCamera(1, 1, 1);
     }
 
+    public void Nhac1()
+    {
+        aSource.PlayOneShot(audioclips[6]);
+    }
+
+    public void Nhac2()
+    {
+        aSource.PlayOneShot(audioclips[7]);
+    }
+
     public void BigShake()
     {
-        GameEvents.current.ShakeCamera(2, 10, 10);
+        GameEvents.current.ShakeCamera(2, 2, 2);
     }
 
     public void Rugido()
     {
         aSource.PlayOneShot(audioclips[0]);
+    }
+
+    public void Rugido2()
+    {
+        aSource.PlayOneShot(audioclips[2]);
+    }
+
+    public void Rugido3()
+    {
+        aSource.PlayOneShot(audioclips[3]);
+    }
+
+    public void Rugido4()
+    {
+        aSource.PlayOneShot(audioclips[4]);
+    }
+
+    public void Rugido5()
+    {
+        aSource.PlayOneShot(audioclips[5]);
     }
 
     public void MiniRugido()

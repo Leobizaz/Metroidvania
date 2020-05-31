@@ -19,15 +19,30 @@ public class FloorHazard : MonoBehaviour
     public AudioClip sfx_crunchend;
     GameObject perna;
     GameObject capturedObject;
+    public bool chaseScene;
 
     void Start()
     {
         sprite = spriteAnimator.gameObject.GetComponent<SpriteRenderer>();
+
+        if(chaseScene)
+            GameEvents.current.onChaseReset += OnReset;
+
         perna = GameObject.Find("PERNABOB");
         PlayerLocked = false;
         audioSource = GetComponent<AudioSource>();
         storedIntensity = redlight.intensity;
         redlight.intensity = 0;
+    }
+
+    void OnReset()
+    {
+        ReleasePlayer();
+        hinge.autoConfigureConnectedAnchor = true;
+        hinge.enabled = true;
+        sprite.DOColor(new Color(255, 255, 255, 255), 3);
+        once = false;
+
     }
 
     void Update()
@@ -79,6 +94,17 @@ public class FloorHazard : MonoBehaviour
         }
     }
 
+    void ReleasePlayer()
+    {
+        audioSource.Stop();
+        DOVirtual.Float(storedIntensity, 0, 2, ChangeLight);
+        perna.transform.GetComponentInParent<LimbSolver2D>().enabled = false;
+        hinge.enabled = false;
+        hinge.connectedBody = null;
+        PlayerLocked = false;
+
+    }
+
     void UnlockPlayer()
     {
         
@@ -96,7 +122,9 @@ public class FloorHazard : MonoBehaviour
     void HideSprite()
     {
         sprite.DOColor(new Color(0, 0, 0, 0), 3);
-        Destroy(gameObject, 4);
+
+        if(!chaseScene)
+            Destroy(gameObject, 4);
     }
 
     void LockRigidbody()
