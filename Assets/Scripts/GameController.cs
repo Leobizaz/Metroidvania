@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour
             {
                 PausePannel.SetActive(true);
                 Time.timeScale = 0;
+                AudioListener.pause = true;
                 pause = true;
                 if (temNotificação)
                 {
@@ -81,6 +82,7 @@ public class GameController : MonoBehaviour
                 Opcoes.SetActive(false);
                 PausePannel.SetActive(false);
                 Time.timeScale = 1;
+                AudioListener.pause = false;
                 pause = false;
             }
         }

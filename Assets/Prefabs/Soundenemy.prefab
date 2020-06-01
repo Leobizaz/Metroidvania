@@ -49,7 +49,7 @@ AudioSource:
   MinDistance: 0.25714588
   MaxDistance: 12.59063
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -57,23 +57,68 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.020423591
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -48.98264
+      outSlope: -48.98264
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 0.040847182
+      value: 0.5
+      inSlope: -12.24566
+      outSlope: -12.24566
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.081694365
+      value: 0.25
+      inSlope: -3.061415
+      outSlope: -3.061415
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.16338873
+      value: 0.125
+      inSlope: -0.76535374
+      outSlope: -0.76535374
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.32677746
+      value: 0.0625
+      inSlope: -0.19133843
+      outSlope: -0.19133843
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6535549
+      value: 0.011520386
+      inSlope: -0.04783461
+      outSlope: -0.04783461
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.99331665
+      value: 0
+      inSlope: -0.020431774
+      outSlope: -0.020431774
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
