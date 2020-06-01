@@ -39,8 +39,8 @@ public class QuebraParede : MonoBehaviour
 
     public void Quebra()
     {
-        parede.Break();
-        parede.SpawnParticles();
+        parede.ForceBreak();
+
         parede.sprite.gameObject.SetActive(false);
         GameEvents.current.ShakeCamera(1, 1, 0.5f);
     }

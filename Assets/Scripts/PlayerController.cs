@@ -93,6 +93,15 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
+        if (isBusy)
+        {
+            rb.isKinematic = true;
+        }
+        else
+        {
+            rb.isKinematic = false;
+        }
+
         DeathCheck();
 
         if (!died)

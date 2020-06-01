@@ -22,6 +22,7 @@ public class FakeWall : MonoBehaviour
     {
         if(chaseEvent)
             GameEvents.current.onChaseReset += OnReset;
+
         b_collider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -41,15 +42,19 @@ public class FakeWall : MonoBehaviour
 
     public void Break()
     {
-        if (!once)
+        if (doBreakFX)
         {
-            if (doBreakFX)
-            {
-                aSource.Play();
-                anim.Play("Break");
-            }
-            else SpawnParticles();
+            aSource.Play();
+            anim.Play("Break");
         }
+        else SpawnParticles();
+
+    }
+
+    public void ForceBreak()
+    {
+        aSource.Play();
+        SpawnParticles();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -72,27 +77,23 @@ public class FakeWall : MonoBehaviour
 
     public void SpawnParticles()
     {
-        if (!once)
+        once = true;
+        if (hideSecret != null)
         {
-            once = true;
-            if (hideSecret != null)
-            {
-                hideSecret.time = fadeTime;
-                hideSecret.Unhide();
-            }
-
-            if (doBreakFX)
-            {
-                GameEvents.current.MakeBigSound(gameObject);
-                sprite.enabled = false;
-                fx.Play();
-            }
-            else
-            {
-                sprite.DOColor(new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0), fadeTime);
-            }
-            b_collider.enabled = false;
-
+            hideSecret.time = fadeTime;
+            hideSecret.Unhide();
         }
+
+        if (doBreakFX)
+        {
+            GameEvents.current.MakeBigSound(gameObject);
+            sprite.enabled = false;
+            fx.Play();
+        }
+        else
+        {
+            sprite.DOColor(new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0), fadeTime);
+        }
+        b_collider.enabled = false;
     }
 }

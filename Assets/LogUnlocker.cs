@@ -17,6 +17,7 @@ public class LogUnlocker : MonoBehaviour
     public void UnlockLog(int id)
     {
         logs[id].unlocked = true;
+        DisplayCollectedLogs.logsCollected++;
         GameEvents.current.NewLogUnlocked();
     }
 

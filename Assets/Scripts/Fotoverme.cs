@@ -225,6 +225,7 @@ public class Fotoverme : MonoBehaviour
 
     public void GetDetected()
     {
+        once = true;
         Debug.Log("Fuck");
         soundplayer.loop = false;
         soundplayer.GetComponent<AudioSource>().Stop();

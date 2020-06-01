@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        DisplayCollectedLogs.logsCollected = 0;
         GameEvents.current.onNewLogUnlocked += SetNotification; 
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndChase : MonoBehaviour
 {
@@ -33,6 +34,12 @@ public class EndChase : MonoBehaviour
     public void FadeOut()
     {
         fadeOut.SetActive(true);
+        Invoke("VoltaMenu", 8f);
+    }
+
+    public void VoltaMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
