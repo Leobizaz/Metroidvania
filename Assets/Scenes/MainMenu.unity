@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1724,7 +1724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Build demo Alpha v0.3 J1
+  m_Text: Build demo Alpha v0.8
 --- !u!222 &115786056
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2295,7 +2295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Build demo Alpha v0.3 J1
+  m_Text: Build demo Alpha v0.8
 --- !u!222 &161538270
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20861,7 +20861,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Build demo Alpha v0.3 J1
+  m_Text: Build demo Alpha v0.8
 --- !u!222 &1635525798
 CanvasRenderer:
   m_ObjectHideFlags: 0
