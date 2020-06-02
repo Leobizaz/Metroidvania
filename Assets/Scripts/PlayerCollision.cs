@@ -6,6 +6,8 @@ public class PlayerCollision : MonoBehaviour
 {
     public bool onGround;
     public bool onWall;
+    public bool onWallLeft;
+    public bool onWallRight;
 
     public bool onGroundCoyote;
     public float coyoteTime;
@@ -32,9 +34,15 @@ public class PlayerCollision : MonoBehaviour
             onGroundCoyote = true;
         }
 
+        onWallLeft = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        onWallRight = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
+        if (onWallLeft || onWallRight)
+        {
+            onWall = true;
+        }
+        else onWall = false;
 
-        onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
-            || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+
     }
 
     private void OnDrawGizmos()

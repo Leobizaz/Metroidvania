@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     // Variaveis essenciais
     float currentMoveSpeed;
     bool isSlow;
+    bool lockLeft;
+    bool lockRight;
     bool reloading;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool wantToJump;
@@ -111,6 +113,30 @@ public class PlayerController : MonoBehaviour
             unlockedFlash = true;
             flashObject.SetActive(true);
         }
+
+        if (!died)
+        {
+            if (!playerPaused)
+            {
+                //ShootMechanic();
+                ChargedShootMechanic();
+                MecanicaRecarregar();
+                if (!isBusy)
+                {
+                    JumpMechanic();
+                }
+
+                if (unlockedFlash)
+                {
+                    FlashMechanic();
+
+                }
+
+            }
+        }
+
+
+
     }
 
     private void FixedUpdate()
@@ -134,21 +160,11 @@ public class PlayerController : MonoBehaviour
             {
                 GroundCheck();
                 MoveCheck();
-                //ShootMechanic();
-                ChargedShootMechanic();
-                MecanicaRecarregar();
                 if (!isBusy)
                 {
                     FlipSprite();
                     //MovementSmoothing();
                     MovementMechanic();
-
-                    if (unlockedFlash)
-                    {
-                        FlashMechanic();
-
-                    }
-
                 }
             }
         }
@@ -184,32 +200,8 @@ public class PlayerController : MonoBehaviour
         if (xitadasso) cheatIndicator.SetActive(true); else cheatIndicator.SetActive(false);
     }
 
-    private void MovementMechanic()
+    private void JumpMechanic()
     {
-        // Essa função controla tudo a respeito da movimentação do jogador
-
-        if (Input.GetAxisRaw("Horizontal") != 0) // Checa se o jogador está apertando para ir pros lados
-        {
-            isMoving = true; // Diz que o jogador está se movimentando
-            x = Mathf.SmoothDamp(x, Input.GetAxis("Horizontal"), ref yVelocity, movement_acceleration); // Registra o valor da movimentação horizontal de acordo com a aceleração
-        }
-        else
-        {
-            isMoving = false; // Diz que o jogador não está se movimentando
-        }
-
-        Vector2 dir = new Vector2(x, y); // Registra o vetor de movimento de acordo com os valores de input horizontal e vertical
-
-
-        if (Input.GetAxisRaw("Horizontal") == 0) // Checa se o jogador não está apertando para andar
-        {
-            x = Mathf.SmoothDamp(x, 0, ref yVelocity, movement_decceleration); // Registra o valor da movimentação horizontal de acordo com a desceleração
-                                                                               //animação do jogador parando vai aqui
-        }
-
-        rb.velocity = new Vector2(dir.x * currentMoveSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
-
-
         if (Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") >= 0)
         {
             // Essa função indica que o jogador quer pular
@@ -234,6 +226,67 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldown = jumpCooldown - Time.deltaTime;
         } // Reseta o cooldown de pulo
+    }
+
+    private void Release()
+    {
+        lockLeft = false;
+        lockRight = false;
+    }
+
+    private void MovementMechanic()
+    {
+        // Essa função controla tudo a respeito da movimentação do jogador
+
+        if (Input.GetAxisRaw("Horizontal") != 0) // Checa se o jogador está apertando para ir pros lados
+        {
+            isMoving = true; // Diz que o jogador está tentando se movimentar
+
+            if (!p_collision.onWall)
+            {
+                x = Mathf.SmoothDamp(x, Input.GetAxis("Horizontal"), ref yVelocity, movement_acceleration); // Registra o valor da movimentação horizontal de acordo com a aceleração
+            }
+            else
+            {
+                if (p_collision.onWallLeft)
+                {
+                    if (Input.GetAxisRaw("Horizontal") > 0)
+                    {
+                        x = Mathf.SmoothDamp(x, Input.GetAxis("Horizontal"), ref yVelocity, movement_acceleration);
+                    }
+                    else
+                    {
+                        x = 0;
+                    }
+                }
+                else if (p_collision.onWallRight)
+                {
+                    if (Input.GetAxisRaw("Horizontal") < 0)
+                    {
+                        x = Mathf.SmoothDamp(x, Input.GetAxis("Horizontal"), ref yVelocity, movement_acceleration);
+                    }
+                    else
+                    {
+                        x = 0;
+                    }
+                }
+            }
+        }
+        else
+        {
+            isMoving = false; // Diz que o jogador não está se movimentando
+        }
+
+        Vector2 dir = new Vector2(x, y); // Registra o vetor de movimento de acordo com os valores de input horizontal e vertical
+
+
+        if (Input.GetAxisRaw("Horizontal") == 0) // Checa se o jogador não está apertando para andar
+        {
+            x = Mathf.SmoothDamp(x, 0, ref yVelocity, movement_decceleration); // Registra o valor da movimentação horizontal de acordo com a desceleração
+                                                                               //animação do jogador parando vai aqui
+        }
+
+        rb.velocity = new Vector2(dir.x * currentMoveSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
 
 
         if (Input.GetKey(KeyCode.LeftShift) || reloading || isCharging)
