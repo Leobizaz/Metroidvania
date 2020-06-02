@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool xitadasso;
+    public GameObject cheatIndicator;
+    public GameObject flashObject;
 
     // Variaveis ajustaveis
     public float movementSpeed = 10f;
@@ -72,8 +75,15 @@ public class PlayerController : MonoBehaviour
     public GameObject ReloadIcon;
 
 
+
     private void Start()
     {
+        if (FlashAnimation.flashUnlocked)
+        {
+            flashObject.SetActive(true);
+            unlockedFlash = true;
+        }
+        if (xitadasso) cheatIndicator.SetActive(true);
         GameEvents.current.onUnPausePlayer += UnPausePlayer;
         GameEvents.current.onPausePlayer += PausePlayer;
         hits = 2;
@@ -90,8 +100,22 @@ public class PlayerController : MonoBehaviour
         playerPaused = false;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Xiter();
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            unlockedFlash = true;
+            flashObject.SetActive(true);
+        }
+    }
+
     private void FixedUpdate()
     {
+
 
         if (isBusy)
         {
@@ -138,6 +162,7 @@ public class PlayerController : MonoBehaviour
         spriteScale = playersprite.transform.localScale;
         soundplayer = GetComponent<SoundPlayer>();
         storedAccelerationValue = movement_acceleration;
+        storedAccelerationValue = movement_acceleration;
         p_collision = GetComponent<PlayerCollision>();
         rb = GetComponent<Rigidbody2D>();
         reload = gun.GetComponent<AudioSource>();
@@ -152,6 +177,13 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    void Xiter()
+    {
+        xitadasso = !xitadasso;
+        if (xitadasso) cheatIndicator.SetActive(true); else cheatIndicator.SetActive(false);
+    }
+
     private void MovementMechanic()
     {
         // Essa função controla tudo a respeito da movimentação do jogador
@@ -594,12 +626,15 @@ public class PlayerController : MonoBehaviour
 
     public void GetHit()
     {
-        hud_dmg.Play("hud_damage"); //animação da hud
-        hits -= 1;
-        hitCooldown = invulnerabilityFrame;
-        Invoke("ResetHitCooldown", invulnerabilityFrame);
-        Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
-        //Som do player tomando dano ta no gameobject que é instanciado acima (bruh)
+        if (!xitadasso)
+        {
+            hud_dmg.Play("hud_damage"); //animação da hud
+            hits -= 1;
+            hitCooldown = invulnerabilityFrame;
+            Invoke("ResetHitCooldown", invulnerabilityFrame);
+            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            //Som do player tomando dano ta no gameobject que é instanciado acima (bruh)
+        }
     }
 
     void DeathCheck()

@@ -5,6 +5,7 @@ public class ActivateObject : MonoBehaviour
     public GameObject obj;
     public bool oneTime = true;
     bool once;
+    public bool loadarea;
     public bool deActivate;
 
     public bool onInside = false;
@@ -22,6 +23,16 @@ public class ActivateObject : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (onEnable) return;
+
+        if (loadarea)
+        {
+            if (collision.tag == "Player")
+            {
+                Activate();
+            }
+            return;
+        }
+
         if (collision.tag == "Player" && !once)
         {
             Activate();

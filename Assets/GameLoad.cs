@@ -10,9 +10,10 @@ public class GameLoad : MonoBehaviour
     public GameObject[] objectsToDeactivate;
     public GameObject[] objectsToActivate;
 
+
     private void Awake()
     {
-        playerHasDiedOnce = true;
+        
     }
 
     private void Start()

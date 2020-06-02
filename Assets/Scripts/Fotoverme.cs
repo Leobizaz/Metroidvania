@@ -190,8 +190,10 @@ public class Fotoverme : MonoBehaviour
             }
         }
 
-        if(collision.tag == "Flash")
+        if(collision.tag == "Flash" && !blinded && !died)
         {
+            blinded = true;
+            Stunned();
             CancelInvoke("BackToNormal");
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlashAnimation : MonoBehaviour
 {
+    public static bool flashUnlocked;
     PlayerController player;
     public GameObject flashFX;
     public GameObject spriteLanterna;
@@ -22,6 +23,7 @@ public class FlashAnimation : MonoBehaviour
         transform.parent.transform.position = new Vector3(0.29f, -90.655f, 0);
         transform.parent.transform.rotation = Quaternion.Euler(0, 0, 0);
         player.Freio();
+        flashUnlocked = true;
 
         if (PlayerController.facingleft)
             player.FaceRight();

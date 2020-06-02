@@ -58,32 +58,36 @@ public class GameController : MonoBehaviour
             if (PlayerController.hits < 0.9)
                 health3.SetActive(false);
         }
-        if(Input.GetKeyDown (KeyCode.P) && pause == false && !PromptNome.current.nomeando)
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PausePannel != null)
+            if (!pause && !PromptNome.current.nomeando)
             {
-                PausePannel.SetActive(true);
-                Time.timeScale = 0;
-                AudioListener.pause = true;
-                pause = true;
-                if (temNotificação)
+                if (PausePannel != null)
                 {
-                    temNotificação = false;
-                    notificação.SetActive(true);
+                    PausePannel.SetActive(true);
+                    Time.timeScale = 0;
+                    AudioListener.pause = true;
+                    pause = true;
+                    if (temNotificação)
+                    {
+                        temNotificação = false;
+                        notificação.SetActive(true);
+                    }
                 }
+                return;
             }
-        }
-        else if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (PausePannel != null && pause == true)
+            else
             {
-                Inventario.SetActive(true);
-                Data.SetActive(false);
-                Opcoes.SetActive(false);
-                PausePannel.SetActive(false);
-                Time.timeScale = 1;
-                AudioListener.pause = false;
-                pause = false;
+                if (PausePannel != null && pause == true)
+                {
+                    Inventario.SetActive(true);
+                    Data.SetActive(false);
+                    Opcoes.SetActive(false);
+                    PausePannel.SetActive(false);
+                    Time.timeScale = 1;
+                    AudioListener.pause = false;
+                    pause = false;
+                }
             }
         }
     }
