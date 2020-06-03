@@ -7,8 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plantinha teste
-  m_Shader: {fileID: 4800000, guid: b4a2013530d1481418a7c29e49066736, type: 3}
+  m_Name: Cristal Material
+  m_Shader: {fileID: -6465566751694194690, guid: 36c43acc35607684c9fec696a18492eb,
+    type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +20,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_3159C283:
+        m_Texture: {fileID: 2800000, guid: 7b3e6436cd783b24188c43cc68544b32, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D829FAC7:
+        m_Texture: {fileID: 8400000, guid: e1ad0ab0a88192945905c018a39cb1e0, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: aa21495c8dffd724b8a85caf55378e7e, type: 3}
+        m_Texture: {fileID: 2800000, guid: b975d9d50ba6c8142ab2ae2d85ce7cf2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -35,21 +44,17 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture0:
-        m_Texture: {fileID: 2800000, guid: 6167b5d3cb29d52488e611c0cb2a074c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord:
+    - _RenderTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_5E288A30: 1
+    - Vector1_6FCA1EF0: 1
+    - Vector1_C6368CDC: 1
     - _EnableExternalAlpha: 0
-    - _NoiseScale: 31.4
-    - _Range: 2.8
-    - _Slider: 4.9
-    - __dirty: 0
     m_Colors:
+    - Color_C13B5909: {r: 1, g: 0, b: 0, a: 0.56078434}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
