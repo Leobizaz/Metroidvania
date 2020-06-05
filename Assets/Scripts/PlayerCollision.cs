@@ -15,6 +15,7 @@ public class PlayerCollision : MonoBehaviour
     private bool respawn;
 
     public LayerMask groundLayer;
+    public LayerMask wallLayer;
 
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
@@ -34,8 +35,8 @@ public class PlayerCollision : MonoBehaviour
             onGroundCoyote = true;
         }
 
-        onWallLeft = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-        onWallRight = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
+        onWallLeft = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, wallLayer);
+        onWallRight = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, wallLayer);
         if (onWallLeft || onWallRight)
         {
             onWall = true;
