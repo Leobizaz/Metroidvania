@@ -13,7 +13,7 @@ public class GameLoad : MonoBehaviour
 
     private void Awake()
     {
-        
+        playerHasDiedOnce = true;
     }
 
     private void Start()

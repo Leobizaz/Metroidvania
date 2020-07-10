@@ -46,7 +46,9 @@ public class PlayerController : MonoBehaviour
     bool playerPaused;
     bool shotReady;
     GameObject lastEnemyToHit;
-
+    public float boostJumpValue;
+    float boostIndex;
+    bool boostLocked;
     // Variaveis estaticas
     public static bool facingleft;
     public static bool facingright;
@@ -123,7 +125,9 @@ public class PlayerController : MonoBehaviour
                 MecanicaRecarregar();
                 if (!isBusy)
                 {
-                    JumpMechanic();
+                    //JumpMechanic();
+                    BoostedJump();
+                    DoubleJump();
                 }
 
                 if (unlockedFlash)
@@ -200,8 +204,58 @@ public class PlayerController : MonoBehaviour
         if (xitadasso) cheatIndicator.SetActive(true); else cheatIndicator.SetActive(false);
     }
 
-    private void JumpMechanic()
+    private void DoubleJump()
     {
+        //terminarei amanha
+    }
+
+    private void BoostedJump()
+    {
+
+        if (Input.GetButtonDown("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0)
+        {
+            boostLocked = true;
+            boostIndex = 0;
+            boostJumpValue = 0;
+
+            if (!isSlow)
+            {
+                Jump(1);
+                jumpCooldown = 0.5f;
+            }
+        }
+
+        if (Input.GetButton("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0 && boostLocked)
+        {
+            boostIndex += Time.deltaTime;
+            boostJumpValue = Mathf.Abs(1 * Mathf.Sin(0.5f * boostIndex));
+        }
+
+        if (Input.GetButtonUp("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0)
+        {
+            boostLocked = false;
+            if (boostJumpValue < 0.2f)
+            {
+                return;
+            }
+            else
+            {
+                Jump(1 + (boostJumpValue * 1.3f));
+                jumpCooldown = 0.5f;
+            }
+        }
+
+        if (jumpCooldown > 0)
+        {
+            jumpCooldown = jumpCooldown - Time.deltaTime;
+        } // Reseta o cooldown de pulo
+
+    }
+
+    private void JumpMechanic()
+    {   
+
+
         if (Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") >= 0)
         {
             // Essa função indica que o jogador quer pular
@@ -213,14 +267,17 @@ public class PlayerController : MonoBehaviour
         } // Detecção de pulo automático
         if (p_collision.onGround && jumpCooldown <= 0 && wantToJump == true && Input.GetAxis("Vertical") >= 0) // Realiza o pulo automático da função acima
         {
-            Jump(); // Execute o pulo
+            Jump(1); // Execute o pulo
         } // Realiza o pulo automático da função acima
 
         if (Input.GetButtonDown("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0) // Checa se o jogador pode pular
         {
-            Jump(); // Executa o pulo
+            Jump(1); // Executa o pulo
             jumpCooldown = 0.5f; // Tempo que leva para o jogador realizar outro pulo
         } // Pulo tradicional
+
+
+
 
         if (jumpCooldown > 0)
         {
@@ -289,15 +346,17 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(dir.x * currentMoveSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
 
 
-        if (Input.GetKey(KeyCode.LeftShift) || reloading || isCharging)
+        if ((Input.GetKey(KeyCode.LeftShift) && p_collision.onGround) || reloading || isCharging)
         {
             playerAnim.SetBool("IsSlow", true);
             currentMoveSpeed = movementSpeed / 3;
+            isSlow = true;
         }
         else
         {
             playerAnim.SetBool("IsSlow", false);
             currentMoveSpeed = movementSpeed;
+            isSlow = false;
         }
 
         if (OnMovement == false)
@@ -308,15 +367,16 @@ public class PlayerController : MonoBehaviour
             //isMoving = true;
 
     } // Controla a movimentação do jogador
-    private void Jump()
+    private void Jump(float boost)
     {
+        boostLocked = false;
         if (!isCharging)
         {
             playerAnim.Play("Bob_JumpStill"); // Toca a animação de pulo
             p_collision.onGroundCoyote = false; // Indica que o jogador não está mais no chão
             wantToJump = false; // Indica que o jogador não quer mais pular
             rb.velocity = new Vector2(rb.velocity.x, 0); // Mantem a velocidade horizontal do player
-            rb.velocity += Vector2.up * jumpForce; // Joga o player para cima de acordo com a força do pulo
+            rb.velocity += Vector2.up * jumpForce * boost; // Joga o player para cima de acordo com a força do pulo
         }
     } // Controla o pulo do jogador
     private void ShootMechanic()

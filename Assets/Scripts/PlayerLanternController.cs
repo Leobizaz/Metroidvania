@@ -42,7 +42,8 @@ public class PlayerLanternController : MonoBehaviour
 
         //////////////////Mouse/////////////////////////
 
-        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        //Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position; //ORTHOGRAPHIC
+        Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position; //PERSPECTIVE
 
         ///////////////////Controle////////////////////
 
@@ -56,6 +57,7 @@ public class PlayerLanternController : MonoBehaviour
         //diff.z = 0;
 
         Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+
         mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
 
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
@@ -63,6 +65,7 @@ public class PlayerLanternController : MonoBehaviour
 
         float rot_z2 = Mathf.Atan2(-diff.y, -diff.x) * -Mathf.Rad2Deg;
 
+       
         var zLock = Mathf.Clamp(rot_z, -90, 90);
         if (zLock < 0) zLock = 360 + zLock;
         var zLock2 = Mathf.Clamp(rot_z2, -90, 90);
@@ -157,6 +160,15 @@ public class PlayerLanternController : MonoBehaviour
             }
         }
 
+    }
+
+    public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 
     void ResetCollider()
