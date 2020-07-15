@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 
 public class GUIPointer : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class GUIPointer : MonoBehaviour
     private Rect rect;
     Transform parent;
     public AnimationCurve curve;
+    public TextMeshProUGUI Valor;
+    public GameObject Player;
+    private float Dist;
+    private float PrintDist;
+    Vector3 targetPosLocal;
 
     private void OnEnable()
     {
@@ -23,11 +29,13 @@ public class GUIPointer : MonoBehaviour
     }
     void Update()
     {
-
+        Dist = Vector2.Distance(Player.transform.position, targetPosLocal);
+        PrintDist = Dist / 4;
+        Valor.text = " " + (Mathf.Round(PrintDist)) + "m";
     }
     private void OnGUI()
     {
-        Vector3 targetPosLocal = Camera.main.transform.InverseTransformPoint(target.position);
+        targetPosLocal = Camera.main.transform.InverseTransformPoint(target.position);
         angle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, angle);
     }
