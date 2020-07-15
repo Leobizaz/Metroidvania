@@ -12,16 +12,27 @@ public class GameEvents : MonoBehaviour
     {
         current = this;
     }
+
+
     public event Action onReatorPowerUP;
     public event Action onPausePlayer;
     public event Action onNewLogUnlocked;
     public event Action onUnPausePlayer;
     public event Action onChaseReset;
+    public event Action<float> onUpdateScrap;
     public event Action<float,float,float> onCameraShake;
     public event Action<GameObject> onNewBeacon;
     public event Action<GameObject> onRemoveBeacon;
     public event Action<GameObject> onMakeSound;
     public event Action<GameObject> onMakeBigSound;
+
+    public void UpdateScrap(float ammount)
+    {
+        if(onUpdateScrap != null)
+        {
+            onUpdateScrap(ammount);
+        }
+    }
 
     public void ShakeCamera(float Duration, float Amplitude, float Frequency)
     {

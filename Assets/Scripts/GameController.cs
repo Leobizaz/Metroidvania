@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public static float currentScrap;
+
     public GameObject health1;
     public GameObject health2;
     public GameObject health3;
