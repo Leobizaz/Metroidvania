@@ -30,7 +30,7 @@ public class GUIPointer : MonoBehaviour
     void Update()
     {
         Dist = Vector2.Distance(Player.transform.position, targetPosLocal);
-        PrintDist = Dist / 4;
+        PrintDist = (Dist / 4) - 40f;
         Valor.text = " " + (Mathf.Round(PrintDist)) + "m";
     }
     private void OnGUI()
