@@ -32,7 +32,9 @@ public class ObtainScrap : MonoBehaviour
 
     public void Execute()
     {
-
+        GameObject player = GameObject.Find("Player");
+        player.GetComponentInChildren<Animator>().Play("Bob_Loot");
+        player.GetComponent<PlayerController>().InteractPause(2);
         StartCoroutine(Popups());
 
         Invoke("UpdateValue", animduration + 0.5f);

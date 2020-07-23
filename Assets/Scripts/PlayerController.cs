@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
     public float boostJumpValue;
     float boostIndex;
     bool boostLocked;
+    bool chargingJump;
+    bool jetpackCharged;
     // Variaveis estaticas
     public static bool facingleft;
     public static bool facingright;
@@ -56,12 +59,18 @@ public class PlayerController : MonoBehaviour
     public static bool OnMovement = true;
 
     // Referencias privadas
+    private Animator jetpackAnim;
     private PlayerCollision p_collision;
     private Rigidbody2D rb;
     private SoundPlayer soundplayer;
     private AudioSource reload;
 
     // Referencias publicas
+    public GameObject jetpacksprite;
+    public GameObject jetpackgauge;
+    public ParticleSystem[] jetpack_FX;
+    public Light2D jetpackFX_light;
+
     public GameObject playersprite;
     public ParticleSystem FX_tiroCarregado;
     public GameObject FX_chargedLight;
@@ -106,6 +115,23 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!chargingJump)
+        {
+            jetpackAnim.speed = Mathf.MoveTowards(jetpackAnim.speed, 0, 1 * Time.deltaTime);
+            jetpackgauge.transform.localScale = new Vector3(1, Mathf.MoveTowards(jetpackgauge.transform.localScale.y, 0, 2 * Time.deltaTime), 1);
+            jetpackFX_light.intensity = Mathf.MoveTowards(jetpackFX_light.intensity, 0, 2 * Time.deltaTime);
+        }
+
+        if (jetpackgauge.transform.localScale.y < 1)
+            jetpackgauge.GetComponent<SpriteRenderer>().material.SetColor("_MainColor", Color.cyan);
+
+        if (jetpackgauge.transform.localScale.y > 1)
+            jetpackgauge.GetComponent<SpriteRenderer>().material.SetColor("_MainColor", Color.yellow);
+
+        if (jetpackgauge.transform.localScale.y > 1.7)
+            jetpackgauge.GetComponent<SpriteRenderer>().material.SetColor("_MainColor", Color.red);
+
+
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Xiter();
@@ -186,6 +212,7 @@ public class PlayerController : MonoBehaviour
         p_collision = GetComponent<PlayerCollision>();
         rb = GetComponent<Rigidbody2D>();
         reload = gun.GetComponent<AudioSource>();
+        jetpackAnim = jetpacksprite.GetComponent<Animator>();
 
         if (GameLoad.playerHasDiedOnce)
         {
@@ -206,7 +233,7 @@ public class PlayerController : MonoBehaviour
 
     private void DoubleJump()
     {
-        //terminarei amanha
+        //faço depois
     }
 
     private void BoostedJump()
@@ -227,22 +254,52 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0 && boostLocked)
         {
+            chargingJump = true;
+
             boostIndex += Time.deltaTime;
             boostJumpValue = Mathf.Abs(1 * Mathf.Sin(0.5f * boostIndex));
+
+            if (boostJumpValue > 0.5f && !jetpackCharged)
+            {
+                jetpackCharged = true;
+                jetpack_FX[3].Play();
+            }
+
+            jetpackAnim.speed = Mathf.Lerp(0, 1, boostJumpValue);
+            jetpackgauge.transform.localScale = new Vector3(1, Mathf.MoveTowards(jetpackgauge.transform.localScale.y, Mathf.Lerp(0, 2, boostJumpValue), 1 * Time.deltaTime), 1);
         }
 
         if (Input.GetButtonUp("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0)
         {
+            jetpackCharged = false;
+            StopJetpackCharged();
+            CancelInvoke("StopJetpackFlame");
+            Invoke("StopJetpackFlame", boostJumpValue);
             boostLocked = false;
+            chargingJump = false;
             if (boostJumpValue < 0.2f)
             {
                 return;
             }
             else
             {
+                jetpackFX_light.intensity = Mathf.Lerp(1, 4, boostJumpValue);
+                jetpack_FX[0].Play(); //chama
+                jetpack_FX[1].Play(); //fumaça
+                
+                if(boostJumpValue > 0.7f)
+                    jetpack_FX[2].Play(); //burst
+
                 Jump(1 + (boostJumpValue * 1.3f));
                 jumpCooldown = 0.5f;
+
+                GetComponent<JumpModifier>().rocketFalling = true;
+                Invoke("StopJump", 5);
+
             }
+
+            boostJumpValue = 0;
+
         }
 
         if (jumpCooldown > 0)
@@ -251,6 +308,23 @@ public class PlayerController : MonoBehaviour
         } // Reseta o cooldown de pulo
 
     }
+
+    void StopJump()
+    {
+        GetComponent<JumpModifier>().rocketFalling = false;
+    }
+
+    void StopJetpackCharged()
+    {
+        jetpack_FX[3].Stop();
+    }
+
+    void StopJetpackFlame()
+    {
+        jetpack_FX[0].Stop();
+        jetpack_FX[1].Stop();
+    }
+
 
     private void JumpMechanic()
     {   
@@ -645,6 +719,19 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0f;
+    }
+
+    public void InteractPause(float time)
+    {
+        CancelInvoke("BackToNormal");
+        FreezeMovement();
+        isBusy = true;
+        Invoke("BackToNormal", time);
+
+    }
+    void BackToNormal()
+    {
+        isBusy = false;
     }
 
     public void FaceLeft()
