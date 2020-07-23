@@ -29,8 +29,8 @@ public class GUIPointer : MonoBehaviour
     }
     void Update()
     {
-        Dist = Vector2.Distance(Player.transform.position, targetPosLocal);
-        PrintDist = (Dist / 4) - 40f;
+        Dist = Vector2.Distance(Player.transform.position, target.transform.position);
+        PrintDist = Mathf.Abs(Dist);
         Valor.text = " " + (Mathf.Round(PrintDist)) + "m";
     }
     private void OnGUI()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Experimental.Rendering.Universal;
 
 namespace UnityEngine.Experimental.Rendering.Universal
 {
@@ -47,7 +48,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void Normal()
         {
-            Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position;
 
             Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
@@ -153,7 +154,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void Charged()
         {
-            Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position;
 
             Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
@@ -267,5 +268,16 @@ namespace UnityEngine.Experimental.Rendering.Universal
         {
             transform.localEulerAngles = new Vector3(180, 0, z);
         }
+
+        public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+            Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+            float distance;
+            xy.Raycast(ray, out distance);
+            return ray.GetPoint(distance);
+        }
+
+
     }
 }

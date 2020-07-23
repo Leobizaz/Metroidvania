@@ -19,6 +19,6 @@ public class DeephtMarker : MonoBehaviour
         Marker.transform.position = new Vector3(Player.transform.position.x, Marker.transform.position.y, Marker.transform.position.z);
         Dist = Vector2.Distance(Player.transform.position, Marker.transform.position);
         PrintDist = Dist / 4;
-        Valor.text = " " + (Mathf.Round(PrintDist)) + "m";
+        Valor.text = " " + (Mathf.Round(PrintDist + 124)) + "m";
     }
 }
