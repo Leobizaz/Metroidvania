@@ -19,18 +19,18 @@ public class GameEvents : MonoBehaviour
     public event Action onNewLogUnlocked;
     public event Action onUnPausePlayer;
     public event Action onChaseReset;
-    public event Action<float> onUpdateScrap;
+    public event Action<float, bool> onUpdateScrap;
     public event Action<float,float,float> onCameraShake;
     public event Action<GameObject> onNewBeacon;
     public event Action<GameObject> onRemoveBeacon;
     public event Action<GameObject> onMakeSound;
     public event Action<GameObject> onMakeBigSound;
 
-    public void UpdateScrap(float ammount)
+    public void UpdateScrap(float ammount, bool subtract)
     {
         if(onUpdateScrap != null)
         {
-            onUpdateScrap(ammount);
+            onUpdateScrap(ammount, subtract);
         }
     }
 

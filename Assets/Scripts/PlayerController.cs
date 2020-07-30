@@ -103,12 +103,12 @@ public class PlayerController : MonoBehaviour
         Initialize();
     }
 
-    void PausePlayer()
+    public void PausePlayer()
     {
         playerPaused = true;
     }
 
-    void UnPausePlayer()
+    public void UnPausePlayer()
     {
         playerPaused = false;
     }
@@ -695,21 +695,23 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            if (mousePos.x > 0)
+            if (Input.GetAxisRaw("Mouse X") != 0 || Input.GetAxisRaw("Mouse Y") != 0)
             {
-                playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
-                facingright = true;
-                facingleft = false;
-                return;
+                if (mousePos.x > 0)
+                {
+                    playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
+                    facingright = true;
+                    facingleft = false;
+                    return;
+                }
+                if (mousePos.x < 0)
+                {
+                    playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
+                    facingleft = true;
+                    facingright = false;
+                    return;
+                }
             }
-            if (mousePos.x < 0)
-            {
-                playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
-                facingleft = true;
-                facingright = false;
-                return;
-            }
-
 
 
         }

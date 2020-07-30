@@ -40,6 +40,6 @@ Material:
     - _EnableExternalAlpha: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorEmissive: {r: 0.8603976, g: 0, b: 0.013514099, a: 1}
+    - _ColorEmissive: {r: 5.5806518, g: 0, b: 0.076447286, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

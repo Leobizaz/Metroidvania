@@ -34,11 +34,18 @@ public class ObtainScrap : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         player.GetComponentInChildren<Animator>().Play("Bob_Loot");
-        player.GetComponent<PlayerController>().InteractPause(2);
+        player.GetComponentInChildren<Animator>().SetBool("IsLooting", true);
+        player.GetComponent<PlayerController>().InteractPause(animduration + 0.5f);
+        Invoke("StopAnimation", animduration);
         StartCoroutine(Popups());
 
         Invoke("UpdateValue", animduration + 0.5f);
         shineFX.Stop();
+    }
+
+    void StopAnimation()
+    {
+        GameObject.Find("Player").GetComponentInChildren<Animator>().SetBool("IsLooting", false);
     }
 
     IEnumerator Popups()
@@ -48,7 +55,7 @@ public class ObtainScrap : MonoBehaviour
             index++;
 
             var popup = Instantiate(scrapMiniPopup, popupPlacement.transform);
-            popup.GetComponent<scrapMiniPopup>().value = (scrapAmmount / divisionvalue).ToString();
+            popup.GetComponent<scrapMiniPopup>().value = Mathf.Round(scrapAmmount / divisionvalue).ToString();
 
             yield return new WaitForSeconds(animduration / (animduration - 0.5f));
         }
@@ -56,7 +63,7 @@ public class ObtainScrap : MonoBehaviour
 
     void UpdateValue()
     {
-        GameEvents.current.UpdateScrap(scrapAmmount);
+        GameEvents.current.UpdateScrap(GameController.currentScrap + scrapAmmount, false);
         Destroy(popupPlacement.transform.parent.gameObject);
     }
 
