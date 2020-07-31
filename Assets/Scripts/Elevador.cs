@@ -22,6 +22,8 @@ public class Elevador : MonoBehaviour
     public GameObject setaCima;
     public GameObject setaBaixo;
 
+    public bool doisAndar;
+
     private void Start()
     {
         
@@ -54,7 +56,8 @@ public class Elevador : MonoBehaviour
                         jaula.SetActive(true);
                         aSource.Play();
                         currentAndar--;
-                        if (currentAndar == 2)
+                        if (doisAndar) currentAndar--;
+                        if (currentAndar == 2 && !doisAndar)
                         {
                             distance = Vector3.Distance(this.transform.position, segundoAndar.position);
                             transform.DOMove(segundoAndar.position, distance/3).SetEase(Ease.Linear);
@@ -83,7 +86,8 @@ public class Elevador : MonoBehaviour
                         moving = true;
                         aSource.Play();
                         currentAndar++;
-                        if (currentAndar == 2)
+                        if (doisAndar) currentAndar++;
+                        if (currentAndar == 2 && !doisAndar)
                         {
                             distance = Vector3.Distance(this.transform.position, segundoAndar.position);
                             transform.DOMove(segundoAndar.position, distance/3).SetEase(Ease.Linear);

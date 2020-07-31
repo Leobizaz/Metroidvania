@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfe511f5ae84c24e82fbf88db7e24ae, type: 3}
   m_Name: Ferr_Nave
   m_EditorClassIdentifier: 
-  _fillMaterial: {fileID: 0}
+  _fillMaterial: {fileID: 2100000, guid: 56c28558202a581438280e8cefe600c1, type: 2}
   _edgeMaterial: {fileID: 2100000, guid: 5d22ea98eafd3ba449864367be0d3eb8, type: 2}
   _descriptors:
   - _applyTo: 0

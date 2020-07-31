@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float flashCooldown = 2;
     public bool unlockedBeacon;
     public bool unlockedFlash;
+    public bool unlockedJetpack;
 
     // Variaveis essenciais
     float currentMoveSpeed;
@@ -151,9 +152,9 @@ public class PlayerController : MonoBehaviour
                 MecanicaRecarregar();
                 if (!isBusy)
                 {
-                    //JumpMechanic();
-                    BoostedJump();
-                    DoubleJump();
+                    if (!unlockedJetpack)
+                        JumpMechanic();
+                    else BoostedJump();
                 }
 
                 if (unlockedFlash)
