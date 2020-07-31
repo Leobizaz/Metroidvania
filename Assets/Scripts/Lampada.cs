@@ -11,6 +11,8 @@ public class Lampada : MonoBehaviour
     public GameObject emissiveRed;
     public GameObject normalLight;
 
+    public bool startOn = false;
+
     private void Start()
     {
         emissiveRed.SetActive(true);
@@ -20,6 +22,7 @@ public class Lampada : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.enabled = false;
         GameEvents.current.onReatorPowerUP += PowerUP;
+        if (startOn) PowerUP();
     }
 
     void PowerUP()
