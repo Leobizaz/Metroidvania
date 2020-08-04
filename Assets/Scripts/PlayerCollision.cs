@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ferr;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -17,16 +18,49 @@ public class PlayerCollision : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask wallLayer;
 
+    public AnimationSignal_Player animSignal;
+    public LayerMask raycastFilter;
+
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
     private Color debugCollisionColor = Color.red;
 
+    private void Start()
+    {
+        animSignal = GetComponentInChildren<AnimationSignal_Player>();
+    }
 
     void Update()
     {
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
 
         if (onGround) coyote = false;
+
+        if (onGround)
+        {
+            RaycastHit2D detectGroundType = Physics2D.Raycast(transform.position, Vector2.down * 10, 10, raycastFilter);
+            if (detectGroundType.collider != null)
+            {
+                Debug.Log(detectGroundType.collider.name);
+
+                if (detectGroundType.collider.sharedMaterial.name == "Carne")
+                {
+                    animSignal.PassoCarne();
+                }
+                else if (detectGroundType.collider.sharedMaterial.name == "Pedra")
+                {
+                    animSignal.PassoPedra();
+                }
+                else if (detectGroundType.collider.sharedMaterial.name == "Metal")
+                {
+                    animSignal.PassoMetal();
+                }
+                else
+                {
+                    animSignal.PassoPedra();
+                }
+            }
+        }
 
         if (onGround == false && !coyote)
         {
