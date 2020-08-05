@@ -4,7 +4,9 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class DialogueText : MonoBehaviour
 {
-    public string text;
+    public string textPT;
+    public string textES;
+    public string textEN;
     public float duration;
     public bool newLine;
     public bool replace;
@@ -16,10 +18,24 @@ public class DialogueText : MonoBehaviour
     public AudioClip audio;
     public bool audioloop;
     public int eventID;
+    public string text;
 #if UNITY_EDITOR
+
     private void Update()
     {
-        if(Application.platform == RuntimePlatform.WindowsEditor)
+      if(Lean.Localization.LeanLocalization.CurrentLanguage == "Portuguese")
+        {
+            text = textPT;
+        }
+        if (Lean.Localization.LeanLocalization.CurrentLanguage == "Spanish")
+        {
+            text = textES;
+        }
+        if (Lean.Localization.LeanLocalization.CurrentLanguage == "English")
+        {
+            text = textEN;
+        }
+        if (Application.platform == RuntimePlatform.WindowsEditor)
             gameObject.name = text;
     }
 #endif
