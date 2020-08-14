@@ -46,13 +46,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_55F3AC04: 0
-    - Vector1_6A9D57CF: 1.37
+    - Vector1_6A9D57CF: 2.75
     - Vector1_91D2A7A5: 2
     - Vector1_95D2A70B: 1
     - Vector1_FB71CE53: 0.2
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Color_E7A0A822: {r: 0.745283, g: 0.10194911, b: 0.10194911, a: 0.5176471}
+    - Color_E7A0A822: {r: 1, g: 0.1273585, b: 0.1273585, a: 1}
     - Vector2_8A27CD8D: {r: 5, g: 5, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

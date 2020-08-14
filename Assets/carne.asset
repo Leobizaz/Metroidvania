@@ -286,10 +286,10 @@ MonoBehaviour:
       height: 0
     _leftCaps:
     - serializedVersion: 2
-      x: 0.020507812
+      x: 0.52783203
       y: 0
       width: 0.08984375
-      height: 1
+      height: 0.9270833
     _leftCapWeights: []
     _leftCapColliderSize:
     - 0.25
@@ -317,10 +317,10 @@ MonoBehaviour:
       height: 0
     _rightCaps:
     - serializedVersion: 2
-      x: 0.4399414
+      x: 0.93652344
       y: 0
-      width: 0.053222656
-      height: 1
+      width: 0.06347656
+      height: 0.9088542
     _rightCapWeights: []
     _rightCapColliderSize:
     - 1
@@ -350,7 +350,8 @@ MonoBehaviour:
     _yOffsetPercent: -0.2
     _colliderOffset: -0.41
     _colliderThickness: 0.31
-    _physicsMaterial2D: {fileID: 0}
+    _physicsMaterial2D: {fileID: 6200000, guid: ffbf8914dc325e34aa30e9872b50a5c7,
+      type: 2}
     _physicsMaterial3D: {fileID: 0}
   - _applyTo: 5
     _zOffset: 0
@@ -364,8 +365,8 @@ MonoBehaviour:
       height: 0
     _leftCaps:
     - serializedVersion: 2
-      x: 0.5263672
-      y: 0.6354167
+      x: 0.65478516
+      y: 0
       width: 0
       height: 0
     _leftCapWeights: []
@@ -395,8 +396,8 @@ MonoBehaviour:
       height: 0
     _rightCaps:
     - serializedVersion: 2
-      x: 1
-      y: 0.6354167
+      x: 0.8754883
+      y: 0
       width: 0
       height: 0
     _rightCapWeights: []
@@ -420,10 +421,10 @@ MonoBehaviour:
     - 0
     _bodies:
     - serializedVersion: 2
-      x: 0.5263672
-      y: 0.6354167
-      width: 0.4736328
-      height: 0.34895834
+      x: 0.65478516
+      y: 0
+      width: 0.22070312
+      height: 0.052083332
     _bodyWeights: []
     _yOffsetPercent: 0
     _colliderOffset: 0

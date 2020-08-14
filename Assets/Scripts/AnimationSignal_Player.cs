@@ -10,6 +10,7 @@ public class AnimationSignal_Player : MonoBehaviour
     public bool pedra;
     public AudioClip[] sons_de_passo;
     public AudioClip[] sons_de_passo_metal;
+    public AudioClip[] sons_de_passo_carne;
     public AudioClip[] sons_de_mexendoMetal;
     PlayerController player;
 
@@ -32,7 +33,7 @@ public class AnimationSignal_Player : MonoBehaviour
         }
         else if (carne)
         {
-            soundplayer.PlayOneShotRandom(sons_de_passo);
+            soundplayer.PlayOneShotRandom(sons_de_passo_carne);
             return;
         }
         else
