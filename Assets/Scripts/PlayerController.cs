@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
     public GameObject jetpacksprite;
     public GameObject jetpackgauge;
     public ParticleSystem[] jetpack_FX;
+    public AudioClip[] jetpack_SFX;
     public Light2D jetpackFX_light;
 
     public GameObject playersprite;
@@ -255,8 +256,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0 && boostLocked)
         {
+            //jogador está carregando o pulo
+            if(!chargingJump)
+                soundplayer.Play(jetpack_SFX[0]); //som de carregando
             chargingJump = true;
-
             boostIndex += Time.deltaTime;
             boostJumpValue = Mathf.Abs(1 * Mathf.Sin(0.5f * boostIndex));
 
@@ -272,6 +275,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && (p_collision.onGround || p_collision.onGroundCoyote) && jumpCooldown <= 0 && Input.GetAxis("Vertical") >= 0)
         {
+            //jogador solta o botão de carregar o pulo
             jetpackCharged = false;
             StopJetpackCharged();
             CancelInvoke("StopJetpackFlame");
@@ -280,10 +284,14 @@ public class PlayerController : MonoBehaviour
             chargingJump = false;
             if (boostJumpValue < 0.2f)
             {
+                //pulo cancelado
                 return;
             }
             else
             {
+                //jogador pula
+                soundplayer.Stop();
+                soundplayer.PlayOneShot(jetpack_SFX[1]);//som de boost
                 jetpackFX_light.intensity = Mathf.Lerp(1, 4, boostJumpValue);
                 jetpack_FX[0].Play(); //chama
                 jetpack_FX[1].Play(); //fumaça
