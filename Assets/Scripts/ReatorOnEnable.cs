@@ -12,10 +12,11 @@ public class ReatorOnEnable : MonoBehaviour
     public GameObject powerUP_event;
     public PlayerController player;
     bool once;
+    public static bool ReatorOn = false;
 
     private void OnEnable()
     {
-        if (GameLoad.playerHasDiedOnce)
+        if (GameLoad.playerHasDiedOnce || ReatorOn == true)
         {
             ForceTurnOn();
             return;
@@ -85,7 +86,7 @@ public class ReatorOnEnable : MonoBehaviour
         monitores.SetActive(true);
         subFX.SetActive(true);
         FX.SetActive(true);
-
+        ReatorOn = true;
     }
 
 }

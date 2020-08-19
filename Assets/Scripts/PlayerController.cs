@@ -90,7 +90,6 @@ public class PlayerController : MonoBehaviour
     public GameObject ReloadIcon;
 
 
-
     private void Start()
     {
         if (FlashAnimation.flashUnlocked)
@@ -890,10 +889,32 @@ public class PlayerController : MonoBehaviour
         unlockedFlash = data.flash;
         unlockedJetpack = data.jetpack;
 
+        ReatorOnEnable.ReatorOn = data.reator;
+        ExecuteFlashCutscene.FlashLog = data.flash;
+        
+
+        if (data.flash == true)
+            data.triggerFlash.SetActive(false);
+
+
         Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
         position.z = data.position[2];
         transform.position = position;
+
+        if (data.Logs[0] == true)
+        {
+            LogUnlocker.current.UnlockLog(0);
+        }
+        if (data.Logs[1] == true)
+        {
+            LogUnlocker.current.UnlockLog(1);
+        }
+        if (data.Logs[2] == true)
+        {
+            LogUnlocker.current.UnlockLog(2);
+        }
+
     }
 }

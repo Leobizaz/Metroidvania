@@ -24,6 +24,8 @@ public class PegarBeacon : MonoBehaviour
             indicator.SetActive(false);
             Destroy(gameObject, 0.2f);
         }
+        if (playerControl.unlockedBeacon == true)
+            Destroy(this.gameObject);
     }
 
     public void Execute()
