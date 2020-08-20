@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
+
 public class PlayerController : MonoBehaviour
 {
     public static bool xitadasso;
@@ -89,7 +90,6 @@ public class PlayerController : MonoBehaviour
     public Material red_material;
     public GameObject ReloadIcon;
 
-
     private void Start()
     {
         if (FlashAnimation.flashUnlocked)
@@ -172,7 +172,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
 
         if (isBusy)
         {
@@ -891,10 +890,6 @@ public class PlayerController : MonoBehaviour
 
         ReatorOnEnable.ReatorOn = data.reator;
         ExecuteFlashCutscene.FlashLog = data.flash;
-        
-
-        if (data.flash == true)
-            data.triggerFlash.SetActive(false);
 
 
         Vector3 position;
@@ -903,18 +898,13 @@ public class PlayerController : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
-        if (data.Logs[0] == true)
-        {
-            LogUnlocker.current.UnlockLog(0);
-        }
-        if (data.Logs[1] == true)
-        {
-            LogUnlocker.current.UnlockLog(1);
-        }
-        if (data.Logs[2] == true)
-        {
+        OnEnableJo.TriggerJoshOn = data.Josh;
+        OnEnableMing.TriggerMingOn = data.Ming;
+
+        if (data.Ming == true)
             LogUnlocker.current.UnlockLog(2);
-        }
+        if (data.Josh == true)
+            LogUnlocker.current.UnlockLog(1);
 
     }
 }

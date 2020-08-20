@@ -7,6 +7,7 @@ public static class SaveSystem
       public static void SavePlayer(PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
+        
         string path = Application.persistentDataPath + "/game.save";
         FileStream stream = new FileStream(path, FileMode.Create);
 

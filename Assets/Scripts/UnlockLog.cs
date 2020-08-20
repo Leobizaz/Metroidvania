@@ -6,7 +6,6 @@ public class UnlockLog : MonoBehaviour
 {
     public bool onEnable;
     public int id;
-    public static bool[] Log;
     private void OnEnable()
     {
         if (onEnable)
@@ -18,7 +17,6 @@ public class UnlockLog : MonoBehaviour
     public void Unlock()
     {
         LogUnlocker.current.UnlockLog(id);
-        Log[id] = true;
     }
 
 }
