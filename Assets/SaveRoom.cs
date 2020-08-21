@@ -8,14 +8,16 @@ public class SaveRoom
     public int health;
     public int logNum;
     public float[] position;
+    public float scrap;
+
     public bool[] Logs;
     public bool beacon;
     public bool flash;
     public bool jetpack;
-
     public bool reator;
     public bool Ming;
     public bool Josh;
+
 
     public SaveRoom (PlayerController player)
     {
@@ -24,7 +26,8 @@ public class SaveRoom
         flash = player.unlockedFlash;
         jetpack = player.unlockedJetpack;
         reator = ReatorOnEnable.ReatorOn;
-        
+
+        scrap = GameController.currentScrap;
         position = new float[3];
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;

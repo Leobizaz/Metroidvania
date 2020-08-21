@@ -831,6 +831,7 @@ public class PlayerController : MonoBehaviour
     void ResetHitCooldown()
     {
         hitCooldown = 0;
+        playerAnim.SetBool("Damage", false);
     }
 
     public void GetHit()
@@ -838,6 +839,7 @@ public class PlayerController : MonoBehaviour
         if (!xitadasso)
         {
             hud_dmg.Play("hud_damage"); //animação da hud
+            playerAnim.SetBool("Damage", true);
             hits -= 1;
             hitCooldown = invulnerabilityFrame;
             Invoke("ResetHitCooldown", invulnerabilityFrame);
@@ -891,7 +893,7 @@ public class PlayerController : MonoBehaviour
         ReatorOnEnable.ReatorOn = data.reator;
         ExecuteFlashCutscene.FlashLog = data.flash;
 
-
+        GameController.currentScrap = data.scrap;
         Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
