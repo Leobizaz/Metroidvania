@@ -5,6 +5,8 @@ using UnityEngine;
 public class AnimationSignal_Player : MonoBehaviour
 {
     public SoundPlayer soundplayer;
+    public ParticleSystem fx_SlashBig;
+    public ParticleSystem fx_SlashSmall;
     public bool metal;
     public bool carne;
     public bool pedra;
@@ -50,6 +52,16 @@ public class AnimationSignal_Player : MonoBehaviour
     public void PushButton()
     {
         //sfx botão
+    }
+
+    public void SlashBig()
+    {
+        fx_SlashBig.gameObject.SetActive(true);
+    }
+
+    public void SlashSmall()
+    {
+        fx_SlashSmall.gameObject.SetActive(true);
     }
 
     public void NotBusy()

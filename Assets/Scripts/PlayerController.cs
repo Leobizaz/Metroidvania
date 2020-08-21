@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool unlockedBeacon;
     public bool unlockedFlash;
     public bool unlockedJetpack;
+    public bool unlockedKnife;
 
     // Variaveis essenciais
     float currentMoveSpeed;
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool onRope;
     private float invulnerabilityFrame = 0.5f;
     private float hitCooldown;
+    private float knifeCooldown;
+    private int knifeAnimIndex;
     private float yVelocity = 0.0f;
     private float jumpCooldown;
     [HideInInspector] public bool isBusy;
@@ -162,6 +165,10 @@ public class PlayerController : MonoBehaviour
                     FlashMechanic();
 
                 }
+                if (unlockedKnife)
+                {
+                    KnifeMechanic();
+                }
 
             }
         }
@@ -233,7 +240,7 @@ public class PlayerController : MonoBehaviour
 
     private void DoubleJump()
     {
-        //faço depois
+        //será
     }
 
     private void BoostedJump()
@@ -331,6 +338,34 @@ public class PlayerController : MonoBehaviour
         jetpack_FX[0].Stop();
         jetpack_FX[1].Stop();
     }
+
+    void KnifeMechanic()
+    {
+        if (knifeCooldown > 0) knifeCooldown -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Q) && knifeCooldown <= 0)
+        {
+            CancelInvoke("ResetKnifeAnimation");
+            if (knifeAnimIndex == 0)
+            {
+                playerAnim.Play("Bob_knife1");
+                knifeAnimIndex++;
+            }
+            else
+            {
+                playerAnim.Play("Bob_knife2");
+                knifeAnimIndex = 0;
+            }
+            knifeCooldown = 0.5f;
+            Invoke("ResetKnifeAnimation", 2f);
+        }
+    }
+
+    void ResetKnifeAnimation()
+    {
+        knifeAnimIndex = 0;
+    }
+
 
 
     private void JumpMechanic()
