@@ -93,6 +93,12 @@ public class PlayerController : MonoBehaviour
     public Material red_material;
     public GameObject ReloadIcon;
 
+
+    void Awake()
+    {
+      //  LoadPlayer();
+    }
+
     private void Start()
     {
         if (FlashAnimation.flashUnlocked)
@@ -823,6 +829,8 @@ public class PlayerController : MonoBehaviour
             FreezeMovement();
             jumpCooldown = 0.5f;
         }
+        if (other.gameObject.tag == "SavePoint" && Input.GetKeyDown(KeyCode.S))
+            SavePlayer();
     }
 
     private void OnCollisionEnter2D(Collision2D other)

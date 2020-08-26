@@ -16,6 +16,7 @@ TagManager:
   - Flash
   - Reflect
   - chonk
+  - SavePoint
   layers:
   - Default
   - TransparentFX
