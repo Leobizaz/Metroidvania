@@ -96,7 +96,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-      //  LoadPlayer();
+        if(SaveSystem.noSave == true)
+             LoadPlayer();
     }
 
     private void Start()

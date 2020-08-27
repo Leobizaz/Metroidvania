@@ -4,6 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
+    public static bool noSave = false;
+
       public static void SavePlayer(PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -15,6 +17,7 @@ public static class SaveSystem
 
         formatter.Serialize(stream, data);
         stream.Close();
+        noSave = true;
     }
 
     public static SaveRoom LoadPlayer()
@@ -22,6 +25,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/game.save";
         if (File.Exists(path))
         {
+            noSave = true;
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 

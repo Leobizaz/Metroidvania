@@ -18,6 +18,7 @@ public class SaveRoom
     public bool Ming;
     public bool Josh;
 
+    
 
     public SaveRoom (PlayerController player)
     {
