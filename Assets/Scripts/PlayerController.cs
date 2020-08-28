@@ -162,9 +162,12 @@ public class PlayerController : MonoBehaviour
                 MecanicaRecarregar();
                 if (!isBusy)
                 {
-                    if (!unlockedJetpack)
-                        JumpMechanic();
-                    else BoostedJump();
+                    if (!isCharging) // se o jogador nao estiver carregando o tiro
+                    {
+                        if (!unlockedJetpack)
+                            JumpMechanic();
+                        else BoostedJump();
+                    }
                 }
 
                 if (unlockedFlash)
@@ -350,7 +353,7 @@ public class PlayerController : MonoBehaviour
     {
         if (knifeCooldown > 0) knifeCooldown -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Q) && knifeCooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.V) && knifeCooldown <= 0)
         {
             CancelInvoke("ResetKnifeAnimation");
             if (knifeAnimIndex == 0)
