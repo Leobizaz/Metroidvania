@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        if(SaveSystem.noSave == true)
+       
              LoadPlayer();
     }
 
@@ -833,12 +833,13 @@ public class PlayerController : MonoBehaviour
             FreezeMovement();
             jumpCooldown = 0.5f;
         }
-        if (other.gameObject.tag == "SavePoint" && Input.GetKeyDown(KeyCode.S))
-            SavePlayer();
+       /* if (other.gameObject.tag == "SavePoint" && Input.GetKeyDown(KeyCode.S))
+            SavePlayer();*/
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+
 
         if (other.gameObject.tag == "Enemy" && hits > 0)// Detecta se o player tomou dano e não está morto
         {
@@ -865,13 +866,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Damage" && hits > 0)
+
+        if (collision.gameObject.tag == "Damage" && hits > 0)
         {
             if(hitCooldown <= 0)
             {
                 GetHit();
                 lastEnemyToHit = collision.gameObject.transform.parent.gameObject;
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "SavePoint" && Input.GetKeyDown(KeyCode.S))
+        {
+            SavePlayer();
+            Debug.Log("Saved");
         }
     }
 
