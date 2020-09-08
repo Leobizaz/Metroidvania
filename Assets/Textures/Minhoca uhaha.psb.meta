@@ -1,25 +1,60 @@
 fileFormatVersion: 2
 guid: 1f08e7dbea313284887e172075477dcf
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: Minhoca uhaha_GO/Minhoca uhaha_GO
-    100002: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1
-    100004: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1
-    100008: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1/bone_2
-    100010: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3
-    100012: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3/bone_4
-    400000: Minhoca uhaha_GO/Minhoca uhaha_GO/Transform
-    400002: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1/Transform
-    400004: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1/Transform
-    400008: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1/bone_2/Transform
-    400010: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3/Transform
-    400012: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3/bone_4/Transform
-    2800000: Minhoca uhaha
-    11400000: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200000: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1/SpriteRenderer
-    21300000: cea1e5d195c8c8449b43fa8f750d8362
-    100100000: Minhoca uhaha_GO
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO
+  - first:
+      1: 100002
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1
+  - first:
+      1: 100004
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1
+  - first:
+      1: 100008
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1/bone_2
+  - first:
+      1: 100010
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3
+  - first:
+      1: 100012
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3/bone_4
+  - first:
+      4: 400000
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/Transform
+  - first:
+      4: 400002
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1/Transform
+  - first:
+      4: 400004
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1/Transform
+  - first:
+      4: 400008
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_1/bone_2/Transform
+  - first:
+      4: 400010
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3/Transform
+  - first:
+      4: 400012
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/bone_3/bone_4/Transform
+  - first:
+      28: 2800000
+    second: Minhoca uhaha
+  - first:
+      114: 11400000
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      212: 21200000
+    second: Minhoca uhaha_GO/Minhoca uhaha_GO/Bichin minion 1/SpriteRenderer
+  - first:
+      213: 21300000
+    second: cea1e5d195c8c8449b43fa8f750d8362
+  - first:
+      1001: 100100000
+    second: Minhoca uhaha_GO
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -90,6 +125,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -113,6 +149,7 @@ ScriptedImporter:
       width: 430
       height: 199
     spriteID: cea1e5d195c8c8449b43fa8f750d8362
+    internalID: 0
     spriteBone:
     - name: bone_2
       position: {x: 88.21454, y: 0.000011422246, z: 0}
@@ -1071,6 +1108,10 @@ ScriptedImporter:
   importedTextureWidth: 512
   importedTextureHeight: 256
   documentSize: {x: 492, y: 252}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
   textureActualWidth: 512
   textureActualHeight: 256
   spritePackingTag: 
@@ -1115,16 +1156,12 @@ ScriptedImporter:
         height: 199
       spriteId: cea1e5d195c8c8449b43fa8f750d8362
       bones: 01000000000000000200000003000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
-  boneGOs:
-  - go: {fileID: 100004, guid: 1f08e7dbea313284887e172075477dcf, type: 3}
-    index: 0
-  - go: {fileID: 100008, guid: 1f08e7dbea313284887e172075477dcf, type: 3}
-    index: 1
-  - go: {fileID: 100010, guid: 1f08e7dbea313284887e172075477dcf, type: 3}
-    index: 2
-  - go: {fileID: 100012, guid: 1f08e7dbea313284887e172075477dcf, type: 3}
-    index: 3
+    characterGroups: []
   generateGOHierarchy: 0
   textureAssetName: Minhoca uhaha
   prefabAssetName: Minhoca uhaha_GO
+  spriteLibAssetName: Minhoca uhaha Sprite Lib
+  secondarySpriteTextures: []

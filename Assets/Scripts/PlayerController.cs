@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
        
-             LoadPlayer();
+        //LoadPlayer();
     }
 
     private void Start()

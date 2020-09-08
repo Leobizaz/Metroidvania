@@ -41,7 +41,7 @@ public class PlayerCollision : MonoBehaviour
             RaycastHit2D detectGroundType = Physics2D.Raycast(transform.position, Vector2.down * 10, 10, raycastFilter);
             if (detectGroundType.collider != null)
             {
-                Debug.Log(detectGroundType.collider.name);
+                //Debug.Log(detectGroundType.collider.name);
 
                 if (detectGroundType.collider.sharedMaterial.name == "Carne")
                 {
