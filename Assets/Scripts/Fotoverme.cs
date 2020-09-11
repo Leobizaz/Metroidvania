@@ -55,6 +55,7 @@ public class Fotoverme : MonoBehaviour
         Initialize();
         targetTime = 0.5f;
         //if (detected) GetDetected();
+        player = GameObject.FindWithTag("Player");
     }
 
     private void OnEnable()
