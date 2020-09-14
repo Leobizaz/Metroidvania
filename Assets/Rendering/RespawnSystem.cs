@@ -4,44 +4,43 @@ using UnityEngine;
 
 public class RespawnSystem : MonoBehaviour
 {
-    public int EnemyCount;
-    public string EnemyType;
+    public GameObject[] Enemies;
     public Transform[] pos;
-
-    public GameObject Fotoverme;
-    public GameObject Outro;
+    public int EnemyCount;
 
     private void Awake()
     {
+        
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Player")
         {
-           // if (EnemyType == "Fotoverme" && EnemyCount == 1)
-            //{
-                Instantiate(Fotoverme, pos[0]);
-                
-           // }
-            if (EnemyType == "Fotoverme" && EnemyCount == 2)
+            if (EnemyCount >= 1 && EnemyCount < 2)
             {
-                Instantiate(Fotoverme, pos[1]);
+                Instantiate(Enemies[0], pos[0]);
+                this.gameObject.SetActive(true);
+            }
+            if (EnemyCount >= 2 && EnemyCount < 3)
+            {
+                Instantiate(Enemies[1], pos[1]);
+                this.gameObject.SetActive(true);
               
             }
-            if (  EnemyType == "Fotoverme" && EnemyCount == 3)
+            if (EnemyCount >= 3 && EnemyCount < 4 )
             {
-                Instantiate(Fotoverme, pos[2]);
-              
+                Instantiate(Enemies[2], pos[2]);
+                this.gameObject.SetActive(true);
             }
-            if ( EnemyType == "Fotoverme" && EnemyCount == 4)
+            if (EnemyCount >= 4 && EnemyCount < 5)
             {
-                Instantiate(Fotoverme, pos[3]);
-               
+                Instantiate(Enemies[3], pos[3]);
+                this.gameObject.SetActive(true);
             }
-            if (EnemyType == "Fotoverme" && EnemyCount == 5)
+            if (EnemyCount >= 5 && EnemyCount <= 1)
             {
-                Instantiate(Fotoverme, pos[4]);
-              
+                Instantiate(Enemies[4], pos[4]);
+                this.gameObject.SetActive(true);
             }
         }
     }
