@@ -30,6 +30,19 @@ public class Gunshot : MonoBehaviour
         rot180degrees = transform.rotation * AAAAAA;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Gun hit object " + collision.gameObject.name);
+            c_collider.enabled = false;
+            moving = false;
+            Instantiate(gunExplosion, transform.position, transform.rotation);
+            GameEvents.current.MakeBigSound(gameObject);
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
