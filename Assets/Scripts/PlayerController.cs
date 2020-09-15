@@ -460,6 +460,7 @@ public class PlayerController : MonoBehaviour
             isMoving = false; // Diz que o jogador não está se movimentando
         }
 
+
         Vector2 dir = new Vector2(x, y); // Registra o vetor de movimento de acordo com os valores de input horizontal e vertical
 
 
@@ -469,7 +470,8 @@ public class PlayerController : MonoBehaviour
                                                                                //animação do jogador parando vai aqui
         }
 
-        rb.velocity = new Vector2(dir.x * currentMoveSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
+        if(Input.GetAxisRaw("Horizontal") != 0)
+            rb.velocity = new Vector2(dir.x * currentMoveSpeed, rb.velocity.y); // Movimenta o jogador para os lados de acordo com o vetor 'dir' e a velocidade variavel 
 
 
         if ((Input.GetKey(KeyCode.LeftShift) && p_collision.onGround) || reloading || isCharging)
@@ -906,6 +908,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void GetHitSpecific(GameObject hit)
+    {
+        if (!xitadasso)
+        {
+            lastEnemyToHit = hit;
+            hud_dmg.Play("hud_damage"); //animação da hud
+            playerAnim.SetBool("Damage", true);
+            hits -= 1;
+            hitCooldown = invulnerabilityFrame;
+            Invoke("ResetHitCooldown", invulnerabilityFrame);
+            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            //Som do player tomando dano ta no gameobject que é instanciado acima (bruh)
+        }
+    }
+
     void DeathCheck()
     {
         if (hits <= 0 && !died)
@@ -933,6 +950,16 @@ public class PlayerController : MonoBehaviour
             lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().sortingLayerID = 0;
             lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().material = red_material;
             lastEnemyToHit.GetComponentInChildren<SpriteRenderer>().gameObject.layer = LayerMask.NameToLayer("DeathSprite");
+        }
+        if(lastEnemyToHit.name == "ENEMY_Charger")
+        {
+            lastEnemyToHit.GetComponentInChildren<Charger>().Congela();
+            foreach (SpriteRenderer rend in lastEnemyToHit.GetComponentsInChildren<SpriteRenderer>()) 
+            {
+                rend.sortingLayerID = 0;
+                rend.material = red_material;
+                rend.gameObject.layer = LayerMask.NameToLayer("DeathSprite");
+            }
         }
     }
     public void SavePlayer()
