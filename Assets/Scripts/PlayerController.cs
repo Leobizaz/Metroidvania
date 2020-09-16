@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem[] jetpack_FX;
     public AudioClip[] jetpack_SFX;
     public Light2D jetpackFX_light;
+    public AudioClip[] knifesound;
+    public AudioSource audioknife;
 
     public GameObject playersprite;
     public ParticleSystem FX_tiroCarregado;
@@ -358,11 +360,15 @@ public class PlayerController : MonoBehaviour
             CancelInvoke("ResetKnifeAnimation");
             if (knifeAnimIndex == 0)
             {
+                audioknife.clip = knifesound[0];
+                audioknife.Play();
                 playerAnim.Play("Bob_knife1");
                 knifeAnimIndex++;
             }
             else
             {
+                audioknife.clip = knifesound[1];
+                audioknife.Play();
                 playerAnim.Play("Bob_knife2");
                 knifeAnimIndex = 0;
             }
@@ -974,6 +980,7 @@ public class PlayerController : MonoBehaviour
         unlockedBeacon = data.beacon;
         unlockedFlash = data.flash;
         unlockedJetpack = data.jetpack;
+        unlockedKnife = data.knife;
 
         ReatorOnEnable.ReatorOn = data.reator;
         ExecuteFlashCutscene.FlashLog = data.flash;

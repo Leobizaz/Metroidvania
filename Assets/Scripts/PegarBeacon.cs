@@ -11,6 +11,7 @@ public class PegarBeacon : MonoBehaviour
     public GameObject popup;
     public PlayerController playerControl;
 
+
     void Start()
     {
         indicator.SetActive(false);

@@ -14,6 +14,7 @@ public class SaveRoom
     public bool beacon;
     public bool flash;
     public bool jetpack;
+    public bool knife;
     public bool reator;
     public bool Ming;
     public bool Josh;
@@ -26,6 +27,7 @@ public class SaveRoom
         beacon = player.unlockedBeacon;
         flash = player.unlockedFlash;
         jetpack = player.unlockedJetpack;
+        knife = player.unlockedKnife;
         reator = ReatorOnEnable.ReatorOn;
 
         scrap = GameController.currentScrap;

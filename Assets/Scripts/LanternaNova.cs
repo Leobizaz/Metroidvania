@@ -6,14 +6,19 @@ public class LanternaNova : MonoBehaviour
 {
     Animator anim;
     public PlayerLanternController lanternController;
+    public AudioClip[] soundtrack;
+    AudioSource audio;
 
     bool on;
     float cooldown;
 
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         anim.Play("lanterna_open");
+        audio.clip = soundtrack[1];
+        audio.Play();
     }
 
     private void Update()
@@ -25,10 +30,14 @@ public class LanternaNova : MonoBehaviour
             if (on)
             {
                 anim.Play("lanterna_close");
+                audio.clip = soundtrack[0];
+                audio.Play();
             }
             else
             {
                 anim.Play("lanterna_open");
+                audio.clip = soundtrack[1];
+                audio.Play();
             }
             cooldown = 1.5f;
             on = !on;
