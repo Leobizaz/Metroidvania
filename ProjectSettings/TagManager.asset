@@ -17,6 +17,7 @@ TagManager:
   - Reflect
   - chonk
   - SavePoint
+  - clamp
   layers:
   - Default
   - TransparentFX

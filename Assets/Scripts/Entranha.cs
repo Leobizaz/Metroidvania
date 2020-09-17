@@ -29,7 +29,8 @@ public class Entranha : MonoBehaviour
             }
             else
             {
-                GetHit();
+                if(!cortado)
+                    GetHit();
             }
         }
     }
