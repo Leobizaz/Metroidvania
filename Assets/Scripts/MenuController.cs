@@ -212,7 +212,7 @@ public class MenuController : MonoBehaviour
         if (volumeAmbiente == 0 || volumeEfeitos == 0 || volumeMusica == 0)
         {
             volumeEfeitos = 0.3f;
-            volumeAmbiente = 0.12f;
+            volumeAmbiente = 0.06f;
             volumeMusica = 0.12f;
             sliderEfeitos.value = volumeEfeitos;
             sliderAmbiente.value = volumeAmbiente;

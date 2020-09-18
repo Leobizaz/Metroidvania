@@ -32,6 +32,8 @@ public class Charger : MonoBehaviour
 
     public BoxCollider2D hitcol;
     Transform lastPlayerPosition;
+    public AudioSource audio;
+    public AudioClip[] sons;
 
     bool once;
     bool dead;
@@ -43,6 +45,8 @@ public class Charger : MonoBehaviour
         currentHealth = maxHealth;
         idlePoint = this.transform.position;
         looking = true;
+        audio = GetComponent<AudioSource>();
+        
     }
 
     private void Update()
