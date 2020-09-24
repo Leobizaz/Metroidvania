@@ -6,7 +6,6 @@ public class Door : MonoBehaviour
 {
     public Animator anim;
     private BoxCollider2D b_collider;
-    bool open;
     AudioSource aSource;
     public AudioClip[] sfx;
 
@@ -22,7 +21,6 @@ public class Door : MonoBehaviour
         if(collision.tag == "Player")
         {
             CancelInvoke("DoorOpen");
-            open = true;
             Invoke("DoorOpen", 0.1f);
         }
     }
@@ -32,7 +30,6 @@ public class Door : MonoBehaviour
         if(collision.tag == "Player")
         {
             CancelInvoke("DoorClose");
-            open = false;
             Invoke("DoorClose", 0.1f);
         }
     }

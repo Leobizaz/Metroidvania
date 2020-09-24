@@ -7,7 +7,6 @@ public class ShakeCamera : MonoBehaviour
 
     public CinemachineVirtualCamera v_camera;
     CinemachineBasicMultiChannelPerlin v_cameraNoise;
-    bool shaking;
     float shakeElapsedTime;
     public float shakeDuration;
     public float shakeAmplitude;
@@ -23,7 +22,6 @@ public class ShakeCamera : MonoBehaviour
     {
         if (shakeElapsedTime > 0)
         {
-            shaking = true;
             v_cameraNoise.m_AmplitudeGain = shakeAmplitude;
             v_cameraNoise.m_FrequencyGain = shakeFrequency;
 
@@ -31,7 +29,6 @@ public class ShakeCamera : MonoBehaviour
         }
         else
         {
-            shaking = false;
             v_cameraNoise.m_AmplitudeGain = 0f;
             shakeElapsedTime = 0f;
         }

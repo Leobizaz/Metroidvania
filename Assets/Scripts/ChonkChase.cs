@@ -13,7 +13,6 @@ public class ChonkChase : MonoBehaviour
     public float currentSpeed;
     public GameObject quebraParedeTrigger;
     public GameObject storybeacon;
-    bool touched;
     AudioSource audioS;
     public AudioClip SFX_continuação;
     public AudioClip SFX_start;
@@ -76,7 +75,6 @@ public class ChonkChase : MonoBehaviour
 
         CancelInvoke("TocaContinuação");
         StartChase();
-        touched = false;
     }
 
     public void ResetChase()

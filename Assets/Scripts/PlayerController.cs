@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     // Variaveis essenciais
     float currentMoveSpeed;
     bool isSlow;
-    bool lockLeft;
-    bool lockRight;
     bool reloading;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool wantToJump;
@@ -78,7 +76,7 @@ public class PlayerController : MonoBehaviour
     public Light2D jetpackFX_light;
     public AudioClip[] knifesound;
     public AudioSource audioknife;
-
+    public LayerMask layerRaycast;
     public GameObject playersprite;
     public ParticleSystem FX_tiroCarregado;
     public GameObject FX_chargedLight;
@@ -417,12 +415,6 @@ public class PlayerController : MonoBehaviour
         } // Reseta o cooldown de pulo
     }
 
-    private void Release()
-    {
-        lockLeft = false;
-        lockRight = false;
-    }
-
     private void MovementMechanic()
     {
         // Essa função controla tudo a respeito da movimentação do jogador
@@ -757,6 +749,37 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetAxisRaw("Mouse X") != 0 || Input.GetAxisRaw("Mouse Y") != 0)
             {
+                Vector3 mousePosition = Input.mousePosition;
+                mousePosition.z = 0;
+                Ray ray;
+                ray = Camera.main.ScreenPointToRay(mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, 99991, layerRaycast, QueryTriggerInteraction.Collide))
+                {
+                    Debug.Log(hit.point);
+                    if(hit.point.x - transform.position.x > 0)
+                    {
+                        //right
+                        playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
+                        facingright = true;
+                        facingleft = false;
+                        return;
+                    }
+                    if (hit.point.x - transform.position.x < 0)
+                    {
+                        //left
+                        playersprite.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z); // Mantem o valor positivo do 'x' da escala do sprite
+                        facingleft = true;
+                        facingright = false;
+                        return;
+                    }
+
+                }
+
+
+
+                /* OLD
                 if (mousePos.x > 0)
                 {
                     playersprite.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z); // Inverte o valor 'x' da escala do sprite
@@ -771,6 +794,7 @@ public class PlayerController : MonoBehaviour
                     facingright = false;
                     return;
                 }
+                */
             }
 
 

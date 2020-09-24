@@ -42,6 +42,7 @@ public class Entranha : MonoBehaviour
 
     public void Corta()
     {
+        cortado = true;
         spriteAnim.Play("entranhas_cut");
         collision.SetActive(false);
         sprite_cortado.SetActive(true);
