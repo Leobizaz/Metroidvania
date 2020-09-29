@@ -9,6 +9,9 @@ public class Entranha : MonoBehaviour
     public GameObject collision;
     public bool cortado;
 
+    public GameObject[] disableOnCut;
+    public GameObject[] enableOnCut;
+
     private void Start()
     {
         if (cortado)
@@ -46,6 +49,23 @@ public class Entranha : MonoBehaviour
         spriteAnim.Play("entranhas_cut");
         collision.SetActive(false);
         sprite_cortado.SetActive(true);
+
+        if(disableOnCut != null)
+        {
+            foreach(GameObject obj in disableOnCut)
+            {
+                obj.SetActive(false);
+            }
+        }
+
+        if(enableOnCut != null)
+        {
+            foreach(GameObject obj in enableOnCut)
+            {
+                obj.SetActive(true);
+            }
+        }
+
     }
 
 }

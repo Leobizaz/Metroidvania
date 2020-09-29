@@ -757,7 +757,6 @@ public class PlayerController : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, 99991, layerRaycast, QueryTriggerInteraction.Collide))
                 {
-                    Debug.Log(hit.point);
                     if(hit.point.x - transform.position.x > 0)
                     {
                         //right
