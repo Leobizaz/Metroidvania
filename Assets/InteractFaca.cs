@@ -10,6 +10,7 @@ public class InteractFaca : MonoBehaviour
     public bool destroy = true;
     bool once;
     public GrabKnifeAnimation animatione;
+    public GameObject objectToActivate;
 
     void Start()
     {
@@ -33,6 +34,12 @@ public class InteractFaca : MonoBehaviour
     public void Execute()
     {
         animatione.Play();
+        ActivateObj();
+    }
+
+    void ActivateObj()
+    {
+        objectToActivate.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

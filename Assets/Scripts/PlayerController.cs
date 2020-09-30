@@ -671,6 +671,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PutJetpack()
+    {
+        jetpacksprite.SetActive(true);
+        unlockedJetpack = true;
+    }
     void ShotLoaded()
     {
         shotReady = true;

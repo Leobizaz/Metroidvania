@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationSignal_Player : MonoBehaviour
 {
     public SoundPlayer soundplayer;
+    public GameObject fakeJetpack;
     public ParticleSystem fx_SlashBig;
     public ParticleSystem fx_SlashSmall;
     public GameObject fakeknife;
@@ -26,6 +27,12 @@ public class AnimationSignal_Player : MonoBehaviour
     {
         fakeknife.SetActive(false);
         player.unlockedKnife = true;
+    }
+
+    public void PutJetpack()
+    {
+        fakeJetpack.SetActive(false);
+        player.PutJetpack();
     }
 
     public void SomDePasso()
