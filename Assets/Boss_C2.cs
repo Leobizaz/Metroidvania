@@ -14,6 +14,8 @@ public class Boss_C2 : MonoBehaviour
     public GameObject projectilePrefab;
     bool block = true;
     public Animator bossAnimator;
+    public AudioSource audio;
+    public AudioClip[] sonsRugido;
 
     private float timeToLightUP = 6;
 
@@ -32,6 +34,7 @@ public class Boss_C2 : MonoBehaviour
 
         gameObject.SetActive(false);
         block = false;
+        audio = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -64,6 +67,8 @@ public class Boss_C2 : MonoBehaviour
         while (true)
         {
             bossAnimator.Play("boss_roar");
+            audio.clip = sonsRugido[Random.Range(0, sonsRugido.Length)];
+            audio.Play();
             spawnProjectile(Random.Range(0, projectile_points.Length));
             yield return new WaitForSeconds(0.3f);
             spawnProjectile(Random.Range(0, projectile_points.Length));

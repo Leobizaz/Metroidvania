@@ -12,6 +12,9 @@ public class Entranha : MonoBehaviour
     public GameObject[] disableOnCut;
     public GameObject[] enableOnCut;
 
+    public AudioSource audio;
+    public AudioClip[] sonsDano;
+
     private void Start()
     {
         if (cortado)
@@ -40,6 +43,8 @@ public class Entranha : MonoBehaviour
 
     public void GetHit()
     {
+        audio.clip = sonsDano[Random.Range(0, sonsDano.Length)];
+        audio.Play();
         spriteAnim.Play("entranhas_hit");
     }
 
@@ -50,7 +55,7 @@ public class Entranha : MonoBehaviour
         collision.SetActive(false);
         sprite_cortado.SetActive(true);
 
-        if(disableOnCut != null)
+        if (disableOnCut != null)
         {
             foreach(GameObject obj in disableOnCut)
             {

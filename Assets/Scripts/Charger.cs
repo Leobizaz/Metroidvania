@@ -33,6 +33,9 @@ public class Charger : MonoBehaviour
     public BoxCollider2D hitcol;
     Transform lastPlayerPosition;
     public AudioSource audio;
+    public AudioClip[] sonsAtaque;
+    public AudioClip[] sonsCharge;
+    public AudioClip[] sonsFlash;
     public AudioClip[] sons;
 
     bool once;
@@ -187,12 +190,13 @@ public class Charger : MonoBehaviour
     {
         Debug.Log("Cu");
         transform.position = Vector2.MoveTowards(transform.position, new Vector2((transform.position.x * oldDirection) * -20, transform.position.y), (speed * 3) * Time.deltaTime);
+        audio.clip = sonsAtaque[Random.Range(0, sonsAtaque.Length)];
+        audio.Play();
 
     }
 
     void Stunned()
     {
-
     }
 
     public void StartCharging()
@@ -216,6 +220,8 @@ public class Charger : MonoBehaviour
         anim.Play("run_arm");
         charging = true;
         FX_runDust.Play();
+        audio.clip = sonsCharge[Random.Range(0, sonsCharge.Length)];
+        audio.Play();
         Invoke("Tired", 3f);
     }
     
@@ -251,6 +257,8 @@ public class Charger : MonoBehaviour
         CancelInvoke("FollowIdlePoint");
         anim.speed = 0;
         congelado = true;
+        audio.clip = sons[0];
+        audio.Play();
     }
 
 
@@ -276,6 +284,8 @@ public class Charger : MonoBehaviour
                 CancelInvoke("FollowIdlePoint");
                 stunned = true;
                 hitcol.enabled = false;
+                audio.clip = sonsFlash[Random.Range(0, sonsFlash.Length)];
+                audio.Play();
                 FX_runDust.Stop();
                 flashFX.Play();
                 anim.Play("empty");
@@ -321,6 +331,8 @@ public class Charger : MonoBehaviour
         gameObject.layer = 13;
         explodeFX.Play();
         bolha.SetActive(false);
+        audio.clip = sons[1];
+        audio.Play();
         Debug.Log("Explode");
         anim.Play("explode");
     }

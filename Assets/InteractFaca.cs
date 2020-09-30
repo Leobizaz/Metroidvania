@@ -11,6 +11,7 @@ public class InteractFaca : MonoBehaviour
     bool once;
     public GrabKnifeAnimation animatione;
     public GameObject objectToActivate;
+    public AudioSource audio;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class InteractFaca : MonoBehaviour
     {
         animatione.Play();
         ActivateObj();
+        audio.Play();
     }
 
     void ActivateObj()
