@@ -7,6 +7,7 @@ public class AnimationSignal_Player : MonoBehaviour
     public SoundPlayer soundplayer;
     public ParticleSystem fx_SlashBig;
     public ParticleSystem fx_SlashSmall;
+    public GameObject fakeknife;
     public bool metal;
     public bool carne;
     public bool pedra;
@@ -19,6 +20,12 @@ public class AnimationSignal_Player : MonoBehaviour
     private void Awake()
     {
         player = transform.parent.GetComponent<PlayerController>();
+    }
+
+    public void TakeKnife()
+    {
+        fakeknife.SetActive(false);
+        player.unlockedKnife = true;
     }
 
     public void SomDePasso()

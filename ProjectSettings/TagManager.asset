@@ -18,6 +18,7 @@ TagManager:
   - chonk
   - SavePoint
   - clamp
+  - Energy
   layers:
   - Default
   - TransparentFX

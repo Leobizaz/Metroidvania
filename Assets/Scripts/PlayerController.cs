@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     // Referencias privadas
     private Animator jetpackAnim;
+    private EnergyCollector energy;
     private PlayerCollision p_collision;
     private Rigidbody2D rb;
     private SoundPlayer soundplayer;
@@ -222,6 +223,7 @@ public class PlayerController : MonoBehaviour
     private void Initialize()
     {
         currentMoveSpeed = movementSpeed;
+        energy = GetComponentInChildren<EnergyCollector>();
         spriteScale = playersprite.transform.localScale;
         soundplayer = GetComponent<SoundPlayer>();
         storedAccelerationValue = movement_acceleration;
@@ -925,30 +927,49 @@ public class PlayerController : MonoBehaviour
 
     public void GetHit()
     {
-        if (!xitadasso)
+        if (!xitadasso && hitCooldown == 0)
         {
-            hud_dmg.Play("hud_damage"); //animação da hud
-            playerAnim.SetBool("Damage", true);
-            hits -= 1;
-            hitCooldown = invulnerabilityFrame;
-            Invoke("ResetHitCooldown", invulnerabilityFrame);
-            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            if (energy.shieldcharge >= 20)
+            {
+                hitCooldown = invulnerabilityFrame;
+                Invoke("ResetHitCooldown", invulnerabilityFrame);
+                energy.GetHit(20);
+            }
+            else
+            {
+                hud_dmg.Play("hud_damage"); //animação da hud
+                playerAnim.SetBool("Damage", true);
+                hits -= 1;
+                hitCooldown = invulnerabilityFrame;
+                Invoke("ResetHitCooldown", invulnerabilityFrame);
+                Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            }
             //Som do player tomando dano ta no gameobject que é instanciado acima (bruh)
         }
     }
 
     public void GetHitSpecific(GameObject hit)
     {
-        if (!xitadasso)
+        if (!xitadasso && hitCooldown == 0)
         {
+
             lastEnemyToHit = hit;
-            hud_dmg.Play("hud_damage"); //animação da hud
-            playerAnim.SetBool("Damage", true);
-            hits -= 1;
-            hitCooldown = invulnerabilityFrame;
-            Invoke("ResetHitCooldown", invulnerabilityFrame);
-            Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
-            //Som do player tomando dano ta no gameobject que é instanciado acima (bruh)
+
+            if (energy.shieldcharge >= 20)
+            {
+                hitCooldown = invulnerabilityFrame;
+                Invoke("ResetHitCooldown", invulnerabilityFrame);
+                energy.GetHit(20);
+            }
+            else
+            {
+                hud_dmg.Play("hud_damage"); //animação da hud
+                playerAnim.SetBool("Damage", true);
+                hits -= 1;
+                hitCooldown = invulnerabilityFrame;
+                Invoke("ResetHitCooldown", invulnerabilityFrame);
+                Instantiate(DMG, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            }
         }
     }
 

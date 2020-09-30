@@ -12,7 +12,7 @@ public class Boss_C2 : MonoBehaviour
     public SpriteRenderer[] luzes_material;
     public Transform[] projectile_points;
     public GameObject projectilePrefab;
-    bool block = false;
+    bool block = true;
     public Animator bossAnimator;
 
     private float timeToLightUP = 6;
