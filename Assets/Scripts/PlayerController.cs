@@ -671,6 +671,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void HeroLanding()
+    {
+        Freio();
+        playerAnim.Play("Bob_herolanding");
+        isBusy = true;
+    }
+
     public void PutJetpack()
     {
         jetpacksprite.SetActive(true);
@@ -957,8 +964,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!xitadasso && hitCooldown == 0)
         {
-
-            lastEnemyToHit = hit;
+            if (hit != null)
+            {
+                lastEnemyToHit = hit;
+            }
 
             if (energy.shieldcharge >= 20)
             {

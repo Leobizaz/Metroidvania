@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class bossAnimationEvents : MonoBehaviour
 {
+    public AudioSource audioS;
+    public AudioClip[] sonsRugido;
+
     public void Scream()
     {
-        GameEvents.current.ShakeCamera(2.5f, 2.3f, 4.5f);
+        audioS.clip = sonsRugido[Random.Range(0, sonsRugido.Length)];
+        audioS.Play();
+
+
+        GameEvents.current.ShakeCamera(1.5f, 1.3f, 1.5f);
     }
 }

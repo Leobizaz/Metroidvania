@@ -25,7 +25,7 @@ public class OvoDoBoss : MonoBehaviour
         particleFX.SetActive(true);
         particleFX.transform.parent = null;
         particleFX.transform.position = new Vector3(particleFX.transform.position.x, particleFX.transform.position.y, 0);
-        bossScript.GetHit();
+        bossScript.GetHitBig();
         Destroy(gameObject);
 
     }

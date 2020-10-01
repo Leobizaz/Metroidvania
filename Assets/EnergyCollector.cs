@@ -8,7 +8,8 @@ public class EnergyCollector : MonoBehaviour
     public static EnergyCollector current;
     public float shieldcharge;
     public Image barraShield;
-
+    public GameObject dialogoShield;
+    bool once;
 
     private void Awake()
     {
@@ -34,6 +35,12 @@ public class EnergyCollector : MonoBehaviour
 
     public void ChargeCollector()
     {
+        if (!once)
+        {
+            dialogoShield.SetActive(true);
+            once = true;
+        }
+
         shieldcharge++;
         if (shieldcharge > 100) shieldcharge = 100;
     }

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class InteractTubo : MonoBehaviour
 {
-    public GameObject indicator;
+    public GameObject indicatorEntrar;
+    public GameObject indicatorCortar;
     bool onArea;
     public bool oneTime = true;
     public bool destroy = true;
     bool once;
-
+    bool open;
+    public GameObject corteSprite;
+    public ParticleSystem corteBurst;
     public GameObject cameraPLAYER;
 
     public GameObject camera;
@@ -18,19 +21,20 @@ public class InteractTubo : MonoBehaviour
 
     void Start()
     {
-        indicator.SetActive(false);
+        indicatorEntrar.SetActive(false);
+        indicatorCortar.SetActive(true);
     }
     void Update()
     {
-        if (onArea && Input.GetKeyDown(KeyCode.E) && !once)
+        if (onArea && Input.GetKeyDown(KeyCode.E) && !once && open)
         {
             if (oneTime) once = true;
             Execute();
-            indicator.SetActive(false);
+            indicatorEntrar.SetActive(false);
             if (destroy)
             {
                 Destroy(gameObject, 0.1f);
-                Destroy(indicator, 0.1f);
+                Destroy(indicatorEntrar, 0.1f);
             }
         }
     }
@@ -49,18 +53,32 @@ public class InteractTubo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerWeapon")
+        {
+            if (collision.name == "fx_SlashSmall" || collision.name == "fx_SlashBig")
+            {
+                open = true;
+                corteBurst.Play();
+                corteSprite.SetActive(true);
+                onArea = true;
+                indicatorEntrar.SetActive(true);
+                indicatorCortar.SetActive(false);
+            }
+        }
+
+
+        if (collision.tag == "Player" && open)
         {
             onArea = true;
-            indicator.SetActive(true);
+            indicatorEntrar.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && open)
         {
-            indicator.SetActive(false);
+            indicatorEntrar.SetActive(false);
             onArea = false;
         }
     }

@@ -35,6 +35,7 @@ public class BossProjectile : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
+            collision.GetComponent<PlayerController>().GetHitSpecific(null);
             Destroy(gameObject);
         }
     }

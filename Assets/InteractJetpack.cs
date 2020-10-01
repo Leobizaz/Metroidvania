@@ -7,6 +7,7 @@ public class InteractJetpack : MonoBehaviour
     public GameObject indicator;
     public GrabJetpackAnimation jetpackAnimation;
     public AudioSource audio;
+    public GameObject dica;
     
     bool onArea;
     public bool oneTime = true;
@@ -36,6 +37,7 @@ public class InteractJetpack : MonoBehaviour
     {
         jetpackAnimation.Play();
         audio.Play();
+        dica.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
