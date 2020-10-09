@@ -89,7 +89,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip LampDone;
     public GameObject DMG;
     public GameObject flash;
+    public ParticleSystem feedbackShieldFX;
     public Animator hud_dmg;
+    public Animator hud_shieldDmg;
     public Animator hud_noFlash;
     public Material red_material;
     public GameObject ReloadIcon;
@@ -945,6 +947,8 @@ public class PlayerController : MonoBehaviour
             {
                 hitCooldown = invulnerabilityFrame;
                 Invoke("ResetHitCooldown", invulnerabilityFrame);
+                feedbackShieldFX.Play();
+                hud_shieldDmg.Play("hud_damage");
                 energy.GetHit(20);
             }
             else
@@ -973,6 +977,8 @@ public class PlayerController : MonoBehaviour
             {
                 hitCooldown = invulnerabilityFrame;
                 Invoke("ResetHitCooldown", invulnerabilityFrame);
+                feedbackShieldFX.Play();
+                hud_shieldDmg.Play("hud_damage");
                 energy.GetHit(20);
             }
             else
