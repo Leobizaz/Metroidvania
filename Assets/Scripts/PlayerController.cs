@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            hits = 2;
+            hits = 3;
         }
 
     }

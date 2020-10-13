@@ -81,7 +81,7 @@ public class DeathAnimation : MonoBehaviour
 
     public void TryAgain()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("CENAPRINCIPAL");
     }
 
 }
