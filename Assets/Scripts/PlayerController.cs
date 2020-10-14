@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
     // Variaveis estaticas
     public static bool facingleft;
     public static bool facingright;
+    public static bool demoJ1; //carrega o player no começo do J1
+    public static bool jogoNovo; //carrega o player bem no comecinho;
     public static int hits = 2;
     public static bool OnMovement = true;
 
@@ -95,12 +97,28 @@ public class PlayerController : MonoBehaviour
     public Animator hud_noFlash;
     public Material red_material;
     public GameObject ReloadIcon;
-
+    public GameObject introDialog;
+    public GameObject currentCenario;
+    public GameObject cenarioNave;
 
     void Awake()
     {
-       
-        //LoadPlayer();
+        if (jogoNovo)
+        {
+            transform.position = new Vector3(0, -11, 0);
+            cenarioNave.SetActive(true);
+            currentCenario.SetActive(false);
+            introDialog.SetActive(true);
+        }
+
+        if (demoJ1)
+        {
+            LoadPlayer();
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void Start()
@@ -926,7 +944,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "SavePoint" && Input.GetKeyDown(KeyCode.S))
+        if (collision.gameObject.tag == "SavePoint" && Input.GetKeyDown(KeyCode.E))
         {
             SavePlayer();
             Debug.Log("Saved");

@@ -18,6 +18,11 @@ public class DeathAnimation : MonoBehaviour
     bool once1;
     bool once2;
 
+    private void Awake()
+    {
+        Camera.main.GetComponent<CinemachineBrain>().enabled = true;
+    }
+
     private void Update()
     {
         if (silhouette)
@@ -81,6 +86,8 @@ public class DeathAnimation : MonoBehaviour
 
     public void TryAgain()
     {
+        PlayerController.demoJ1 = true;
+        PlayerController.jogoNovo = false;
         SceneManager.LoadScene("CENAPRINCIPAL");
     }
 

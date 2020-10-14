@@ -175,10 +175,19 @@ public class MenuController : MonoBehaviour
 
     public void PlayAudio()
     {
+        PlayerController.jogoNovo = false;
         Begin.Play();
         anim.Play("Menu Out");
         Invoke("LoadGame", 5f);
     }
+    public void PlayAudioNewGame()
+    {
+        PlayerController.jogoNovo = true;
+        Begin.Play();
+        anim.Play("Menu Out");
+        Invoke("LoadGame", 5f);
+    }
+
     public void LoadGame()
     {
         if (GameLoad.playerHasDiedOnce)
