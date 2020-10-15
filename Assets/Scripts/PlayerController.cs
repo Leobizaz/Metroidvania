@@ -1019,8 +1019,11 @@ public class PlayerController : MonoBehaviour
             died = true;
             GameLoad.playerHasDiedOnce = true;
             Freio();
-            Debug.Log(lastEnemyToHit.name);
-            PaintLastEnemy();
+            if (lastEnemyToHit != null)
+            {
+                Debug.Log(lastEnemyToHit.name);
+                PaintLastEnemy();
+            }
             playerAnim.Play("Death_verme");
         }
     }

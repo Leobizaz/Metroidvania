@@ -406,15 +406,15 @@ RectTransform:
   m_GameObject: {fileID: 994916169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.38764, y: 0.38764, z: 0.38764}
   m_Children: []
   m_Father: {fileID: 1358395872}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 12.097}
-  m_SizeDelta: {x: 213.97, y: 90.595}
+  m_AnchoredPosition: {x: 38, y: 26}
+  m_SizeDelta: {x: 681.9, y: 366.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994916171
 MonoBehaviour:
@@ -450,19 +450,23 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e46c45c1e3a67c548975e44a15a2c501, type: 3}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 81
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Aten\xE7\xE3o!\n\nEste Jogo Esta em desenvolvimento e esta \xE9 uma vers\xE3o
-    n\xE3o-final para testes."
+  m_Text: 'Attention!
+
+
+
+    This Game is in development and this is a non-final
+    test version.'
 --- !u!222 &994916173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1892,15 +1896,15 @@ RectTransform:
   m_GameObject: {fileID: 1966153721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35099608, y: 0.35099608, z: 0.35099608}
   m_Children: []
   m_Father: {fileID: 1197999203}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.999939, y: -4.91}
-  m_SizeDelta: {x: 213.97, y: 68.61}
+  m_AnchoredPosition: {x: 9, y: 19.4}
+  m_SizeDelta: {x: 599.5, y: 104.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966153723
 MonoBehaviour:
@@ -1936,18 +1940,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e46c45c1e3a67c548975e44a15a2c501, type: 3}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 3
+    m_MaxSize: 48
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Utilize fones de ouvido para ter uma melhor experi\xEAncia."
+  m_Text: Use headphones for a better experience.
 --- !u!222 &1966153725
 CanvasRenderer:
   m_ObjectHideFlags: 0

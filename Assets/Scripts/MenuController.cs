@@ -175,6 +175,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayAudio()
     {
+        GameLoad.playerHasDiedOnce = true;
         PlayerController.jogoNovo = false;
         Begin.Play();
         anim.Play("Menu Out");
@@ -182,6 +183,7 @@ public class MenuController : MonoBehaviour
     }
     public void PlayAudioNewGame()
     {
+        GameLoad.playerHasDiedOnce = false;
         PlayerController.jogoNovo = true;
         Begin.Play();
         anim.Play("Menu Out");
