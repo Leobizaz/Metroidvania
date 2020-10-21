@@ -110,16 +110,9 @@ public class PlayerController : MonoBehaviour
             currentCenario.SetActive(false);
             introDialog.SetActive(true);
         }
-
-        ////////Remover esse If Else para o jogo voltar a salvar, deixar apenas o LoadPlayer()///////////////
-        if (demoJ1)
-        {
-            LoadPlayer();
-        }
         else
-        {
-            return;
-        }
+            LoadPlayer();
+      
     }
 
     private void Start()

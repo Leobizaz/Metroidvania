@@ -8,7 +8,7 @@ public class FakeWall : MonoBehaviour
     Animator anim;
     public SpriteRenderer sprite;
     BoxCollider2D b_collider;
-    AudioSource aSource;
+    public AudioSource aSource;
     public ParticleSystem fx;
     public HideSecret hideSecret;
     public bool isTrigger = false;
@@ -25,7 +25,7 @@ public class FakeWall : MonoBehaviour
 
         b_collider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+       // sprite = GetComponentInChildren<SpriteRenderer>();
         if (GetComponent<AudioSource>())
         {
             aSource = GetComponent<AudioSource>();
