@@ -43,5 +43,7 @@ public class SaveRoom
             LogUnlocker.current.UnlockLog(2);
         if (Josh == true)
             LogUnlocker.current.UnlockLog(1);
+        if(flash == true)
+            LogUnlocker.current.UnlockLog(0);
     }
 }

@@ -1078,6 +1078,8 @@ public class PlayerController : MonoBehaviour
             LogUnlocker.current.UnlockLog(2);
         if (data.Josh == true)
             LogUnlocker.current.UnlockLog(1);
+        if(data.flash == true)
+            LogUnlocker.current.UnlockLog(0);
 
     }
 }
