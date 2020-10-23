@@ -111,7 +111,8 @@ public class PlayerController : MonoBehaviour
             introDialog.SetActive(true);
         }
         else
-            LoadPlayer();
+            //LoadPlayer()
+            ;
       
     }
 

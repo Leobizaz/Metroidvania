@@ -12,6 +12,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
         public GameObject gun;
         bool once;
         bool once2;
+        public Camera cameraPlayer;
         Sequence sequence;
         Quaternion targetRotation;
         public LayerMask layerRaycast;
@@ -151,30 +152,32 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void Charged()
         {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = 0;
-            Ray ray;
-            ray = Camera.main.ScreenPointToRay(mousePosition);
-            RaycastHit hit;
 
 
 
             Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position;
 
             Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+            //mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
 
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
 
             float rot_z2 = Mathf.Atan2(-diff.y, -diff.x) * -Mathf.Rad2Deg;
 
-            var zLock = Mathf.Clamp(rot_z, -80f, 80f);
+            var zLock = Mathf.Clamp(rot_z, -90f, 90f);
             if (zLock < 0) zLock = 360 + zLock;
-            var zLock2 = Mathf.Clamp(rot_z2, -80f, 80f);
+            var zLock2 = Mathf.Clamp(rot_z2, -90f, 90f);
             if (zLock2 < 0) zLock2 = 360 + zLock2;
             rot_z = zLock;
             rot_z2 = zLock2;
+
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = 0;
+            Ray ray;
+            ray = Camera.main.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+
 
             if (Input.GetMouseButton(0))
             {
@@ -217,7 +220,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
                         else
                         {
                             //DOTween.Kill(transform);
-                            transform.localEulerAngles = new Vector3(0f, 180f, rot_z);
+                            transform.localEulerAngles = new Vector3(0f, 150f, rot_z);
                         }
                     }
                     if (PlayerController.facingleft == true)
@@ -259,13 +262,13 @@ namespace UnityEngine.Experimental.Rendering.Universal
                         else
                         {
                             //DOTween.Kill(transform);
-                            transform.localEulerAngles = new Vector3(0f, 180f, rot_z2);
+                            transform.localEulerAngles = new Vector3(0f, 150f, rot_z2);
                         }
                     }
                 }
                 else
                 {
-                    transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime);
+                    transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 180 * Time.deltaTime);
                 }
             }
         }
