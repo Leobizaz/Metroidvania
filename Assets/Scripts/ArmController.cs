@@ -204,6 +204,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
             {
                 transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime);
             }
+
         }
 
         public void UpdateRotation(float z)

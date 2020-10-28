@@ -19,6 +19,7 @@ public class Gunshot : MonoBehaviour
         moving = true;
         Destroy(gameObject, 2f);
         c_collider = GetComponent<CircleCollider2D>();
+
         Bruh = new Vector3(0, 0, 180f);
     }
 

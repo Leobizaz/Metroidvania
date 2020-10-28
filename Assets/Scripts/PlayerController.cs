@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool unlockedFlash;
     public bool unlockedJetpack;
     public bool unlockedKnife;
+    public bool unlockedCartao;
 
     // Variaveis essenciais
     float currentMoveSpeed;
@@ -544,14 +545,14 @@ public class PlayerController : MonoBehaviour
                 } // Caso o jogador esteja olhando para a esquerda, flipe a rotação da bala
                 if (facingright && mousePos.x > 0)
                 {
-                    GameObject instance = Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation);
-                    instance.GetComponent<Gunshot>().speed = -10;
+                    GameObject instance = Instantiate(bullet_normal, new Vector3(gun.transform.position.x, gun.transform.position.y, 0), Quaternion.Euler(0,0, gun.transform.rotation.z));
+                    instance.GetComponent<Gunshot>().speed = -25;
                     Debug.Log("Bruh2");
                 }
                 else if (facingleft && mousePos.x < 0)
                 {
                     Debug.Log("Bruh2");
-                    Instantiate(bullet_normal, gun.transform.position, gun.transform.rotation); // Cria uma bala do tipo NORMAL
+                    Instantiate(bullet_normal, new Vector3(gun.transform.position.x, gun.transform.position.y, 0), Quaternion.Euler(0, 0, gun.transform.rotation.z)); // Cria uma bala do tipo NORMAL
                 }
                 else
                 {

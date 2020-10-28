@@ -4739,7 +4739,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 5
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -9493,7 +9493,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -14255,7 +14255,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -14350,7 +14350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf34a6e3e4a2bb48971835f280861b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 25
   gunExplosion: {fileID: 1282503317536100063, guid: d5d6a5927a6ddb0408c515f2aa2e6303,
     type: 3}
   Reflect: {fileID: 6709004888061837229, guid: 19315e4e8203a3e409ff386d25bce47a, type: 3}
