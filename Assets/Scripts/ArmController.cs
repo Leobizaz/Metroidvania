@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -12,10 +13,11 @@ namespace UnityEngine.Experimental.Rendering.Universal
         public GameObject gun;
         bool once;
         bool once2;
-        public Camera cameraPlayer;
+        bool once3;
+        bool once4;
         Sequence sequence;
+        public Camera cam;
         Quaternion targetRotation;
-        public LayerMask layerRaycast;
 
         private void Start()
         {
@@ -40,15 +42,21 @@ namespace UnityEngine.Experimental.Rendering.Universal
             //diff.x = 0;
             //diff.z = 0;
 
-            Charged();
+            //Charged();
 
             //Normal();
 
         }
 
+        private void FixedUpdate()
+        {
+            Charged();
+        }
+
         void Normal()
         {
-            Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position;
+            Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+            Vector3 diff = point - transform.position;
 
             Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
@@ -76,25 +84,6 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
                 if (mousePos.x < 0)
                 {
-                    /*
-                    if (!once3)
-                    {
-                        once3 = true;
-                        if (mousePos.y > 0)
-                        {
-                            transform.DOLocalRotate(new Vector3(0, 0, -135), 1.0f, RotateMode.FastBeyond360).SetRelative();
-                        }
-                        else
-                        {
-                            transform.DOLocalRotate(new Vector3(0, 0, 45), 0.3f, RotateMode.FastBeyond360).SetRelative();
-                        }
-                    }
-                    */
-
-                    //transform.localEulerAngles = new Vector3(180, 0, Mathf.Lerp(transform.localEulerAngles.z, 45, Time.deltaTime));
-                    //transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, new Vector3(180, 0, 45), 10 * Time.deltaTime);
-                    //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, 0, -135), 150 * Time.deltaTime);
-
                     transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime); // ATE QUE ENFIM FUNCIONOU PORRA
 
                     //UpdateRotation();
@@ -102,6 +91,7 @@ namespace UnityEngine.Experimental.Rendering.Universal
                 else
                 {
                     //DOTween.Kill(transform);
+                    once3 = false;
                     transform.localEulerAngles = new Vector3(0f, 180f, rot_z);
                 }
             }
@@ -116,34 +106,13 @@ namespace UnityEngine.Experimental.Rendering.Universal
                 }
                 if (mousePos.x > 0)
                 {
-                    /*
-                    if (!once4)
-                    {
-                        once4 = true;
-                        if (mousePos.y > 0)
-                        {
-                            transform.DOLocalRotate(new Vector3(0, 0, -135), 1.0f, RotateMode.FastBeyond360).SetRelative();
-                        }
-                        else
-                        {
-                            transform.DOLocalRotate(new Vector3(0, 0, 45), 0.3f, RotateMode.FastBeyond360).SetRelative();
-                            //transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
-                        }
-                        //DOTween.To(UpdateRotation, transform.localRotation.z, 135f, 1);
-
-                        //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(180f, 0f, 135f), 1);
-                    }
-                    */
-
-                    //transform.localEulerAngles = new Vector3(180, 0, Mathf.Lerp(transform.localEulerAngles.z, 45, Time.deltaTime));
-                    //transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, new Vector3(180, 0, 45), 10 * Time.deltaTime);
-                    //transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, new Vector3(0, 0, -135), 150 * Time.deltaTime);
                     transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime); // ATE QUE ENFIM FUNCIONOU PORRA
                                                                                                                                        //UpdateRotation();
                 }
                 else
                 {
                     //DOTween.Kill(transform);
+                    once4 = false;
                     transform.localEulerAngles = new Vector3(0f, 180f, rot_z2);
                 }
 
@@ -152,124 +121,88 @@ namespace UnityEngine.Experimental.Rendering.Universal
 
         void Charged()
         {
-
-
-
-            Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position;
+            //Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            //diff.Normalize();
 
             Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            //mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+            Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(mousePos);
+
+            //Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+            Vector3 point = getCursorWorldPosition();
+            Vector3 diff = point - transform.position;
+
+            //Vector3 diff = GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position;
+            mousePos -= new Vector3(0.5f, 0.5f, 0.0f) * 1;
+
+
+
+
 
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
 
             float rot_z2 = Mathf.Atan2(-diff.y, -diff.x) * -Mathf.Rad2Deg;
 
-            var zLock = Mathf.Clamp(rot_z, -90f, 90f);
+            var zLock = Mathf.Clamp(rot_z, -80f, 80f);
             if (zLock < 0) zLock = 360 + zLock;
-            var zLock2 = Mathf.Clamp(rot_z2, -90f, 90f);
+            var zLock2 = Mathf.Clamp(rot_z2, -80f, 80f);
             if (zLock2 < 0) zLock2 = 360 + zLock2;
             rot_z = zLock;
             rot_z2 = zLock2;
 
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = 0;
-            Ray ray;
-            ray = Camera.main.ScreenPointToRay(mousePosition);
-            RaycastHit hit;
-
-
             if (Input.GetMouseButton(0))
             {
-                if (Physics.Raycast(ray, out hit, 99991, layerRaycast, QueryTriggerInteraction.Collide))
+
+
+
+                if (PlayerController.facingright == true)
                 {
-                    if (PlayerController.facingright == true)
+                    if (!once)
                     {
-                        if (!once)
-                        {
-                            once = true;
-                            once2 = false;
-                            //DOTween.Kill(transform);
-                        }
-
-                        if (hit.point.x - transform.position.x < 0)
-                        {
-                            /*
-                            if (!once3)
-                            {
-                                once3 = true;
-                                if (mousePos.y > 0)
-                                {
-                                    transform.DOLocalRotate(new Vector3(0, 0, -135), 1.0f, RotateMode.FastBeyond360).SetRelative();
-                                }
-                                else
-                                {
-                                    transform.DOLocalRotate(new Vector3(0, 0, 45), 0.3f, RotateMode.FastBeyond360).SetRelative();
-                                }
-                            }
-                            */
-
-                            //transform.localEulerAngles = new Vector3(180, 0, Mathf.Lerp(transform.localEulerAngles.z, 45, Time.deltaTime));
-                            //transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, new Vector3(180, 0, 45), 10 * Time.deltaTime);
-                            //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, 0, -135), 150 * Time.deltaTime);
-
-                            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime); // ATE QUE ENFIM FUNCIONOU PORRA
-
-                            //UpdateRotation();
-                        }
-                        else
-                        {
-                            //DOTween.Kill(transform);
-                            transform.localEulerAngles = new Vector3(0f, 150f, rot_z);
-                        }
+                        once = true;
+                        once2 = false;
+                        //DOTween.Kill(transform);
                     }
-                    if (PlayerController.facingleft == true)
+
+                    if (mousePos.x < 0)
                     {
 
-                        if (!once2)
-                        {
-                            once2 = true;
-                            once = false;
-                            //DOTween.Kill(transform);
-                        }
-                        if (hit.point.x - transform.position.x > 0)
-                        {
-                            /*
-                            if (!once4)
-                            {
-                                once4 = true;
-                                if (mousePos.y > 0)
-                                {
-                                    transform.DOLocalRotate(new Vector3(0, 0, -135), 1.0f, RotateMode.FastBeyond360).SetRelative();
-                                }
-                                else
-                                {
-                                    transform.DOLocalRotate(new Vector3(0, 0, 45), 0.3f, RotateMode.FastBeyond360).SetRelative();
-                                    //transform.DOLocalRotate(new Vector3(180, 0, 135f), 1);
-                                }
-                                //DOTween.To(UpdateRotation, transform.localRotation.z, 135f, 1);
+                        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime); // ATE QUE ENFIM FUNCIONOU PORRA
 
-                                //transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(180f, 0f, 135f), 1);
-                            }
-                            */
-
-                            //transform.localEulerAngles = new Vector3(180, 0, Mathf.Lerp(transform.localEulerAngles.z, 45, Time.deltaTime));
-                            //transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, new Vector3(180, 0, 45), 10 * Time.deltaTime);
-                            //transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, new Vector3(0, 0, -135), 150 * Time.deltaTime);
-                            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime); // ATE QUE ENFIM FUNCIONOU PORRA
-                                                                                                                                               //UpdateRotation();
-                        }
-                        else
-                        {
-                            //DOTween.Kill(transform);
-                            transform.localEulerAngles = new Vector3(0f, 150f, rot_z2);
-                        }
+                        //UpdateRotation();
+                    }
+                    else
+                    {
+                        //DOTween.Kill(transform);
+                        once3 = false;
+                        transform.localEulerAngles = new Vector3(0f, 180f, rot_z);
                     }
                 }
-                else
+                if (PlayerController.facingleft == true)
                 {
-                    transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 180 * Time.deltaTime);
+
+                    if (!once2)
+                    {
+                        once2 = true;
+                        once = false;
+                        //DOTween.Kill(transform);
+                    }
+                    if (mousePos.x > 0)
+                    {
+                        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime); // ATE QUE ENFIM FUNCIONOU PORRA
+                        //UpdateRotation();
+                    }
+                    else
+                    {
+                        //DOTween.Kill(transform);
+                        once4 = false;
+                        transform.localEulerAngles = new Vector3(0f, 180f, rot_z2);
+                    }
                 }
+            }
+            else
+            {
+                transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, 150 * Time.deltaTime);
             }
         }
 
@@ -285,6 +218,22 @@ namespace UnityEngine.Experimental.Rendering.Universal
             float distance;
             xy.Raycast(ray, out distance);
             return ray.GetPoint(distance);
+        }
+
+        Vector3 getCursorWorldPosition()
+        {
+            //finding point in world in cursor position
+            Plane groundPlane = new Plane(Vector3.forward, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            float distance;
+            //simply initializing vector3 point, nothing else, this vector zero does nothing
+            Vector3 point = Vector3.zero;
+            if (groundPlane.Raycast(ray, out distance))
+            {
+                point = ray.GetPoint(distance);
+            }
+
+            return point;
         }
 
 
