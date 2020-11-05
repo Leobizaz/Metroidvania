@@ -11,7 +11,7 @@ public class AnimaçãoSangue : MonoBehaviour
         {
             anim = collision.gameObject.GetComponent<PlayerController>();
             anim.isBusy = true;
-            Invoke("DoIt", 15.5f);
+            Invoke("DoIt", 15.2f);
         }
     }
 
