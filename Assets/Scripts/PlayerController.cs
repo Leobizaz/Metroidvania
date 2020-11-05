@@ -111,9 +111,8 @@ public class PlayerController : MonoBehaviour
             currentCenario.SetActive(false);
             introDialog.SetActive(true);
         }
-        else
-            //LoadPlayer()
-            ;
+        elsesef
+            LoadPlayer();
       
     }
 
