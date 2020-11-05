@@ -209,11 +209,11 @@ public class PlayerController : MonoBehaviour
 
         if (isBusy)
         {
-            rb.isKinematic = true;
+            rb.mass = 1000;
         }
         else
         {
-            rb.isKinematic = false;
+            rb.mass = 1;
         }
 
         DeathCheck();
@@ -398,7 +398,14 @@ public class PlayerController : MonoBehaviour
         knifeAnimIndex = 0;
     }
 
-
+    public void AnimationSangue()
+    {
+        playerAnim.Play("Bob_Piscina");
+        isBusy = true;
+        playerAnim.gameObject.transform.localScale = new Vector3(-Mathf.Abs(playerAnim.transform.localScale.x), playerAnim.transform.localScale.y, playerAnim.transform.localScale.z);
+        facingright = true;
+        facingleft = false;
+    }
 
     private void JumpMechanic()
     {   

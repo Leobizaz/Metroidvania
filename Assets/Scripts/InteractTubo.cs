@@ -18,6 +18,7 @@ public class InteractTubo : MonoBehaviour
     public GameObject camera;
     public GameObject player;
     public GameObject endposition;
+    public GameObject triggerAnim;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class InteractTubo : MonoBehaviour
     public void Execute()
     {
         camera.SetActive(true);
+        triggerAnim.SetActive(true);
         cameraPLAYER.SetActive(false);
         Invoke("Teleport", 2);
     }
