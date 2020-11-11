@@ -114,17 +114,17 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (!demoJ1)
-            {
-                //LoadPlayer();
-            }
+          /*  if (!demoJ1)
+            {*/
+                LoadPlayer();
+          /*  }
             else
             {
                 currentCenario.SetActive(true);
             }
             GameLoad.playerHasDiedOnce = true;
             currentCenario.SetActive(true);
-            introDialog.SetActive(false);
+            introDialog.SetActive(false);*/
         }
     }
 
