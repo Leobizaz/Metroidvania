@@ -39,7 +39,7 @@ public class ActivateObject : MonoBehaviour
             if (oneTime)
             {
                 once = true;
-                Destroy(gameObject, 0.1f);
+                Destroy(gameObject, 0.2f);
             }
         }
     }

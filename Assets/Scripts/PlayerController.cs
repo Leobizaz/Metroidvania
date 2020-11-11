@@ -106,14 +106,26 @@ public class PlayerController : MonoBehaviour
     {
         if (jogoNovo)
         {
+            GameLoad.playerHasDiedOnce = false;
             transform.position = new Vector3(0, -11, 0);
             cenarioNave.SetActive(true);
             currentCenario.SetActive(false);
             introDialog.SetActive(true);
         }
         else
-            LoadPlayer();
-      
+        {
+            if (!demoJ1)
+            {
+                //LoadPlayer();
+            }
+            else
+            {
+                currentCenario.SetActive(true);
+            }
+            GameLoad.playerHasDiedOnce = true;
+            currentCenario.SetActive(true);
+            introDialog.SetActive(false);
+        }
     }
 
     private void Start()
