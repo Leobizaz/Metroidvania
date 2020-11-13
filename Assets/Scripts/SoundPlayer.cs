@@ -30,11 +30,6 @@ public class SoundPlayer : MonoBehaviour
         asource.Play();
     }
 
-    public void Stop()
-    {
-        asource.Stop();
-    }
-
     public void PlayOneShot(AudioClip audio)
     {
         if(makeSound)
@@ -49,5 +44,10 @@ public class SoundPlayer : MonoBehaviour
         int i = Random.Range(0, audios.Length);
         asource.PlayOneShot(audios[i]);
 
+    }
+
+    public void Stop()
+    {
+        asource.Stop();
     }
 }

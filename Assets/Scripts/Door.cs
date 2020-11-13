@@ -54,7 +54,8 @@ public class Door : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            capitaoIndicator.SetActive(false);
+            if(capitaoIndicator != null)
+                capitaoIndicator.SetActive(false);
             if (open)
             {
                 CancelInvoke("DoorClose");
