@@ -19,7 +19,6 @@ public class DialogueText : MonoBehaviour
     public bool audioloop;
     public int eventID;
     public string text;
-#if UNITY_EDITOR
 
     private void Update()
     {
@@ -38,7 +37,7 @@ public class DialogueText : MonoBehaviour
         if (Application.platform == RuntimePlatform.WindowsEditor)
             gameObject.name = text;
     }
-#endif
+
 }
 
 

@@ -8,7 +8,6 @@ using TMPro;
 public class MenuController : MonoBehaviour
 {
 
-    [SerializeField]
 
     public AudioSource Begin;
     public Animator anim;
@@ -56,6 +55,28 @@ public class MenuController : MonoBehaviour
 
         SetSavedOptions();
 
+        if (DropdownResolution.value == 0)
+        {
+            Resolution1024();
+        }
+        if (DropdownResolution.value == 1)
+        {
+            Resolution1280();
+        }
+        if (DropdownResolution.value == 2)
+        {
+            Resolution1280x();
+        }
+        if (DropdownResolution.value == 3)
+        {
+            Resolution1600();
+        }
+
+        if (DropdownResolution.value == 4)
+        {
+            Resolution1920();
+        }
+
         if (DropdownQuality.value == 0)
         {
             SetVeryLow();
@@ -102,23 +123,18 @@ public class MenuController : MonoBehaviour
         }
         if (DropdownResolution.value == 1)
         {
-            SetLow();
+            Resolution1280();
         }
         if (DropdownResolution.value == 2)
         {
-            Resolution1280();
+            Resolution1280x();
         }
         if (DropdownResolution.value == 3)
         {
-            Resolution1280x();
-        }
-        if (DropdownResolution.value == 4)
-        {
-
             Resolution1600();
         }
 
-        if (DropdownResolution.value == 5)
+        if (DropdownResolution.value == 4)
         {
             Resolution1920();
         }
@@ -154,23 +170,23 @@ public class MenuController : MonoBehaviour
 
     public void Resolution1024()
     {
-        Screen.SetResolution(1024, 768, Screen.fullScreen);
+        Screen.SetResolution(1024, 768, true, 60);
     }
     public void Resolution1280()
     {
-        Screen.SetResolution(1280, 720, Screen.fullScreen);
+        Screen.SetResolution(1280, 720, true, 60);
     }
     public void Resolution1280x()
     {
-        Screen.SetResolution(1280, 1024, Screen.fullScreen);
+        Screen.SetResolution(1280, 1024, true, 60);
     }
     public void Resolution1600()
     {
-        Screen.SetResolution(1600, 900, Screen.fullScreen);
+        Screen.SetResolution(1600, 900, true, 60);
     }
     public void Resolution1920()
     {
-        Screen.SetResolution(1920, 1080, Screen.fullScreen);
+        Screen.SetResolution(1920, 1080, true, 60);
     }
 
     public void PlayAudio()
