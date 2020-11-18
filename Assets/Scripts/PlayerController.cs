@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             if (jogoNovo)
             {
                 GameLoad.playerHasDiedOnce = false;
-                transform.position = new Vector3(0, -11, 0);
+                transform.position = new Vector3(-5.54f, -11, 0);
                 cenarioNave.SetActive(true);
                 currentCenario.SetActive(false);
                 introDialog.SetActive(true);
