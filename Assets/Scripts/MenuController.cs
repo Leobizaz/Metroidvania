@@ -192,7 +192,7 @@ public class MenuController : MonoBehaviour
     public void PlayAudio()
     {
         GameLoad.playerHasDiedOnce = true;
-        PlayerController.jogoNovo = false;
+        PlayerController.prologo = false;
         Begin.Play();
         anim.Play("Menu Out");
         Invoke("LoadGame", 5f);
@@ -200,7 +200,7 @@ public class MenuController : MonoBehaviour
     public void PlayAudioNewGame()
     {
         GameLoad.playerHasDiedOnce = false;
-        PlayerController.jogoNovo = true;
+        PlayerController.prologo = true;
         Begin.Play();
         anim.Play("Menu Out");
         Invoke("LoadGame", 5f);
@@ -208,10 +208,14 @@ public class MenuController : MonoBehaviour
 
     public void LoadGame()
     {
-        if (GameLoad.playerHasDiedOnce)
-            SceneManager.LoadScene("CENAPRINCIPAL");
-        else
-            SceneManager.LoadScene("Intro");
+        if (PlayerController.prologo)
+        {
+            SceneManager.LoadScene("Prologo");
+            return;
+        }
+
+        SceneManager.LoadScene("CENAPRINCIPAL");
+
     }
     public void Quit()
     {

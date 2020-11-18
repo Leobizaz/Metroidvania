@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     public static bool facingright;
     public static bool demoJ1; //carrega o player no começo do J1
     public static bool jogoNovo; //carrega o player bem no comecinho;
+    public static bool prologo; //carrega o player no prologo;
     public static int hits = 2;
     public static bool OnMovement = true;
 
@@ -104,20 +105,28 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        if (jogoNovo)
+        if (prologo)
         {
-            GameLoad.playerHasDiedOnce = false;
-            transform.position = new Vector3(0, -11, 0);
-            cenarioNave.SetActive(true);
-            currentCenario.SetActive(false);
-            introDialog.SetActive(true);
+            jogoNovo = true;
+            return;
         }
         else
         {
-            LoadPlayer();
-            GameLoad.playerHasDiedOnce = true;
-            introDialog.SetActive(false);
+            if (jogoNovo)
+            {
+                GameLoad.playerHasDiedOnce = false;
+                transform.position = new Vector3(0, -11, 0);
+                cenarioNave.SetActive(true);
+                currentCenario.SetActive(false);
+                introDialog.SetActive(true);
+            }
+            else
+            {
+                LoadPlayer();
+                GameLoad.playerHasDiedOnce = true;
+                introDialog.SetActive(false);
 
+            }
         }
     }
 
@@ -179,8 +188,11 @@ public class PlayerController : MonoBehaviour
             if (!playerPaused)
             {
                 //ShootMechanic();
-                ChargedShootMechanic();
-                MecanicaRecarregar();
+                if (!prologo)
+                {
+                    ChargedShootMechanic();
+                    MecanicaRecarregar();
+                }
                 if (!isBusy)
                 {
                     if (!isCharging) // se o jogador nao estiver carregando o tiro
