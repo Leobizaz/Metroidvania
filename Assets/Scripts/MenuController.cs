@@ -54,7 +54,7 @@ public class MenuController : MonoBehaviour
         volumeMusica = sliderMusica.value;
 
         SetSavedOptions();
-
+/*
         if (DropdownResolution.value == 0)
         {
             Resolution1024();
@@ -75,7 +75,7 @@ public class MenuController : MonoBehaviour
         if (DropdownResolution.value == 4)
         {
             Resolution1920();
-        }
+        }*/
 
         if (DropdownQuality.value == 0)
         {

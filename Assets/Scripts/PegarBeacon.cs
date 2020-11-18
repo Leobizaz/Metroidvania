@@ -7,6 +7,7 @@ public class PegarBeacon : MonoBehaviour
     public GameObject indicator;
     bool onArea;
     bool once;
+    public GameObject HudBeacon;
 
     public GameObject popup;
     public PlayerController playerControl;
@@ -14,6 +15,8 @@ public class PegarBeacon : MonoBehaviour
 
     void Start()
     {
+        if (playerControl.unlockedBeacon == true)
+            HudBeacon.SetActive(true);
         indicator.SetActive(false);
     }
     void Update()

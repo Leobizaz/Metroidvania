@@ -213,6 +213,7 @@ MonoBehaviour:
   highLight: {fileID: 1585068059722635315}
   luz: {fileID: 6164720567175024738}
   nomeUI: {fileID: 7552252455826316506}
+  storyBeacon: 0
   FX: {fileID: 5184203700629197785}
 --- !u!95 &4237889467212238454
 Animator:
@@ -260,6 +261,7 @@ GameObject:
   - component: {fileID: 7746169521722409243}
   - component: {fileID: 8106197618276173822}
   - component: {fileID: 1761730603140302506}
+  - component: {fileID: 2285834196965840907}
   m_Layer: 9
   m_Name: Text (1)
   m_TagString: Untagged
@@ -328,6 +330,20 @@ MonoBehaviour:
   m_Text: '''E''
 
     Remover'
+--- !u!114 &2285834196965840907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274897510251310260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: RemoveBeacon
+  FallbackText: 
 --- !u!1 &5802580030231926748
 GameObject:
   m_ObjectHideFlags: 0
