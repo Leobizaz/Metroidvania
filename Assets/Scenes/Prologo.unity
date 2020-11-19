@@ -18144,7 +18144,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '<b>Oliver:</b>
 
-    Ainda estamos longe?'
+    A gente ja chegou?'
 --- !u!222 &318037784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19276,7 +19276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<b>Ming:</b>\nA nave est\xE1 funcionando perfeitamente como planejado!
+  m_Text: "<b>Ming:</b>\nA nave est\xE1 funcionando perfeitamente como planejado.
     Nada pode dar errado!"
 --- !u!222 &340474725
 CanvasRenderer:
@@ -37510,12 +37510,14 @@ MonoBehaviour:
     Text: '<b>Clark:</b>
 
       All done! Now you too is equipped with the latest
-      version of the Dreamtech suit. I have prepared your criogenic tube. You can
-      go in there to start the <color=yellow>deep sleep</color>.'
+      version of the Dreamtech suit.
+
+      I have prepared your criogenic tube.
+      You can go in there to start the <color=yellow>deep sleep</color>.'
     Object: {fileID: 0}
   - Language: Spanish
     Text: "<b>Clark:</b>\n\xA1Todo listo! Ahora usted tambi\xE9n est\xE1 equipado
-      con la \xFAltima versi\xF3n del traje Dreamtech. \nHe preparado su tubo criog\xE9nico.
+      con la \xFAltima versi\xF3n del traje Dreamtech. \nYo prepare su tubo criog\xE9nico.
       Puede entrar all\xED para comenzar el <color=yellow>sue\xF1o profundo</color>."
     Object: {fileID: 0}
 --- !u!1 &555721163
@@ -38923,17 +38925,17 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Portuguese
-    Text: "<b>Emily:</b>\nN\xE3o me importo, s\xF3 quero receber o meu sal\xE1rio."
+    Text: "<b>Emily:</b>\nN\xE3o me importo, s\xF3 quero receber o meu sal\xE1rio!"
     Object: {fileID: 0}
   - Language: English
     Text: '<b>Emily:</b>
 
-      I don''t really care, i just want to be paid.'
+      I don''t really care, i just want to be paid!'
     Object: {fileID: 0}
   - Language: Spanish
     Text: '<b>Emily:</b>
 
-      Realmente no me importa, solo quiero que me paguen.'
+      Realmente no me importa, solo quiero que me paguen!'
     Object: {fileID: 0}
 --- !u!1 &614167363
 GameObject:
@@ -56441,7 +56443,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "<b>Capit\xE3o Alexander:</b>\nSim, Oliver. Mas logo iremos dormir. Acordaremos
-    logo assim que chegarmos em <color=yellow>Euros</color>."
+    logo assim que pousarmos em <color=yellow>Euros</color>."
 --- !u!222 &968562972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57942,7 +57944,7 @@ MonoBehaviour:
       Isn''t it bed time now?'
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "<b>Josh:</b>\n\xBFNo es hora de dormir ahora?"
+    Text: "<b>Josh:</b>\n\xBFNo es hora de dormir?"
     Object: {fileID: 0}
 --- !u!1 &1005773459
 GameObject:
@@ -71264,17 +71266,17 @@ MonoBehaviour:
   entries:
   - Language: Portuguese
     Text: "<b>Capit\xE3o Alexander:</b>\nSim, Oliver. Mas logo iremos dormir. Acordaremos
-      logo assim que chegarmos em <color=yellow>Euros</color>."
+      logo assim que pousarmos em <color=yellow>Euros</color>."
     Object: {fileID: 0}
   - Language: English
     Text: '<b>Captain Alexander:</b>
 
       Yes, Oliver. But we''ll soon go to sleep.
-      We''ll wake up as soon as we reach <color=yellow>Euros</color>.'
+      We''ll wake up as soon as we land on <color=yellow>Euros</color>.'
     Object: {fileID: 0}
   - Language: Spanish
     Text: "<b>Capit\xE1n Alexander:</b>\nS\xED, Oliver. Pero pronto nos vamos a dormir.
-      Nos despertaremos tan pronto como lleguemos a <color=yellow>Euros</color>."
+      Nos despertaremos tan pronto aterricemos en <color=yellow>Euros</color>."
     Object: {fileID: 0}
 --- !u!1 &1099080983
 GameObject:
@@ -71592,7 +71594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<b>Emily:</b>\nN\xE3o me importo, s\xF3 quero receber o meu sal\xE1rio."
+  m_Text: "<b>Emily:</b>\nN\xE3o me importo, s\xF3 quero receber o meu sal\xE1rio!"
 --- !u!222 &1102090318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -85967,15 +85969,15 @@ MonoBehaviour:
   - Language: Portuguese
     Text: '<b>Oliver:</b>
 
-      Ainda estamos longe?'
+      A gente ja chegou?'
     Object: {fileID: 0}
   - Language: English
     Text: '<b>Oliver:</b>
 
-      Are we still far away?'
+      Have we arrived yet?'
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "<b>Oliver:</b>\n\xBFEstamos todav\xEDa lejos?"
+    Text: "<b>Oliver:</b>\n\xBF\rHemos llegado ya?"
     Object: {fileID: 0}
 --- !u!1 &1209721542
 GameObject:
@@ -86430,12 +86432,12 @@ MonoBehaviour:
       traje. \nEssa tecnologia n\xE3o \xE9 maravilhosa?"
     Object: {fileID: 0}
   - Language: English
-    Text: "<b>Barry:</b>\nWe just enter the machine and it fixes our suit. \nIsn't
-      this a marvelous technology?"
+    Text: "<b>Barry:</b>\nJust enter the machine and it fixes our suit. \nIsn't this
+      a wonderfull technology?"
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "<b>Barry:</b>\nSimplemente entramos en la m\xE1quina y arregla nuestro
-      traje. \n\xBFNo es esta una tecnolog\xEDa maravillosa?"
+    Text: "<b>Barry:</b>\nSimplemente entrase en la m\xE1quina y ella arregla nuestro
+      traje. \n\xBFNo es una tecnolog\xEDa maravillosa?"
     Object: {fileID: 0}
 --- !u!1 &1230230571
 GameObject:
@@ -93968,18 +93970,18 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Portuguese
-    Text: "<b>Ming:</b>\nA nave est\xE1 funcionando perfeitamente como planejado!
+    Text: "<b>Ming:</b>\nA nave est\xE1 funcionando perfeitamente como planejado.
       Nada pode dar errado!"
     Object: {fileID: 0}
   - Language: English
     Text: '<b>Ming:</b>
 
-      The ship is working perfectly fine, just as planned!
+      The ship is working perfectly fine, just as planned.
       Nothing can go wrong!'
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "<b>Ming:</b>\n\xA1El barco est\xE1 funcionando perfectamente, tal como
-      estaba planeado! \xA1Nada puede salir mal!"
+    Text: "<b>Ming:</b>\nLa nave est\xE1 funcionando perfectamente, tal como estaba
+      previsto. \xA1Nada puede salir mal!"
     Object: {fileID: 0}
 --- !u!1 &1313135764
 GameObject:
@@ -139457,7 +139459,7 @@ MonoBehaviour:
 
       change the selection by pressing
 
-''                                                                                                                             
+''                                                                                                                                   
       <color = yellow> N </color>'' and ''<color = yellow> M </color>'''
     Object: {fileID: 0}
   - Language: Portuguese
