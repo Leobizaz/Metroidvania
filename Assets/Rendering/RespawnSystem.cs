@@ -19,37 +19,37 @@ public class RespawnSystem : MonoBehaviour
         {
             if (EnemyCount >= 1 && spawned[0] == false)
             {
-                Instantiate(Enemies[0], pos[0].position, Quaternion.identity);
+                Instantiate(Enemies[0], pos[0].position, Quaternion.Euler(0,0,-180));
                 Debug.Log("Surgiu 1 puto");
-                Invoke("DesativaSpawn", 50f);
+                Invoke("DesativaSpawn", 250f);
                 spawned[0] = true;
             }
             if (EnemyCount >= 2 && spawned[1] == false)
             {
-                Instantiate(Enemies[1], pos[1].position, Quaternion.identity);
+                Instantiate(Enemies[1], pos[1].position, Quaternion.Euler(0, 0, -180));
                 Debug.Log("Surgiu 2 puto");
-                Invoke("DesativaSpawn", 50f);
+                Invoke("DesativaSpawn", 250f);
                 spawned[1] = true;
             }
             if (EnemyCount >= 3 && spawned[2] == false)
             {
-                Instantiate(Enemies[2], pos[2].position, Quaternion.identity);
+                Instantiate(Enemies[2], pos[2].position, Quaternion.Euler(0, 0, -180));
                 Debug.Log("Surgiu 3 puto");
-                Invoke("DesativaSpawn", 50f);
+                Invoke("DesativaSpawn", 250f);
                 spawned[2] = true;
             }
             if (EnemyCount >= 4 && spawned[3] == false)
             {
-                Instantiate(Enemies[3], pos[3].position, Quaternion.identity);
+                Instantiate(Enemies[3], pos[3].position, Quaternion.Euler(0, 0, -180));
                 Debug.Log("Surgiu 4 puto");
-                Invoke("DesativaSpawn", 50f);
+                Invoke("DesativaSpawn", 250f);
                 spawned[3] = true;
             }
             if (EnemyCount >= 5 && spawned[4] == false)
             {
-                Instantiate(Enemies[4], pos[4].position, Quaternion.identity);
+                Instantiate(Enemies[4], pos[4].position, Quaternion.Euler(0, 0, -180));
                 Debug.Log("Surgiu 5 puto");
-                Invoke("DesativaSpawn", 50f);
+                Invoke("DesativaSpawn", 250f);
                 spawned[4] = true;
             }
         }

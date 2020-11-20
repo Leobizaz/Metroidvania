@@ -54,42 +54,45 @@ public class Charger : MonoBehaviour
 
     private void Update()
     {
-        RangeDetection();
-
-
-        if (!congelado)
+        if (!dead)
         {
-            if (playerInRange)
-            {
-                Count();
-                SetHeading();
+            RangeDetection();
 
-                if (!stunned)
+            if (!congelado)
+            {
+                if (playerInRange)
                 {
-                    if (!charging)
+                    Count();
+                    SetHeading();
+
+                    if (!stunned)
                     {
-                        LookAtPlayer();
-                        FollowPlayer();
-                    }
-                    else
-                    {
-                        Charge();
+                        if (!charging)
+                        {
+                            LookAtPlayer();
+                            FollowPlayer();
+                        }
+                        else
+                        {
+                            Charge();
+                        }
                     }
                 }
+                else
+                {
+                    FollowIdlePoint();
+                }
             }
-            else
-            {
-                FollowIdlePoint();
-            }
-        }
 
-        //CLAMP
-        if (!playerInRange) {
-        transform.position =
-            new Vector3(
-                Mathf.Clamp(transform.position.x, clampPosition1.transform.position.x, clampPosition2.transform.position.x),
-                transform.position.y,
-                transform.position.z);
+            //CLAMP
+            if (!playerInRange)
+            {
+                transform.position =
+                    new Vector3(
+                        Mathf.Clamp(transform.position.x, clampPosition1.transform.position.x, clampPosition2.transform.position.x),
+                        transform.position.y,
+                        transform.position.z);
+            }
         }
     }
 
@@ -326,6 +329,7 @@ public class Charger : MonoBehaviour
         CancelInvoke("Tired");
         CancelInvoke("StartCharging");
         CancelInvoke("FollowIdlePoint");
+        
         dead = true;
         hitcol.enabled = false;
         gameObject.layer = 13;
